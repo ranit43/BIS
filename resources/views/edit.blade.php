@@ -20,8 +20,29 @@
 
 					<div class="form-group">
 						{{ Form::label('email', 'Your Email') }}
-						{{ Form::number('price', null, ['id' => 'price', 'placeholder' => 'Update Your email', 'class' => 'form-control']) }}
+						{{ Form::email('email', null, ['id' => 'email', 'placeholder' => 'Update Your email', 'class' => 'form-control']) }}
 					</div>
+
+					@if(count($skills))
+				    	@foreach($skills as $skill)
+					    	<div class="form-group">
+							
+								{{ Form::checkbox('skill[]', $skill->id) }}
+								{{ Form::label('skill', $skill->name) }}
+							</div>
+				      <!-- <tr>
+				        <td>{{ $skill->id }}</td>
+				        <td>{{ $skill->name }}</td>
+				        
+				      </tr> -->
+				      	@endforeach
+			    	@else
+			    		No data found
+			    	@endif
+					
+
+
+					
 
 					<div class="form-group">
 		            	{{ Form::submit('Update', ['class' => 'btn btn-success']) }}

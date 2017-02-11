@@ -29,9 +29,22 @@ Route::get('/', 'PagesController@welcome' );
 Route::get('search', 'PagesController@search' );
 
 Route::group(['middleware' => 'auth'], function() {
-	Route::get('home', 'PagesController@home');
-	Route::get('forum', 'PagesController@forum' );
-	Route::get('edit/{id}', 'PagesController@edit');
+
+	Route::get('home', [
+		'as'	=>	'home',
+		'uses' 	=>	'PagesController@home'
+	]);
+
+	Route::get('edit/{id}', [
+		'as'	=>	'edit',
+		'uses' 	=>	'PagesController@edit'
+	]);
+
+	Route::get('forum', [
+		'as'	=>	'forum',
+		'uses' 	=>	'PagesController@forum'
+	]);
+
 	Route::post('profileUpdate/{id}', [
 		'as'	=>	'profileUpdate',
 		'uses' 	=>	'PagesController@profileUpdate'
@@ -48,5 +61,26 @@ Route::group(['middleware' => 'auth'], function() {
 		'as'    => 'skill.index',
 		'uses'  => 'SkillController@index'
 	]);
+	Route::get('skill/{id}/edit', [
+		'as'    => 'skill.edit',
+		'uses'  => 'SkillController@edit'
+	]);
+	Route::put('skill/{id}', [
+		'as'    => 'skill.update',
+		'uses'  => 'SkillController@update'
+	]);
+	Route::get('skill/{id}',['as' => 'skill.delete', 'uses' => 'SkillController@destroy']);
 
 });
+
+
+/* // sevices CRUD
+    Route::get('language',['as' => 'language.index', 'uses' => 'LanguageController@index']);
+    Route::get('language/create',['as' => 'language.create', 'uses' => 'LanguageController@create']);
+    Route::post('language',['as' => 'language.store', 'uses' => 'LanguageController@store']);
+    Route::get('language/{id}/edit',['as' => 'language.edit', 'uses' => 'LanguageController@edit']);
+    Route::get('language/{id}/show',['as' => 'language.show', 'uses' => 'LanguageController@show']);
+    Route::put('language/{id}',['as' => 'language.update', 'uses' => 'LanguageController@update']);
+    Route::delete('language/{id}',['as' => 'language.delete', 'uses' => 'LanguageController@destroy']);
+
+*/

@@ -18,7 +18,10 @@
 
 
                 <div class="panel-body">
-                    You are logged in!
+                   @foreach($authUser->skills as $skill )
+                   {{$skill->name}}
+                   @endforeach
+
                 </div>
             </div>
         </div>
