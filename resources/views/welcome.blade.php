@@ -68,19 +68,16 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
-
+                    <a href="{{ url('/search') }}">TalentSearch</a>
+                    <a href="{{ url('/forum') }}">Forum</a>
+                    
                     @if (Auth::check())
                        <!-- <a href="{{ url('/edit') }}">Edit</a>  -->
-                        <a href="{{ url('/home') }}">Home</a>
-                        <!-- <a href="{{ url('/search') }}">TalentSearch</a>
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                        <a href="{{ url('/forum') }}">Forum</a> -->
+                        <a href="{{ url('/home') }}">Profile</a>    
                     @else
-                        <a href="{{ url('/search') }}">TalentSearch</a>
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
-                        <a href="{{ url('/forum') }}">Forum</a>
+                        
                     @endif
                 </div>
             @endif

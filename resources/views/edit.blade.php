@@ -23,10 +23,37 @@
 						{{ Form::email('email', null, ['id' => 'email', 'placeholder' => 'Update Your email', 'class' => 'form-control']) }}
 					</div>
 
+					<!-- <div class="form-group">
+						{{ Form::label('contact', 'Contact') }}
+						{{ Form::text('name', null, ['id' => 'contact', 'placeholder' => 'Update your Contact', 'class' => 'form-control']) }}
+					</div>
+
+					<div class="form-group">
+						{{ Form::label('address', 'Address') }}
+						{{ Form::text('name', null, ['id' => 'adress', 'placeholder' => 'Update your Adress', 'class' => 'form-control']) }}
+					</div>
+
+					<div class="form-group">
+						{{ Form::label('achievement', 'Achievement') }}
+						{{ Form::text('name', null, ['id' => 'achievement', 'placeholder' => 'Update your Achievement', 'class' => 'form-control']) }}
+					</div>
+
+					<div class="form-group">
+						{{ Form::label('cv', 'CV') }}
+						{{ Form::text('name', null, ['id' => 'cv', 'placeholder' => 'Upload your CV', 'class' => 'form-control']) }}
+					</div>
+
+					<div class="form-group">
+						{{ Form::label('picture', 'Picture') }}
+						{{ Form::text('name', null, ['id' => 'picture', 'placeholder' => 'Update your Achievement', 'class' => 'form-control']) }}
+					</div> -->
+
+
+					<!-- Add condtions so that already added skills be checked automatically -->
 					@if(count($skills))
 				    	@foreach($skills as $skill)
 					    	<div class="form-group">
-							
+								
 								{{ Form::checkbox('skill[]', $skill->id) }}
 								{{ Form::label('skill', $skill->name) }}
 							</div>

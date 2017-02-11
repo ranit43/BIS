@@ -16,8 +16,11 @@ class PagesController extends Controller
 
     public function search()
     {
+        $skills = Skill::all();
     	/*$people = ['Lopa', 'Abir', 'Partho'];*/
-        return view('search');
+        return view('search')
+        ->with('skills', $skills)
+        ;
 		/*return view( 'pages.about', compact('people') );*/
     }
     public function forum()
