@@ -17,12 +17,32 @@ class PagesController extends Controller
     public function search()
     {
         $skills = Skill::all();
-    	/*$people = ['Lopa', 'Abir', 'Partho'];*/
+        
+        /*$people = ['Lopa', 'Abir', 'Partho'];*/
         return view('search')
         ->with('skills', $skills)
         ;
-		/*return view( 'pages.about', compact('people') );*/
+    	/*$people = ['Lopa', 'Abir', 'Partho'];*/
+        /*
+        return view('search')
+        ->with('skills', $skills)
+        ;
+        */
     }
+    //public function searchResult(Request $request, array $skill)
+    public function searchResult(Request $request)
+    {
+        return $request->all();
+       
+       /* 
+       $user->skills()->sync($request->skill);
+            return redirect()->route('home')->with('success','skill Successfully Added');
+        return $request->all();
+        $users  = User::all();
+        return view('searchResult');
+       */
+    }
+
     public function forum()
     {
     	return view('forum');
@@ -42,7 +62,7 @@ class PagesController extends Controller
     {
         $authUser = Auth::user();
         
-         $skills = Skill::all();
+        $skills = Skill::all();
 
         // return $authUser -> name;
         return view('edit',[
@@ -50,9 +70,6 @@ class PagesController extends Controller
         ])
         ->with('skills', $skills);
     }
-
-
-
 
     public function profileUpdate(Request $request, $id)
     {

@@ -27,6 +27,11 @@ Route::get('/forum', function () {
 Auth::routes();
 Route::get('/', 'PagesController@welcome' );
 Route::get('search', 'PagesController@search' );
+//Route::get('searchResult/{skill}', [
+Route::post('searchResult', [
+	'as'   =>  'searchResult',
+	'uses' => 'PagesController@searchResult'
+	]);
 
 Route::group(['middleware' => 'auth'], function() {
 

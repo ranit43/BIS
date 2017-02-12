@@ -1,11 +1,6 @@
+@extends('layouts.app')
 
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>  </title>
-</head>
-<body>
+@section('content')
 Forum page.
 <div class="flex-center position-ref full-height">
             @if (Route::has('login'))

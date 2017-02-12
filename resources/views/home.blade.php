@@ -35,22 +35,23 @@
 
 
                 <div class="panel-body">
-                    Image:
-                    </br>
-                    Username:
+                    
+                    Username: {{$authUser->user_name}}
                     </br>
                     Name: {{$authUser->name}}
                     </br>
                     Email: {{$authUser->email}}
                     </br>
-                    Contact:
+                    Contact: {{$authUser->contact}}
                     </br>
-                    Address:
+                    Address: {{$authUser->adress}}
+                    </br>
+                    CV: {{$authUser->CV}}
+                    </br>
+                    Image: {{$authUser->image}}
                     </br>
                     Achievement:
-                    </br>
-                    CV:
-                    </br>
+                    </br> 
                     Volunteering Skills:
                     </br>
 

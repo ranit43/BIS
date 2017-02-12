@@ -30,6 +30,15 @@ class UsersTableSeeder extends Seeder
 			   	$u->save();
 		   	}
         */
-      User::create(['name' => 'akash', 'email' => 'akash@gmail.com', 'password' => bcrypt('a')]);
+      User::create([
+        'name' => 'R D Akash', 
+        'email' => 'akash@gmail.com', 
+        'password' => bcrypt('a'),
+        'user_name' => 'ranit',
+        'image' => 'ImagePath',
+        'contact' => '01719424849',
+        'adress' => 'Mirzajangal',
+        'CV' => 'CvPath',
+        ]);
    }
 }
