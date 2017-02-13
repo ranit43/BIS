@@ -34,7 +34,6 @@ class UsersTableSeeder extends Seeder
         'name' => 'R D Akash', 
         'email' => 'akash@gmail.com', 
         'password' => bcrypt('a'),
-        'user_name' => 'ranit',
         'image' => 'ImagePath',
         'contact' => '01719424849',
         'adress' => 'Mirzajangal',

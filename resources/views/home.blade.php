@@ -36,8 +36,10 @@
 
                 <div class="panel-body">
                     
-                    Username: {{$authUser->user_name}}
-                    </br>
+                   <!--  Username: {{$authUser->user_name}}
+                    </br> -->
+                    <img src="{{asset($authUser->image) }}" alt="Mountain View" style="width:304px;height:228px;">
+
                     Name: {{$authUser->name}}
                     </br>
                     Email: {{$authUser->email}}
@@ -46,15 +48,14 @@
                     </br>
                     Address: {{$authUser->adress}}
                     </br>
-                    CV: {{$authUser->CV}}
-                    </br>
                     Image: {{$authUser->image}}
                     </br>
                     Achievement:
                     </br> 
                     Volunteering Skills:
                     </br>
-
+                    CV: {{$authUser->CV}}
+                    </br>
                    Proffessional Skills:  
                    @foreach($authUser->skills as $skill )
                    {{$skill->name}}
