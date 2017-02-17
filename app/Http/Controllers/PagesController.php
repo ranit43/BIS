@@ -60,7 +60,11 @@ class PagesController extends Controller
 
     public function forum()
     {
-    	return view('forum');
+        $authUser = Auth::user();
+
+    	return view('forum', [
+            'authUser' => $authUser
+        ]);
     }
 
     public function home()
@@ -79,11 +83,18 @@ class PagesController extends Controller
         
         $skills = Skill::all();
 
+        $mySkills = [];
+        foreach ($authUser->skills as $skill) {
+            $mySkills[] = $skill->id;
+        }
         // return $authUser -> name;
         return view('edit',[
             'authUser'          => $authUser
         ])
-        ->with('skills', $skills);
+        ->with('skills', $skills)
+            ->with('mySkills', $mySkills )
+            ;
+
     }
 
     public function profileUpdate(Request $request, $id)
@@ -106,6 +117,8 @@ class PagesController extends Controller
             return redirect()->back()->withInput()->withErrors($validation);
         }
 
+        $user = User::findOrFail($id);
+
         $img_url = null;
         if( $request->hasFile('image') ) {
 
@@ -115,12 +128,13 @@ class PagesController extends Controller
             $filename = time().'_users.'.$file->getClientOriginalExtension();
             $file->move($destination, $filename);
             $img_url = '/uploads/images/users/'.$filename;
+            $user->image = $img_url;
 
         }
-        else {
+        /*else {
 
             return redirect()->back()->withInput()->withErrors('Image Required');
-        }
+        }*/
 
         $cv_url = null;
         if( $request->hasFile('cv') ) {
@@ -131,16 +145,17 @@ class PagesController extends Controller
             $filename = time().'_users.'.$file->getClientOriginalExtension();
             $file->move($destination, $filename);
             $cv_url = '/uploads/cv/users/'.$filename;
+            $user->CV = $cv_url;
 
         }
 
-        $user = User::findOrFail($id);
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->adress = $request->address;
         $user->contact = $request->contact;
-        $user->CV = $cv_url;
-        $user->image = $img_url;
+
+
 
         if($user->save()) {
             //$user->skills()->attach($request->skill);

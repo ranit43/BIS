@@ -56,7 +56,7 @@
                     </br> 
                     Volunteering Skills:
                     </br>
-                    CV: <a href="{!! $authUser->CV !!}">Download CV</a>
+                    CV: <a href="{!! $authUser->CV !!}">CV </a>
                     </br>
                    Proffessional Skills:  
                    @foreach($authUser->skills as $skill )
