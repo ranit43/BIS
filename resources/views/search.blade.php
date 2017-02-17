@@ -9,11 +9,12 @@
 	 <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
-                    <a href="{{ url('/search') }}">TalentSearch</a>
+
+					<li><a href="{{ url('/') }}">Home</a></li>
+					<a href="{{ url('/search') }}">TalentSearch</a>
                     <a href="{{ url('/forum') }}">Forum</a>
-                    
+
                     @if (Auth::check())
-                       <!-- <a href="{{ url('/edit') }}">Edit</a>  -->
                         <a href="{{ url('/home') }}">Profile</a>    
                     @else
                         <a href="{{ url('/login') }}">Login</a>

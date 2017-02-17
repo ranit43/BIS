@@ -46,8 +46,8 @@
 					</div>
 
 					<div class="form-group">
-						{{ Form::label('address', 'Address') }}
-						{{ Form::text('address', null, ['id' => 'address', 'placeholder' => 'Update your Adress', 'class' => 'form-control']) }}
+						{{ Form::label('adress', 'Address') }}
+						{{ Form::text('adress', null, ['id' => 'adress', 'placeholder' => 'Update your Adress', 'class' => 'form-control']) }}
 					</div>
 <!-- 
 					<div class="form-group">
@@ -56,13 +56,13 @@
 					</div> -->
 
 					<div class="form-group">
-						<!-- {{ Form::label('image', 'Picture') }} -->
+
 						{{ Form::label('cv', "CV*", array('class' => 'control')) }}
 						{{ Form::file('cv', array('class'=>'form-control', 'multiple'=>false )) }}
 					</div>
 
 					<div class="form-group">
-						<!-- {{ Form::label('image', 'Picture') }} -->
+
 						{{ Form::label('image', "Image*", array('class' => 'control')) }}
 						{{ Form::file('image', array('class'=>'form-control', 'multiple'=>false )) }}
 					</div>

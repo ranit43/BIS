@@ -92,41 +92,5 @@
 
 <!-- Scripts -->
 <script src="/js/app.js"></script>
-
-    <div class="well">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <p>Select the specific skills and search for talent with that skills.</p>
-
-                {!! Form::open(array('route' => 'searchResult') ) !!}
-                <div class="form-group">
-                @if(count($skills))
-                    @foreach($skills as $skill)
-
-
-                        {{ Form::checkbox('skill[]', $skill->id) }}
-                        {{ Form::label('skill', $skill->name) }}
-
-                        <!-- <tr>
-                            <td>{{ $skill->id }}</td>
-                            <td>{{ $skill->name }}</td>
-
-                          </tr> -->
-                        @endforeach
-                    @else
-                        No data found
-                    @endif
-                </div>
-
-                <div class="form-group">
-                    {{ Form::submit('Search', ['class' => 'btn btn-success']) }}
-                </div>
-                {!! Form::close() !!}
-            </div>
-        </div>
-
-
-    </div>
-
 </body>
 </html>

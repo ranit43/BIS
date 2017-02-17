@@ -15,7 +15,13 @@ class PagesController extends Controller
 {
     //
     public function welcome() {
-    	return view('welcome');
+
+        $authUser = Auth::user();
+        return view( 'welcome_temp', [
+                'authUser'          => $authUser
+            ]);
+
+        return view('welcome');
     }
 
     public function search()
@@ -23,6 +29,14 @@ class PagesController extends Controller
         $skills = Skill::all();
         
         /*$people = ['Lopa', 'Abir', 'Partho'];*/
+        $authUser = Auth::user();
+
+        return view( 'search_temp', [
+                'authUser'          => $authUser
+                ])
+                -> with('skills', $skills)
+                ;
+
         return view('search')
         ->with('skills', $skills)
         ;
@@ -39,11 +53,16 @@ class PagesController extends Controller
         //return $request->all();
         //return $request->skill;
         $skills = $request->skill;
+        $authUser = Auth::user();
 
          $filtered = UserSkill::whereIn('skill_id', $skills)->pluck('user_id');
          $users = User::whereIn('id',$filtered)->get();
-        
-        
+
+        return view('search_result_temp', [
+            'authUser'          => $authUser
+        ])
+            ->with('users', $users)
+            ;
         
 
        return view('search_result')
@@ -152,7 +171,7 @@ class PagesController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->adress = $request->address;
+        $user->adress = $request->adress;
         $user->contact = $request->contact;
 
 

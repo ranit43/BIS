@@ -55,8 +55,8 @@
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
                             <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ url('/forum') }}">Forum</a></li>
                             <li><a href="{{ url('/search') }}">Talent Search</a></li>
+                            <li><a href="{{ url('/forum') }}">Forum</a></li>
                             <li><a href="{{ url('/home') }}">Profile</a></li>
 
 

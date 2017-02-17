@@ -80,6 +80,7 @@
                                     </form>
                                 </li>
                             </ul>
+
                         </li>
                     @endif
                 </ul>
@@ -96,32 +97,30 @@
     <div class="well">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <p>Select the specific skills and search for talent with that skills.</p>
+                Showing the Search Results with the selected skills:
+                <hr>
+                @foreach($users as $user)
+                    <div class="showUser">
+                    <!-- {!! $user->image !!} -->
 
-                {!! Form::open(array('route' => 'searchResult') ) !!}
-                <div class="form-group">
-                @if(count($skills))
-                    @foreach($skills as $skill)
+                        <img src="{{ asset( $user->image ) }}" alt="Mountain View" style="width:304px;height:228px;">
 
-
-                        {{ Form::checkbox('skill[]', $skill->id) }}
-                        {{ Form::label('skill', $skill->name) }}
-
-                        <!-- <tr>
-                            <td>{{ $skill->id }}</td>
-                            <td>{{ $skill->name }}</td>
-
-                          </tr> -->
+                        </br>
+                        Name:  {!! $user->name !!}
+                        </br>
+                        Email: {!! $user->email !!}
+                        </br>
+                        Contact: {!! $user->contact !!}
+                        </br>
+                        CV: <a href="{!! $user->CV !!}">Download CV </a>
+                        </br>
+                        Prfessional Skill:
+                        @foreach($user->skills as $skill )
+                            {{$skill->name}}
                         @endforeach
-                    @else
-                        No data found
-                    @endif
-                </div>
-
-                <div class="form-group">
-                    {{ Form::submit('Search', ['class' => 'btn btn-success']) }}
-                </div>
-                {!! Form::close() !!}
+                        <hr>
+                    </div>
+                @endforeach
             </div>
         </div>
 

@@ -33,22 +33,21 @@
                    <!-- {!! $user->image !!} -->
 
                            <img src="{{ asset( $user->image ) }}" alt="Mountain View" style="width:304px;height:228px;">
-                        </br>
-                           Name:  {!! $user->name !!}
-                       </br>
-                           Email: {!! $user->email !!}
-                       </br>
-                           Contact: {!! $user->contact !!}
-                       {{--</br>
-                           Image: {!! $user->image !!}--}}
-                       </br>
-                           CV: <a href="{!! $user->CV !!}">Download CV </a>
-                       </br>
-                       Prfessional Skill:
-                       @foreach($user->skills as $skill )
-                       {{$skill->name}}
-                       @endforeach
-                       <hr>
+
+                           </br>
+                               Name:  {!! $user->name !!}
+                           </br>
+                               Email: {!! $user->email !!}
+                           </br>
+                               Contact: {!! $user->contact !!}
+                           </br>
+                               CV: <a href="{!! $user->CV !!}">Download CV </a>
+                           </br>
+                           Prfessional Skill:
+                           @foreach($user->skills as $skill )
+                           {{$skill->name}}
+                           @endforeach
+                           <hr>
                    </div>
                    @endforeach
             </div>
