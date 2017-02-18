@@ -1,0 +1,25 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class SkillTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //
+
+        User::create([ 'name' => 'C' ]);
+        User::create([ 'name' => 'C++' ]);
+        User::create([ 'name' => 'Java' ]);
+        User::create([ 'name' => 'PHP' ]);
+        User::create([ 'name' => 'Laravel' ]);
+        User::create([ 'name' => 'C#' ]);
+        User::create([ 'name' => 'NodeJS' ]);
+        User::create([ 'name' => 'Python' ]);
+    }
+}

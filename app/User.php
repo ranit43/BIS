@@ -31,6 +31,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Skill','users_skills','user_id','skill_id');
     }
 
+    public function forums()
+    {
+        return $this->hasMany('App\Forum');
+    }
+
     /*public function users(){
         return $this->belongsToMany('App\Skill','users_skills','user_id','skill_id');
     }*/

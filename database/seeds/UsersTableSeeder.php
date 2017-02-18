@@ -39,5 +39,15 @@ class UsersTableSeeder extends Seeder
         'adress' => 'Mirzajangal',
         'CV' => 'CvPath',
         ]);
+
+      User::create([
+           'name' => 'T D',
+           'email' => 'td@gm.com',
+           'password' => bcrypt('a'),
+           'image' => 'ImagePath',
+           'contact' => '01719429',
+           'adress' => 'Chhatak',
+           'CV' => 'CvPath',
+       ]);
    }
 }

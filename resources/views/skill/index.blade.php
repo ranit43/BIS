@@ -34,7 +34,7 @@
 			        <td>{{ $skill->id }}</td>
 			        <td>{{ $skill->name }}</td>
 			        <td><a href="{{ route('skill.edit', $skill->id) }}"><button class="btn btn-primary" type="button">EDit</button></a></td>
-			        <td><a href="{{ route('skill.delete', $skill->id) }}"><button class="btn btn-danger" type="button">Delete</td>
+			        <td><a href="{{ route('skill.delete', $skill->id) }}"><button class="btn btn-danger" type="button">Delete </button></a></td>
 			      </tr>
 			      	@endforeach
 			    @else

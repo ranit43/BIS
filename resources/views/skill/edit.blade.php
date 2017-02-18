@@ -9,10 +9,10 @@
 
 	<div class="well">
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3"> 
+			<div class="col-md-6 col-md-offset-3">
 
 				{!! Form::model($skill, ['route' => ['skill.update', $skill->id], 'method' => 'PUT', 'files' => true]  ) !!}
-					
+
 					<div class="form-group">
 						{{ Form::label('name', 'Skill Name') }}
 						{{ Form::text('name', null, ['id' => 'name', 'placeholder' => 'Enter your skill', 'class' => 'form-control']) }}

@@ -54,6 +54,7 @@ Route::group(['middleware' => 'auth'], function() {
 		'as'	=>	'profileUpdate',
 		'uses' 	=>	'PagesController@profileUpdate'
 	]);
+	/* ------------  SKill Routes --------------- */
 	Route::get('skill/create', [
 		'as'    => 'skill.create',
 		'uses'  => 'SkillController@create'
@@ -75,6 +76,34 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'  => 'SkillController@update'
 	]);
 	Route::get('skill/{id}',['as' => 'skill.delete', 'uses' => 'SkillController@destroy']);
+
+	/*--------------- Forum Controller----------*/
+	Route::get('forum/create', [
+		'as'    => 'forum.create',
+		'uses'  => 'ForumController@create'
+	]);
+	Route::post('forum/store', [
+		'as'    => 'forum.store',
+		'uses'  => 'ForumController@store'
+	]);
+	Route::get('forum', [
+		'as'    => 'forum.index',
+		'uses'  => 'ForumController@index'
+	]);
+	Route::get('forum/{id}/edit', [
+		'as'    => 'forum.edit',
+		'uses'  => 'ForumController@edit'
+	]);
+	Route::put('forum/{id}', [
+		'as'    => 'forum.update',
+		'uses'  => 'ForumController@update'
+	]);
+	Route::get('forum/{id}',['as' => 'forum.delete', 'uses' => 'ForumController@destroy']);
+
+	Route::get('forum/{id}/show_post', [
+        'as'    => 'forum.show_post',
+        'uses'  => 'ForumController@show_post'
+    ]);
 
 });
 
