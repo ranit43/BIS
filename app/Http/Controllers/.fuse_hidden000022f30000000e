@@ -7,6 +7,7 @@ use Validator;
 use Auth;
 use App\User;
 use App\Forum;
+use App\Comment;
 
 
 class ForumController extends Controller
@@ -86,23 +87,23 @@ class ForumController extends Controller
         $rules = [
             'title' => 'required',
             'category' => 'required',
-            'body' => 'required'
+            'details' => 'required'
         ];
 
         $data = $request->all();
         $validation = Validator::make($data, $rules);
 
         if ($validation->fails()) {
-            return "atkaisemma"
+
             return redirect()->back()->withInput()->withErrors($validation);
         }
 
-        return "Nothing in the forum model";
+        //"Nothing in the forum model";
         $forum = Forum::find($id);
 
         $forum->title = $data['title'];
         $forum->category = $data['category'];
-        $forum->details = $data['body'];
+        $forum->details = $data['details'];
         //$forum->user_id = Auth::user()->id;
 
 
@@ -117,12 +118,26 @@ class ForumController extends Controller
     public function destroy($id)
     {
         try{
-            Skill::destroy($id);
+            Forum::destroy($id);
 
-            return redirect()->route('skill.index')->with('success','Skill Deleted Successfully.');
+            return redirect()->route('forum.index')->with('success','Skill Deleted Successfully.');
 
         }catch(Exception $ex){
-            return redirect()->route('skill.index')->with('error','Something went wrong.Try Again.');
+            return redirect()->route('forum.index')->with('error','Something went wrong.Try Again.');
         }
+    }
+
+    public function show_post($id) {
+
+        $post = Forum::findOrFail($id);
+        $authUser = Auth::user();
+        return $comments =Forum::find($id)->comment;
+
+        return view('forum.show_post', [
+                'authUser' => $authUser
+            ])
+            ->with('post', $post)
+            ->with('comments', $comments)
+            ;
     }
 }

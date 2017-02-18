@@ -31,9 +31,13 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Skill','users_skills','user_id','skill_id');
     }
 
-    public function forums()
+    public function posts()
     {
-        return $this->hasMany('App\Forum');
+        return $this->hasMany('App\Post');
+    }
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
     }
 
     /*public function users(){

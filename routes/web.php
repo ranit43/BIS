@@ -78,32 +78,61 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('skill/{id}',['as' => 'skill.delete', 'uses' => 'SkillController@destroy']);
 
 	/*--------------- Forum Controller----------*/
-	Route::get('forum/create', [
-		'as'    => 'forum.create',
-		'uses'  => 'ForumController@create'
+	Route::get('post/create', [
+		'as'    => 'post.create',
+		'uses'  => 'PostController@create'
 	]);
-	Route::post('forum/store', [
-		'as'    => 'forum.store',
-		'uses'  => 'ForumController@store'
+	Route::post('post/store', [
+		'as'    => 'post.store',
+		'uses'  => 'PostController@store'
 	]);
-	Route::get('forum', [
-		'as'    => 'forum.index',
-		'uses'  => 'ForumController@index'
+	Route::get('post', [
+		'as'    => 'post.index',
+		'uses'  => 'PostController@index'
 	]);
-	Route::get('forum/{id}/edit', [
-		'as'    => 'forum.edit',
-		'uses'  => 'ForumController@edit'
+	Route::get('post/{id}/edit', [
+		'as'    => 'post.edit',
+		'uses'  => 'PostController@edit'
 	]);
-	Route::put('forum/{id}', [
-		'as'    => 'forum.update',
-		'uses'  => 'ForumController@update'
+	Route::put('post/{id}', [
+		'as'    => 'post.update',
+		'uses'  => 'PostController@update'
 	]);
-	Route::get('forum/{id}',['as' => 'forum.delete', 'uses' => 'ForumController@destroy']);
+	Route::get('post/{id}',['as' => 'post.delete', 'uses' => 'postController@destroy']);
 
-	Route::get('forum/{id}/show_post', [
-        'as'    => 'forum.show_post',
-        'uses'  => 'ForumController@show_post'
+	Route::get('post/{id}/show_post', [
+        'as'    => 'post.show_post',
+        'uses'  => 'PostController@show_post'
     ]);
+
+	/* ----------- Comment Controller ---------------   */
+
+    Route::get('comment', [
+        'as'    => 'comment.index',
+        'uses'  => 'CommentController@index'
+    ]);
+
+    Route::post('comment/store', [
+        'as'    => 'comment.store',
+        'uses'  => 'CommentController@store'
+    ]);
+
+    Route::get('comment/{id}/edit', [
+        'as'    => 'comment.edit',
+        'uses'  => 'CommentController@edit'
+    ]);
+
+    Route::put('comment/{id}', [
+        'as'    => 'comment.update',
+        'uses'  => 'CommentController@update'
+    ]);
+
+    Route::get('comment/{id}',['as' => 'comment.delete', 'uses' => 'CommentController@destroy']);
+
+    /*Route::get('comment/{id}/show_post', [
+        'as'    => 'comment.show_post',
+        'uses'  => 'ForumController@show_post'
+    ]);*/
 
 });
 

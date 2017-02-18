@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
 
-                {!! Form::model($post, ['route' => ['forum.update', $post->id], 'method' => 'PUT', 'files' => true]  ) !!}
+                {!! Form::model($post, ['route' => ['post.update', $post->id], 'method' => 'PUT', 'files' => true]  ) !!}
 
                 <div class="form-group">
                     {{ Form::label('title', 'post title') }}

@@ -6,20 +6,20 @@ use Illuminate\Http\Request;
 use Validator;
 use Auth;
 use App\User;
-use App\Forum;
+use App\Post;
 use App\Comment;
 
 
-class ForumController extends Controller
+class postController extends Controller
 {
     //
     public function index() {
 
-        $posts = Forum::all();
+        $posts = Post::all();
         /*$people = ['Lopa', 'Abir', 'Partho'];*/
         $authUser = Auth::user();
         $users = User::all();
-        return view('forum.index', [
+        return view('post.index', [
             'authUser' => $authUser
             ])
             ->with('posts', $posts)
@@ -31,10 +31,10 @@ class ForumController extends Controller
 
 
         $authUser = Auth::user();
-        return view('forum.create', [
+        return view('post.create', [
             'authUser' => $authUser
         ]);
-        //return view('forum.create');
+        //return view('post.create');
 
     }
 
@@ -55,26 +55,26 @@ class ForumController extends Controller
             return redirect()->back()->withInput()->withErrors($validation);
         }
 
-        //Nothing in the forum model
-        $forum = new Forum();
+        //Nothing in the post model
+        $post = new Post();
 
-        $forum->title = $data['title'];
-        $forum->category = $data['category'];
-        $forum->details = $data['body'];
-        $forum->user_id = Auth::user()->id;
+        $post->title = $data['title'];
+        $post->category = $data['category'];
+        $post->details = $data['body'];
+        $post->user_id = Auth::user()->id;
 
         
-        if($forum->save()) {
-            return redirect()->route('forum.index')->with('success','Post Successfully Added');
+        if($post->save()) {
+            return redirect()->route('post.index')->with('success','Post Successfully Added');
         } else {
-            return redirect()->route('forum.index')->with('error','Something went wrong');
+            return redirect()->route('post.index')->with('error','Something went wrong');
         }
     }
 
     public function edit($id) {
-        $post = Forum::findOrFail($id);
+        $post = Post::findOrFail($id);
         $authUser = Auth::user();
-        return view('forum.edit', [
+        return view('post.edit', [
             'authUser' => $authUser
             ])
             ->with('post', $post)
@@ -98,19 +98,19 @@ class ForumController extends Controller
             return redirect()->back()->withInput()->withErrors($validation);
         }
 
-        //"Nothing in the forum model";
-        $forum = Forum::find($id);
+        //"Nothing in the post model";
+        $post = Post::find($id);
 
-        $forum->title = $data['title'];
-        $forum->category = $data['category'];
-        $forum->details = $data['details'];
-        //$forum->user_id = Auth::user()->id;
+        $post->title = $data['title'];
+        $post->category = $data['category'];
+        $post->details = $data['details'];
+        //$post->user_id = Auth::user()->id;
 
 
-        if($forum->save()) {
-            return redirect()->route('forum.index')->with('success','Post Successfully Added');
+        if($post->save()) {
+            return redirect()->route('post.index')->with('success','Post Successfully Added');
         } else {
-            return redirect()->route('forum.index')->with('error','Something went wrong');
+            return redirect()->route('post.index')->with('error','Something went wrong');
         }
 
     }
@@ -118,22 +118,22 @@ class ForumController extends Controller
     public function destroy($id)
     {
         try{
-            Forum::destroy($id);
+            Post::destroy($id);
 
-            return redirect()->route('forum.index')->with('success','Skill Deleted Successfully.');
+            return redirect()->route('post.index')->with('success','Skill Deleted Successfully.');
 
         }catch(Exception $ex){
-            return redirect()->route('forum.index')->with('error','Something went wrong.Try Again.');
+            return redirect()->route('post.index')->with('error','Something went wrong.Try Again.');
         }
     }
 
     public function show_post($id) {
 
-        $post = Forum::findOrFail($id);
+        $post = Post::findOrFail($id);
         $authUser = Auth::user();
-        return $comments =Forum::find($id)->comments;
+        $comments =Post::find($id)->comments;
 
-        return view('forum.show_post', [
+        return view('post.show_post', [
                 'authUser' => $authUser
             ])
             ->with('post', $post)

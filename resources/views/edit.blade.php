@@ -69,19 +69,19 @@
 
 
 					<!-- Add condtions so that already added skills be checked automatically -->
+					<div class="form-group">
 					@if(count($skills))
-				    	@foreach($skills as $skill)
-					    	<div class="form-group">
-								{!! Form::checkbox('skill[]', $skill->id, in_array($skill->id, $mySkills) ? true : false
-									)
-								!!}
-								{{ Form::label('skill', $skill->name) }}
-							</div>
-				      	@endforeach
-			    	@else
-			    		No data found
-			    	@endif
+							@foreach($skills as $skill)
 
+									{!! Form::checkbox('skill[]', $skill->id, in_array($skill->id, $mySkills) ? true : false
+										)
+									!!}
+									{{ Form::label('skill', $skill->name) }}
+							@endforeach
+						@else
+							No data found
+						@endif
+					</div>
 
 
 					

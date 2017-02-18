@@ -131,8 +131,7 @@ class ForumController extends Controller
 
         $post = Forum::findOrFail($id);
         $authUser = Auth::user();
-        return $comments =Forum::find($id)->comments;
-
+        return $comments =Forum::find($id)->comments;;
         return view('forum.show_post', [
                 'authUser' => $authUser
             ])

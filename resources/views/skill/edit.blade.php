@@ -21,10 +21,13 @@
 					<div class="form-group">
 		            	{{ Form::submit('Add', ['class' => 'btn btn-success']) }}
 					</div>
+
+				{!! Form::close() !!}
+
 			</div>
 		</div>
 
-		{!! Form::close() !!}
+
 	</div>
 
 </body>

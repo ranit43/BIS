@@ -4,17 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Forum extends Model
+class Comment extends Model
 {
     //
-    //protected $table = 'postforum';
+    protected $table = 'commentforum';
 
     public function user()
     {
         return $this->belongsTo('App\User');
     }
-    public function comments()
+    public function posts()
     {
-        return $this->hasMany('App\Comment');
+        return $this->belongsTo('App\Post');
     }
 }
