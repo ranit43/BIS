@@ -118,9 +118,6 @@ class PagesController extends Controller
 
         $volunteeringSkills = VolunteeringSkill::all();
         $myVolunteeringSkills = [];
-        foreach ($authUser->volunteeringskill as $volunteeringSkill) {
-            $myVolunteeringSkills[] = $volunteeringSkill->id;
-        }
 
         return view('edit',[
             'authUser'          => $authUser

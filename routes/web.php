@@ -134,6 +134,30 @@ Route::group(['middleware' => 'auth'], function() {
         'uses'  => 'ForumController@show_post'
     ]);*/
 
+    //---------------- Volunteering SKill -----------------
+    Route::get('volunteeringskill/create', [
+        'as'    => 'volunteeringskill.create',
+        'uses'  => 'VolunteeringSkillController@create'
+    ]);
+    Route::post('volunteeringskill/store', [
+        'as'    => 'volunteeringskill.store',
+        'uses'  => 'VolunteeringSkillController@store'
+    ]);
+    Route::get('volunteeringskill', [
+        'as'    => 'volunteeringskill.index',
+        'uses'  => 'VolunteeringSkillController@index'
+    ]);
+    Route::get('volunteeringskill/{id}/edit', [
+        'as'    => 'volunteeringskill.edit',
+        'uses'  => 'VolunteeringSkillController@edit'
+    ]);
+    Route::put('volunteeringskill/{id}', [
+        'as'    => 'volunteeringskill.update',
+        'uses'  => 'VolunteeringSkillController@update'
+    ]);
+    Route::get('volunteeringskill/{id}',['as' => 'volunteeringskill.delete', 'uses' => 'VolunteeringSkillController@destroy']);
+
+
 });
 
 

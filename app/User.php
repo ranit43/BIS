@@ -31,6 +31,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Skill','users_skills','user_id','skill_id');
     }
 
+    public function volunteeringskill(){
+        return $this->belongsToMany('App\VolunteeringSkill','user_volunteeringskill','user_id','volunteeringskill_id');
+    }
+
     public function posts()
     {
         return $this->hasMany('App\Post');

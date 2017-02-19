@@ -83,6 +83,18 @@
 						@endif
 					</div>
 
+					<div class="form-group">
+						@if(count($volunteeringSkills))
+							@foreach($volunteeringSkills as $volunteeringSkill)
+
+								{!! Form::checkbox('volunteeringSkill[]', $volunteeringSkill->id, in_array($volunteeringSkill->id, $myVolunteeringSkills ) ? true : false) !!}
+								{{ Form::label('volunteeringSkill', $volunteeringSkill->name) }}
+							@endforeach
+						@else
+							No data found
+						@endif
+					</div>
+
 
 					
 

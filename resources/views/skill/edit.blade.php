@@ -5,7 +5,7 @@
 	{!! Html::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') !!}
 </head>
 <body>
-	<h1> Profile Edit Page.</h1>
+	<h1> Professional Edit Page.</h1>
 
 	<div class="well">
 		<div class="row">
