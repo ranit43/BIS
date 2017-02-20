@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment');
     }
 
+    public function achievements()
+    {
+        return $this->hasMany('App\Achievement');
+    }
+
     /*public function users(){
         return $this->belongsToMany('App\Skill','users_skills','user_id','skill_id');
     }*/

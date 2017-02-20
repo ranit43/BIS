@@ -34,6 +34,17 @@ class UsersTableSeeder extends Seeder
            'role' => 'Teacher'
        ]);
 
+       User::create([
+           'name' => 'tania',
+           'email' => 'tania@gmail.com',
+           'password' => bcrypt('a'),
+           'image' => 'ImagePath',
+           'contact' => '01719424849',
+           'adress' => 'Mirzajangal',
+           'CV' => 'CvPath',
+           'role' => 'Admin'
+       ]);
+
        $faker = Faker\Factory::create();
 
        $u = new App\User();

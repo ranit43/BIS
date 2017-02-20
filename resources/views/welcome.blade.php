@@ -10,7 +10,9 @@
             <div class="container">
                 <div  class="intro text-center intro-particle">
                     <h4>BATCH INFORMATION SYSTEM</h4>
-                    <p>Minimal / Elegant / Multipurpose</p>
+                        <p>
+                            Our website gives full infromation of a batch or department of a particular university.
+                        </p>
                 </div>
             </div>
         </div>
