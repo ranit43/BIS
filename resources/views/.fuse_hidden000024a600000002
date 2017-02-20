@@ -78,11 +78,9 @@
                             <br>
                             <br>
                             Achievement:
+                            <a href="{{ route('achievement.create') }}">Add your achievements </a>
                             <br>
                             <br>
-                            <a href="{{ route('achievement.create') }}">ADD YOUR ACHIEVEMENTS </a>
-                            <br>
-
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>

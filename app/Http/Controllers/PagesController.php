@@ -100,11 +100,15 @@ class PagesController extends Controller
     public function home()
     {
         $authUser = Auth::user();
+        $userid = $authUser->id;
+        $achievements = User::find($userid)->achievements;
 
     	return view('home',
         [
             'authUser'          => $authUser
-        ]);
+        ])
+            ->with('achievements', $achievements)
+            ;
     }
 
     public function edit(Request $request, $id )

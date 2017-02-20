@@ -157,6 +157,34 @@ Route::group(['middleware' => 'auth'], function() {
     ]);
     Route::get('volunteeringskill/{id}',['as' => 'volunteeringskill.delete', 'uses' => 'VolunteeringSkillController@destroy']);
 
+    /* ----------- Achievement Controller ---------------   */
+    Route::get('achievement/create', [
+        'as'    => 'achievement.create',
+        'uses'  => 'AchievementController@create'
+    ]);
+
+    Route::get('achievement', [
+        'as'    => 'achievement.index',
+        'uses'  => 'AchievementController@index'
+    ]);
+
+    Route::post('achievement/store', [
+        'as'    => 'achievement.store',
+        'uses'  => 'AchievementController@store'
+    ]);
+
+    Route::get('achievement/{id}/edit', [
+        'as'    => 'achievement.edit',
+        'uses'  => 'AchievementController@edit'
+    ]);
+
+    Route::put('achievement/{id}', [
+        'as'    => 'achievement.update',
+        'uses'  => 'AchievementController@update'
+    ]);
+
+    Route::get('achievement/{id}',['as' => 'achievement.delete', 'uses' => 'AchievementController@destroy']);
+
 
 });
 

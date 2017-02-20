@@ -13,4 +13,5 @@ class Achievement extends Model
     {
         return $this->belongsTo('App\User');
     }
+
 }
