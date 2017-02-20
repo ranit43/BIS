@@ -11,36 +11,19 @@ class UsersTableSeeder extends Seeder
     */
    public function run()
    {
-       $faker = Faker\Factory::create();
 
-       /*$u = new App\User();
+       User::create([
+           'name' => 'R D Akash',
+           'email' => 'akash@gmail.com',
+           'password' => bcrypt('a'),
+           'image' => 'ImagePath',
+           'contact' => '01719424849',
+           'adress' => 'Mirzajangal',
+           'CV' => 'CvPath',
+           'role' => 'Admin'
+       ]);
 
-       $u->name = 'Admin';
-       $u->role = 'Admin';
-       $u->password = '1';
-       $u->save();
-
-       
-		   	for ($i=1; $i < 5; $i++) 
-		   	{ 
-			   	$u = new App\User();
-			   	$u->name = $faker->name;
-			   	$u->email = $faker->email;
-			   	$u->password = bcrypt(1);
-			   	$u->save();
-		   	}
-        */
-      User::create([
-        'name' => 'R D Akash', 
-        'email' => 'akash@gmail.com', 
-        'password' => bcrypt('a'),
-        'image' => 'ImagePath',
-        'contact' => '01719424849',
-        'adress' => 'Mirzajangal',
-        'CV' => 'CvPath',
-        ]);
-
-      User::create([
+       User::create([
            'name' => 'T D',
            'email' => 'td@gm.com',
            'password' => bcrypt('a'),
@@ -48,6 +31,25 @@ class UsersTableSeeder extends Seeder
            'contact' => '01719429',
            'adress' => 'Chhatak',
            'CV' => 'CvPath',
+           'role' => 'Teacher'
        ]);
+
+       $faker = Faker\Factory::create();
+
+       $u = new App\User();
+       for ($i=1; $i < 5; $i++)
+       {
+           $u = new App\User();
+           $u->name = $faker->name;
+           $u->email = $faker->email;
+           $u->password = bcrypt(1);
+           $u->image = $faker->imageUrl($width = 640, $height = 480, 'cats');
+           $u->contact = $faker->phoneNumber;
+           $u->adress = $faker->address;
+           $u->CV = $faker->imageUrl($width, $height, 'cats');
+           $u->role = 'student';
+           $u->save();
+       }
+
    }
 }

@@ -27,7 +27,7 @@ class UserSkillTableSeeder extends Seeder
             'skill_id'=>'7'
         ]);
 
-        User::create([
+        /*User::create([
             'name' => 'R D Akash',
             'email' => 'akash@gmail.com',
             'password' => bcrypt('a'),
@@ -35,6 +35,6 @@ class UserSkillTableSeeder extends Seeder
             'contact' => '01719424849',
             'adress' => 'Mirzajangal',
             'CV' => 'CvPath',
-        ]);
+        ]);*/
     }
 }

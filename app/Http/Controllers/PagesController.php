@@ -20,11 +20,13 @@ class PagesController extends Controller
     public function welcome() {
 
         $authUser = Auth::user();
-        return view( 'welcome_temp', [
+        /*return view( 'welcome_temp', [
+                'authUser'          => $authUser
+            ]);*/
+
+        return view( 'welcome', [
                 'authUser'          => $authUser
             ]);
-
-        return view('welcome');
     }
 
     public function search()
