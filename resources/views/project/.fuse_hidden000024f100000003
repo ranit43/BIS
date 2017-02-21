@@ -1,0 +1,43 @@
+@extends('layouts.app')
+
+@section('content')
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                {{--<div class="panel-heading">post</div>--}}
+                Achievement add page.
+                <br/>
+                <br/>
+
+                {{--{!! ! Form::open([ 'id' => 'post-question-form']) !!}--}}
+                {!!  Form::open([ 'route' => 'project.store', 'method' => 'post']) !!}
+
+                {!! Form::label('name', 'Name*' ) !!}
+                {!! Form::text('name', null, ['id' => 'name', 'class' =>'form-control', 'placeholder' => 'Name', 'required' ]) !!}
+
+                <br>
+
+                {!! Form::label('link', 'Link') !!}
+                {!! Form::text('link', null, ['id' => 'link', 'class' =>'form-control', 'placeholder' => 'Issuer' ]) !!}
+
+                <br>
+                {!! Form::label('projectpartner', 'Project partner') !!}
+                {!! Form::text('projectpartner', null, ['id' => 'year', 'class' =>'form-control', 'placeholder' => 'Year' ]) !!}
+
+                <br>
+
+
+                {!! Form::label('details', 'Details') !!}
+                {!! Form::textarea( 'details', null, [ 'id' => 'details', 'class' => 'form-control', 'placeholder' => 'Details' ]) !!}
+
+                <br>
+                {!!   Form::submit('Submit', ['class' => 'btn btn-success']) !!}
+
+                {!! Form::close() !!}
+
+            </div>
+        </div>
+    </div>
+
+@endsection

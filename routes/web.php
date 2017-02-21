@@ -185,6 +185,61 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('achievement/{id}',['as' => 'achievement.delete', 'uses' => 'AchievementController@destroy']);
 
+    /* ----------- Project Controller ---------------   */
+    Route::get('project/create', [
+        'as'    => 'project.create',
+        'uses'  => 'ProjectController@create'
+    ]);
+
+    Route::get('project', [
+        'as'    => 'project.index',
+        'uses'  => 'ProjectController@index'
+    ]);
+
+    Route::post('project/store', [
+        'as'    => 'project.store',
+        'uses'  => 'ProjectController@store'
+    ]);
+
+    Route::get('project/{id}/edit', [
+        'as'    => 'project.edit',
+        'uses'  => 'ProjectController@edit'
+    ]);
+
+    Route::put('project/{id}', [
+        'as'    => 'project.update',
+        'uses'  => 'ProjectController@update'
+    ]);
+
+    Route::get('project/{id}',['as' => 'project.delete', 'uses' => 'ProjectController@destroy']);
+
+    /* ----------- Project Controller ---------------   */
+    Route::get('paper/create', [
+        'as'    => 'paper.create',
+        'uses'  => 'PaperController@create'
+    ]);
+
+    Route::get('paper', [
+        'as'    => 'paper.index',
+        'uses'  => 'PaperController@index'
+    ]);
+
+    Route::post('paper/store', [
+        'as'    => 'paper.store',
+        'uses'  => 'PaperController@store'
+    ]);
+
+    Route::get('paper/{id}/edit', [
+        'as'    => 'paper.edit',
+        'uses'  => 'PaperController@edit'
+    ]);
+
+    Route::put('paper/{id}', [
+        'as'    => 'paper.update',
+        'uses'  => 'PaperController@update'
+    ]);
+
+    Route::get('paper/{id}',['as' => 'paper.delete', 'uses' => 'PaperController@destroy']);
 
 });
 

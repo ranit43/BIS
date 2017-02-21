@@ -102,12 +102,16 @@ class PagesController extends Controller
         $authUser = Auth::user();
         $userid = $authUser->id;
         $achievements = User::find($userid)->achievements;
+        $projects = User::find($userid)->projects;
+        $papers = User::find($userid)->papers;
 
     	return view('home',
         [
             'authUser'          => $authUser
         ])
             ->with('achievements', $achievements)
+                ->with('projects', $projects)
+                    ->with('papers', $papers)
             ;
     }
 

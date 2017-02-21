@@ -120,7 +120,7 @@
                                 @foreach($user->skills as $skill )
                                     {{$skill->name}}
                                 @endforeach
-                                <hr>
+
 
                             </div>
                             <div class="col-md-6">
@@ -128,7 +128,7 @@
                             </div>
 
                         </div>
-
+                        <hr>
                     </div>
                 @endforeach
 
