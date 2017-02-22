@@ -133,7 +133,7 @@ class postController extends Controller
         $authUser = Auth::user();
         $comments =Post::find($id)->comments;
 
-        return view('post.show_post', [
+        return view('post.show_post_temp', [
                 'authUser' => $authUser
             ])
             ->with('post', $post)

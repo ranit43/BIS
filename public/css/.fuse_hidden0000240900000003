@@ -10364,10 +10364,6 @@ xpush
     margin-bottom: 15px;
 }*/
 
-/*.card.achievements {
-  padding: 3px 15px;
-}*/
-
 .badge {
     display: inline-block;
     min-width: 10px;
