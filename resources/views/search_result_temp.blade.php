@@ -95,14 +95,32 @@
 <script src="/js/app.js"></script>
 
     <div class="well">
+        Showing the Search Results with the selected skills:
+        <hr>
 
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                Showing the Search Results with the selected skills:
-                <hr>
+            @foreach($users as $user)
+                <div class="col-md-4">
+                    <div class="thumbnail text-center">
+                        <img class="img-circle" src="{{ asset( $user->image ) }}" style="width: 200px" alt="{{ $user->name  }}" >
+                        <div class="caption">
+                            <h3>{{ $user->name  }}</h3>
+                            {{--<p>...</p>--}}
+                            <p>Email: {!! $user->email !!}</p>
+                            <p>Contact: {!! $user->contact !!}</p>
+                            CV: <a href="{!! $user->CV !!}">Download CV </a>
+                            <p>
+                                Professional Skill:
+                                @foreach($user->skills as $skill )
+                                    <span class="badge badge-success">{{$skill->name}}</span>
+                                @endforeach
+                            </p>
 
-                @foreach($users as $user)
-                    <div class="showUser">
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        </div>
+                    </div>
+
+                    {{--<div class="showUser">
                     <!-- {!! $user->image !!} -->
 
                         <div class="row">
@@ -129,10 +147,9 @@
 
                         </div>
                         <hr>
-                    </div>
-                @endforeach
-
+                    </div>--}}
             </div>
+            @endforeach
         </div>
     </div>
 

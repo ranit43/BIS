@@ -1,67 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>  </title>
-	{!! Html::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') !!}
-</head>
-<body>
-	<h1> Skill Hunting.</h1>
-	 <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
+@extends('layouts.master')
 
-					<li><a href="{{ url('/') }}">Home</a></li>
-					<a href="{{ url('/search') }}">TalentSearch</a>
-                    <a href="{{ url('/forum') }}">Forum</a>
+@section('content')
 
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Profile</a>    
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                        
-                    @endif
+    <section class="search-home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h4>Select talent with specific skills</h4>
+
+                    {!! Form::open(array('route' => 'searchResult') ) !!}
+                    <div class="form-group">
+                        @if(count($skills))
+                            <select class="skill-multiple form-control" multiple="multiple" name="skill[]">
+                                @foreach($skills as $skill)
+
+                                    {{--{!! Form::checkbox('skill[]', $skill->id, in_array($skill->id, $mySkills) ? true : false) !!}--}}
+                                    <option value="{{ $skill->id }}"  > {{ $skill->name  }}  </option>
+
+                                @endforeach
+                            </select>
+                        @else
+                            No data found
+                        @endif
+                    </div>
+
+                    <div class="form-group">
+                        {{ Form::submit('Search', ['class' => 'btn btn-success']) }}
+                    </div>
+                    {!! Form::close() !!}
                 </div>
-            @endif
-     </div>
-	<div class="well">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3"> 
-			<p>Select the specific skills and search for talent with that skills.</p>
-				
-			
-			 {!! Form::open(array('route' => 'searchResult') ) !!}
-					<div class="form-group">
-					@if(count($skills))
-				    	@foreach($skills as $skill)
-					    	
-								
-								{{ Form::checkbox('skill[]', $skill->id) }}
-								{{ Form::label('skill', $skill->name) }}
-							
-				      <!-- <tr>
-				        <td>{{ $skill->id }}</td>
-				        <td>{{ $skill->name }}</td>
-				        
-				      </tr> -->
-				      	@endforeach
-			    	@else
-			    		No data found
-			    	@endif
-					</div>
+            </div>
+        </div>
+    </section>
 
 
-					
 
-					<div class="form-group">
-		            	{{ Form::submit('Search', ['class' => 'btn btn-success']) }}
-					</div>
-					{!! Form::close() !!}
-			</div>
-		</div>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+	<script type="text/javascript">
+        $('.skill-multiple').select2();
+	</script>
 
-		
-	</div>
-
-</body>
-</html>
+@endsection

@@ -37,7 +37,7 @@ class PagesController extends Controller
         /*$people = ['Lopa', 'Abir', 'Partho'];*/
         $authUser = Auth::user();
 
-        return view( 'search_temp', [
+        return view( 'search', [
                 'authUser'          => $authUser
                 ])
                 -> with('skills', $skills)
@@ -69,7 +69,7 @@ class PagesController extends Controller
         $users = User::whereIn('id',$filteredVolSkills)->get();*/
 
 
-        return view('search_result_temp', [
+        return view('search_result', [
             'authUser'          => $authUser
         ])
             ->with('users', $users)

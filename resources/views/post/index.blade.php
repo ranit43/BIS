@@ -8,8 +8,20 @@
             <section class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <div class="card posts">
-                            <div class="posts-title">
+                        <div class="card posts-all-threads">
+
+                            {{--<div class="posts-title">
+                                <h4>All Threads: </h4>
+                                <div class="button-group">
+                                    <p>
+                                        <a href="{!! route('post.create') !!}" class="btn btn-info btn-lg">
+                                            <span class="glyphicon glyphicon-plus"></span> CREATE A NEW POST
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>--}}
+
+                            <div class="thread-title">
                                 <h4>All Threads: </h4>
                                 <div class="button-group">
                                     <p>
@@ -19,6 +31,7 @@
                                     </p>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

@@ -101,18 +101,14 @@
                 {!! Form::open(array('route' => 'searchResult') ) !!}
                 <div class="form-group">
                 @if(count($skills))
-                    @foreach($skills as $skill)
+                        <select class="skill-multiple form-control" multiple="multiple" name="skill[]">
+                            @foreach($skills as $skill)
 
+                                {{--{!! Form::checkbox('skill[]', $skill->id, in_array($skill->id, $mySkills) ? true : false) !!}--}}
+                                <option value="{{ $skill->id }}"  > {{ $skill->name  }}  </option>
 
-                        {{ Form::checkbox('skill[]', $skill->id) }}
-                        {{ Form::label('skill', $skill->name) }}
-
-                        <!-- <tr>
-                            <td>{{ $skill->id }}</td>
-                            <td>{{ $skill->name }}</td>
-
-                          </tr> -->
-                        @endforeach
+                            @endforeach
+                        </select>
                     @else
                         No data found
                     @endif
@@ -127,6 +123,12 @@
 
 
     </div>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<script type="text/javascript">
+    $('.skill-multiple').select2();
+</script>
 
 </body>
 </html>

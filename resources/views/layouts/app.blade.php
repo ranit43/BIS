@@ -13,6 +13,8 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/core.js"></script>--}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -88,6 +90,7 @@
 
         @yield('content')
     </div>
+
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>

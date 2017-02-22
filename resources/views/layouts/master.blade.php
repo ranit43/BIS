@@ -42,6 +42,8 @@
         <!-- Custom Template Styles -->
         <link rel="stylesheet" href="/css/main.css">
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     </head>
 
     <body data-spy="scroll" data-target="#main-nav-collapse" data-offset="100">

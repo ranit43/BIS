@@ -1,60 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>  </title>
-    {!! Html::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') !!}
-</head>
-<body>
-    <h1> Skill Hunting.</h1>
-     <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/search') }}">TalentSearch</a>
-                    <a href="{{ url('/forum') }}">Forum</a>
-                    
-                    @if (Auth::check())
-                       <!-- <a href="{{ url('/edit') }}">Edit</a>  -->
-                        <a href="{{ url('/home') }}">Profile</a>    
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                        
-                    @endif
-                </div>
-            @endif
-     </div>
-    <div class="well">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3"> 
-                   Showing the Search Results with the selected skills:
-                   <hr>
-                   @foreach($users as $user)
-                   <div class="showUser">
-                   <!-- {!! $user->image !!} -->
+@extends('layouts.master')
 
-                           <img src="{{ asset( $user->image ) }}" alt="Mountain View" style="width:304px;height:228px;">
+@section('content')
 
-                           </br>
-                               Name:  {!! $user->name !!}
-                           </br>
-                               Email: {!! $user->email !!}
-                           </br>
-                               Contact: {!! $user->contact !!}
-                           </br>
-                               CV: <a href="{!! $user->CV !!}">Download CV </a>
-                           </br>
-                           Prfessional Skill:
-                           @foreach($user->skills as $skill )
-                           {{$skill->name}}
-                           @endforeach
-                           <hr>
-                   </div>
-                   @endforeach
+    <section class="search-result">
+        <div class="container">
+            <h4>Showing the Search Results with the selected skills:</h4>
+            <hr>
+            <div class="row">
+                @foreach($users as $user)
+                    <div class="col-md-4">
+                        <div class="thumbnail text-center">
+                            <img class="img-circle" src="{{ asset( $user->image ) }}" style="width: 200px" alt="{{ $user->name  }}" >
+                            <div class="caption">
+                                <h3>{{ $user->name  }}</h3>
+                                {{--<p>...</p>--}}
+                                <p>Email: {!! $user->email !!}</p>
+                                <p>Contact: {!! $user->contact !!}</p>
+                                CV: <a href="{!! $user->CV !!}">Download CV </a>
+                                <p>
+                                    Professional Skill:
+                                    <br>
+                                    @foreach($user->skills as $skill )
+                                        <span class="badge badge-success sr">{{$skill->name}}</span>
+                                    @endforeach
+                                </p>
+
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
+    </section>
 
-        
-    </div>
 
-</body>
-</html>
+@endsection
