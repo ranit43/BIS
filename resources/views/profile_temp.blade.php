@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+
+
+
     <section class="basic-content">
         <div class="cover-photo" style="background: url('uploads/images/users/1487674760_users.jpg');">
 
@@ -30,8 +33,16 @@
                 <div class="card achievements">
                     <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
                         <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Professional SKills</a></li>
-                            <li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Volunteering Skills</a></li>
+                            <li role="presentation" class="active">
+                                <a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+                                    <strong> Professional SKills</strong>
+                                </a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">
+                                    <strong> Volunteering Skills</strong>
+                                </a>
+                            </li>
                             {{--<li role="presentation" class="dropdown">
                                 <a href="#" class="dropdown-toggle" id="myTabDrop1" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Dropdown <span class="caret"></span></a>
                                 <ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">

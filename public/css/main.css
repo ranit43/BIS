@@ -10333,6 +10333,12 @@ xpush
     padding: 15px 0px;
 }
 
+.post-title {
+    display: block;
+    border-bottom: none;
+    padding: 15px 0px;
+}
+
 .achievement-title h4 {
     display: inline-block;
     margin-top: 4px;
@@ -10353,6 +10359,11 @@ xpush
 .card.achievements {
     padding: 80px 15px;
 }
+
+/*.card.post {
+    margin-bottom: 15px;
+}*/
+
 .badge {
     display: inline-block;
     min-width: 10px;

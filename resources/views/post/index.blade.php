@@ -1,12 +1,120 @@
 @extends('layouts.master')
 
 @section('content')
+
+    <div class="valign-center">
+        <div class="container">
+
+            <section class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="card posts">
+                            <div class="posts-title">
+                                <h4>All Threads: </h4>
+                                <div class="button-group">
+                                    <p>
+                                        <a href="{!! route('post.create') !!}" class="btn btn-info btn-lg">
+                                            <span class="glyphicon glyphicon-plus"></span> CREATE A NEW POST
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            @if(count($posts))
+                @foreach($posts as $post)
+                <section class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="card post">
+                                <div class="single-post">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h3>{{ $post->title }}</h3>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="button-group">
+                                                @if( $authUser->id == $post->user_id )
+                                                    <a href="{{ route('post.edit', $post->id) }}"><button class="btn btn-primary" type="button">EDit</button></a>
+                                                    <a href="{{ route('post.delete', $post->id) }}"><button class="btn btn-danger" type="button">Delete </button></a>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>Category: {{ $post->category }}</p>
+                                    <p>{{ $post->details }}</p>
+                                    <p>By {{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>
+                                    <a href="{{ route('post.show_post', $post->id) }}"><button class="btn btn-success" type="button">Details </button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                @endforeach
+            @else
+                No data found
+            @endif
+        </div>
+    </div>
+
+    {{--<section class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="card achievements">
+                    <div class="achievement-title">
+                        <h4>All Threads: </h4>
+                        <div class="button-group">
+                            <p>
+                                <a href="{!! route('post.create') !!}" class="btn btn-info btn-lg">
+                                    <span class="glyphicon glyphicon-plus"></span> CREATE A NEW POST
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    @if(count($posts))
+                        @foreach($posts as $post)
+                            <div class="single-achievement">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h3>{{ $post->title }}</h3>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="button-group">
+                                            @if( $authUser->id == $post->user_id )
+                                                <a href="{{ route('post.edit', $post->id) }}"><button class="btn btn-primary" type="button">EDit</button></a>
+                                                <a href="{{ route('post.delete', $post->id) }}"><button class="btn btn-danger" type="button">Delete </button></a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p><a href="{{ route('post.show_post', $post->id) }}">See full post with comment</a> </p>
+
+                                <p>Category: {{ $post->category }}</p>
+                                <p>{{ $post->details }}</p>
+                                <p>By {{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>
+
+                            </div>
+                        @endforeach
+                    @else
+                        No data found
+                    @endif
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <div class="container">
         <div class="well">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    {{--Showing the Search Results with the selected Post:
-                    <hr>--}}
+                    --}}{{--Showing the Search Results with the selected Post:
+                    <hr>--}}{{--
                     <a href="{{ route('post.create') }}">CREATE A NEW POST </a>
                     <br>
 
@@ -50,7 +158,7 @@
                         </tbody>
                     </table>
 
-                    {{--<br>
+                    --}}{{--<br>
                     <br>
                     @foreach($posts as $post)
                         <div class="showPost">
@@ -66,11 +174,12 @@
 
                             <hr>
                         </div>
-                    @endforeach--}}
+                    @endforeach--}}{{--
                 </div>
             </div>
         </div>
-    </div>
+    </div>--}}
+
 
 
 @endsection
