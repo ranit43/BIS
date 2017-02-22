@@ -193,7 +193,6 @@
                                     <tr>
                                         <th>paperID</th>
                                         <th>Name</th>
-                                        <th>Link</th>
                                         <th>Details</th>
                                         <th>UserID</th>
                                         <th>User</th>
@@ -207,9 +206,9 @@
                                             <tr>
                                                 <td>{{ $paper->id }}</td>
                                                 {{--<td><a href="{{ route('paper.show_paper', $paper->id) }}">{{ $paper->title }}</a> </td>--}}
-                                                <td>{{ $paper->name }} </td>
+                                                {{--<td>{{ $paper->name }} </td>--}}
                                                 {{--<td><a href="{{ route('paper.show_paper', $paper->id) }}">{{ $paper->link }}</a> </td>--}}
-                                                <td><a href="{!! $paper->link !!}">{{ $paper->link }}</a> </td>
+                                                <td><a href="{!! $paper->link !!}" target="_blank">{{ $paper->name }}</a> </td>
                                                 {{--<td>{{ $paper->link }}</td>--}}
                                                 <td>{{ $paper->details }}</td>
                                                 <td>{{ $paper->user_id }}</td>

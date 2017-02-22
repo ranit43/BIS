@@ -10277,3 +10277,43 @@ xpush
     width: 28%;
   }
 }
+
+
+/*  Profile page  */
+
+.cover-photo {
+  background-color: #000;
+  height: 300px;
+}
+
+.card {
+    box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.26);
+    padding: 30px 15px;
+}
+
+.basic-profile {
+  margin-top: -90px;
+}
+
+.basic-profile h2 {
+  font-size: 40px;
+  font-weight: 200;
+  word-spacing: -1px;
+}
+
+
+
+.achievements h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 0px;
+}
+
+.single-achievement {
+    padding: 15px 0px;
+    border-bottom: 1px solid #ccc;
+}
+
+.single-achievement p:first-child() {
+    font-size: 22px;
+}

@@ -33,6 +33,11 @@ Route::post('searchResult', [
 	'uses' => 'PagesController@searchResult'
 	]);
 
+Route::get('userslist', [
+    'as'   =>  'userslist',
+    'uses' => 'PagesController@userslist'
+    ]);
+
 Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('home', [

@@ -88,6 +88,18 @@ class PagesController extends Controller
        */
     }
 
+    public function userslist()
+    {
+        $users = USER::all();
+        $authUser = Auth::user();
+
+        return view('userslist', [
+            'authUser'          => $authUser
+            ])
+            ->with('users', $users)
+            ;
+    }
+
     public function forum()
     {
         $authUser = Auth::user();
@@ -105,7 +117,7 @@ class PagesController extends Controller
         $projects = User::find($userid)->projects;
         $papers = User::find($userid)->papers;
 
-    	return view('home',
+    	return view('profile_temp',
         [
             'authUser'          => $authUser
         ])

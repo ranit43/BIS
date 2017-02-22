@@ -1,4 +1,4 @@
-<section id="topNavBar" class="nav-wrapper transparent red">
+<section id="topNavBar" class="nav-wrapper red">
 	<div class="container-fluid">
 		<div id="menuzord" class="menuzord red">
 			<a href="index.html" class="menuzord-brand">

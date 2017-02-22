@@ -21,6 +21,8 @@
                 {!! Form::label('link', 'Link:') !!}
                 {!! Form::text('link', null, ['id' => 'link', 'class' =>'form-control', 'placeholder' => 'Link' ]) !!}
 
+                {{--{{ Form::url('webpage', 'http://a.com', ['class' => 'field']) }}--}}
+
                 <br>
 
                 {!! Form::label('details', 'Details') !!}
