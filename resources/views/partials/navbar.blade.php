@@ -1,4 +1,4 @@
-<section id="topNavBar" class="nav-wrapper red">
+<section id="topNavBar" class="nav-wrapper navbar-solid">
 	<div class="container-fluid">
 		<div id="menuzord" class="menuzord red">
 			<a href="index.html" class="menuzord-brand">
@@ -17,17 +17,17 @@
                     <li><a href="{{ url('/post') }}">Forum</a></li>
 
                     <li><a href="{{ url('/home') }}">Profile</a></li>
-                    <li class="dropdown">
+                    <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown" role="menu">
                             <li> <a href="{{ url('/edit', $authUser->id) }}">Edit</a> </li>
                             <li>
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();">
                                     Logout
                                 </a>
 

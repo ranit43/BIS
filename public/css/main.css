@@ -10279,6 +10279,11 @@ xpush
 }
 
 
+#topNavBar {
+  background-color: #0a4550;
+}
+
+
 /*  Profile page  */
 
 .cover-photo {
@@ -10314,6 +10319,59 @@ xpush
     border-bottom: 1px solid #ccc;
 }
 
-.single-achievement p:first-child() {
+.single-achievement p:first-child {
     font-size: 22px;
+}
+
+.button-group {
+  float: right;
+}
+
+.achievement-title {
+    display: block;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0px;
+}
+
+.achievement-title h4 {
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.bs-example:after {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #3a3333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    content: "Skill";
+}
+
+.card.achievements {
+    padding: 80px 15px;
+}
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 11px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #0a4550;
+    border-radius: 24px;
+}
+
+#myTabContent {
+    margin-top: 20px;
+}
+
+.menuzord-menu ul.dropdown, .menuzord-menu ul.dropdown li ul.dropdown, .menuzord-menu > li > .megamenu {
+    background-color: #0a4550;
 }
