@@ -1,35 +1,40 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-    <div class="well">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
 
-                {!! Form::model($achievement, ['route' => ['achievement.update', $achievement->id], 'method' => 'PUT', 'files' => true]  ) !!}
+    <section class="search-home">
 
-                {!! Form::label('ttile', 'Title (Position in the Competition)' ) !!}
-                {!! Form::text('title', null, ['id' => 'title', 'class' =>'form-control', 'placeholder' => 'Title', 'required' ]) !!}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
 
-                <br>
+                    {!! Form::model($achievement, ['route' => ['achievement.update', $achievement->id], 'method' => 'PUT', 'files' => true]  ) !!}
 
-                {!! Form::label('issuer', 'Issuer (Competition Name)') !!}
-                {!! Form::text('issuer', null, ['id' => 'issuer', 'class' =>'form-control', 'placeholder' => 'Issuer', 'required' ]) !!}
+                    {!! Form::label('ttile', 'Title (Position in the Competition)' ) !!}
+                    {!! Form::text('title', null, ['id' => 'title', 'class' =>'form-control', 'placeholder' => 'Title', 'required' ]) !!}
 
-                <br>
-                {!! Form::label('year', 'Year') !!}
-                {!! Form::text('year', null, ['id' => 'year', 'class' =>'form-control', 'placeholder' => 'Year', 'required' ]) !!}
+                    <br>
 
-                <br>
+                    {!! Form::label('issuer', 'Issuer (Competition Name)') !!}
+                    {!! Form::text('issuer', null, ['id' => 'issuer', 'class' =>'form-control', 'placeholder' => 'Issuer', 'required' ]) !!}
+
+                    <br>
+                    {!! Form::label('year', 'Year') !!}
+                    {!! Form::text('year', null, ['id' => 'year', 'class' =>'form-control', 'placeholder' => 'Year', 'required' ]) !!}
+
+                    <br>
 
 
-                {!! Form::label('details', 'Details') !!}
-                {!! Form::textarea( 'details', null, [ 'id' => 'details', 'class' => 'form-control', 'placeholder' => 'Details' ]) !!}
+                    {!! Form::label('details', 'Details') !!}
+                    {!! Form::textarea( 'details', null, [ 'id' => 'details', 'class' => 'form-control', 'placeholder' => 'Details' ]) !!}
 
-                <br>
-                {!!   Form::submit('Submit', ['class' => 'btn btn-success']) !!}
+                    <br>
+                    {!!   Form::submit('Submit', ['class' => 'btn btn-success']) !!}
 
+                </div>
             </div>
         </div>
+    </section>
 
         {!! Form::close() !!}
     </div>

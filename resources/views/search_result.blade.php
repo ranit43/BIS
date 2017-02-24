@@ -25,7 +25,10 @@
                                     @endforeach
                                 </p>
 
-                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                                {{--<p>
+                                    <a href="#" class="btn btn-primary" role="button">Button</a>
+                                    <a href="#" class="btn btn-default" role="button">Button</a>
+                                </p>--}}
                             </div>
                         </div>
                     </div>

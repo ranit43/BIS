@@ -10424,6 +10424,13 @@ span.badge.badge-success.sr {
     background-color: #0a4550;
     border-radius: 24px;
 }
+section.login.page {
+    margin-top: 90px;
+}
+
+section.register.page {
+    margin-top: 90px;
+}
 
 #myTabContent {
     margin-top: 20px;

@@ -1,39 +1,41 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                {{--<div class="panel-heading">post</div>--}}
-                Project add page.
-                <br/>
-                <br/>
+    <section class="search-home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    {{--<div class="panel-heading">post</div>--}}
+                    Project add page.
+                    <br/>
+                    <br/>
 
-                {{--{!! ! Form::open([ 'id' => 'post-question-form']) !!}--}}
-                {!!  Form::open([ 'route' => 'project.store', 'method' => 'post']) !!}
+                    {{--{!! ! Form::open([ 'id' => 'post-question-form']) !!}--}}
+                    {!!  Form::open([ 'route' => 'project.store', 'method' => 'post']) !!}
 
-                {!! Form::label('name', 'Title (Position in the Competition)' ) !!}
-                {!! Form::text('name', null, ['id' => 'name', 'class' =>'form-control', 'placeholder' => 'Title']) !!}
+                    {!! Form::label('name', 'Title (Position in the Competition)' ) !!}
+                    {!! Form::text('name', null, ['id' => 'name', 'class' =>'form-control', 'placeholder' => 'Title']) !!}
 
-                <br>
+                    <br>
 
-                {!! Form::label('link', 'Link:') !!}
-                {!! Form::text('link', null, ['id' => 'link', 'class' =>'form-control', 'placeholder' => 'Link' ]) !!}
+                    {!! Form::label('link', 'Link:') !!}
+                    {!! Form::text('link', null, ['id' => 'link', 'class' =>'form-control', 'placeholder' => 'Link' ]) !!}
 
-                {{--{{ Form::url('webpage', 'http://a.com', ['class' => 'field']) }}--}}
-                <br>
+                    {{--{{ Form::url('webpage', 'http://a.com', ['class' => 'field']) }}--}}
+                    <br>
 
-                {!! Form::label('details', 'Details') !!}
-                {!! Form::textarea( 'details', null, [ 'id' => 'details', 'class' => 'form-control', 'placeholder' => 'Details' ]) !!}
+                    {!! Form::label('details', 'Details') !!}
+                    {!! Form::textarea( 'details', null, [ 'id' => 'details', 'class' => 'form-control', 'placeholder' => 'Details' ]) !!}
 
-                <br>
-                {!!   Form::submit('Submit', ['class' => 'btn btn-success']) !!}
+                    <br>
+                    {!!   Form::submit('Submit', ['class' => 'btn btn-success']) !!}
 
-                {!! Form::close() !!}
+                    {!! Form::close() !!}
 
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
 @endsection
