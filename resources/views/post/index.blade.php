@@ -46,7 +46,7 @@
                                 <div class="single-post">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h3>{{ $post->title }}</h3>
+                                            <h4>{{ $post->title }}</h4>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="button-group">
@@ -58,7 +58,8 @@
                                         </div>
                                     </div>
                                     <p>Category: {{ $post->category }}</p>
-                                    <p>{{ $post->details }}</p>
+                                    {{--<p>{{ $post->details }}</p>--}}
+                                    <p>{{ str_limit( $post->details, $limit = 15, $end = '...') }}</p>
                                     <p>By {{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>
                                     <a href="{{ route('post.show_post', $post->id) }}"><button class="btn btn-success" type="button">Details </button></a>
                                 </div>

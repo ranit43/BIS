@@ -66,6 +66,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'image' => '/uploads/images/users/annonymus.jpg',
         ]);
 
        /* $user = new User();

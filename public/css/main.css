@@ -10371,7 +10371,7 @@ xpush
 }
 
 .card.achievements {
-    padding: 80px 15px;
+    padding: 60px 15px;
 }
 
 .card.posts-comment {
@@ -10442,4 +10442,8 @@ section.register.page {
 
 .edit {
   margin-top: 90px;
+}
+
+section.full-profile-content {
+  margin-top: 185px;
 }

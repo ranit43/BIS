@@ -74,16 +74,12 @@ class PagesController extends Controller
         ])
             ->with('users', $users)
             ;
-        
 
        /*return view('search_result')
        ->with('users', $users)
-       ;*/
-       /* 
+       ;
        $user->skills()->sync($request->skill);
             return redirect()->route('home')->with('success','skill Successfully Added');
-        
-        
         return view('searchResult');
        */
     }
@@ -117,7 +113,7 @@ class PagesController extends Controller
         $projects = User::find($userid)->projects;
         $papers = User::find($userid)->papers;
 
-    	return view('profile_temp',
+    	return view('profile_tp2',
         [
             'authUser'          => $authUser
         ])
