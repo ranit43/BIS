@@ -5960,6 +5960,18 @@ FULL SCREEN NAVIGATION
 .site-header {
   position: relative;
   overflow: hidden;
+  background: url(../uploads/images/hunter-001.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.site-header .overlay {
+  position: absolute;
+  width: 100%;
+    height: 100%;
+  top:0;
+  left: 0;
+  background-color: rgba(0,0,0,0.45);
 }
 
 .site-header .intro {
@@ -6154,8 +6166,12 @@ FULL SCREEN NAVIGATION
 
 .intro-particle p {
   text-transform: none;
-  letter-spacing: 8px;
+  letter-spacing: 3px;
   margin-top: 25px;
+}
+
+.intro-particle h4 {
+    letter-spacing: 6px;
 }
 
 .video-player-big.vp-style2 h5 {
@@ -10391,7 +10407,7 @@ xpush
 }*/
 
 section.search-home {
-    margin-top: 103px;
+    margin-top: 225px;
 }
 
 span.badge.badge-success.sr {
@@ -10446,4 +10462,9 @@ section.register.page {
 
 section.full-profile-content {
   margin-top: 185px;
+}
+
+.single-post p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
 }

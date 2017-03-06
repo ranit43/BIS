@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         
         <!-- Library Stylesheets -->
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700'>
         <link rel="stylesheet" href="/css/animsition.min.css">
         <link rel="stylesheet" href="/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/ionicons.css">
