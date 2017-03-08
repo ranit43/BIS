@@ -14,13 +14,20 @@ class SkillTableSeeder extends Seeder
     {
         //
 
-        Skill::create([ 'name' => 'C' ]);
-        Skill::create([ 'name' => 'C++' ]);
-        Skill::create([ 'name' => 'Java' ]);
-        Skill::create([ 'name' => 'PHP' ]);
-        Skill::create([ 'name' => 'Laravel' ]);
-        Skill::create([ 'name' => 'C#' ]);
-        Skill::create([ 'name' => 'NodeJS' ]);
-        Skill::create([ 'name' => 'Python' ]);
+        Skill::create([ 'name' => 'C', 'field'=>'CSE' ]);
+        Skill::create([ 'name' => 'C++', 'field'=>'CSE' ]);
+        Skill::create([ 'name' => 'Java','field'=>'CSE' ]);
+        Skill::create([ 'name' => 'PHP','field'=>'CSE' ]);
+        Skill::create([ 'name' => 'Laravel','field'=>'CSE' ]);
+        Skill::create([ 'name' => 'C#','field'=>'CSE' ]);
+        Skill::create([ 'name' => 'NodeJS','field'=>'CSE' ]);
+        Skill::create([ 'name' => 'Python','field'=>'CSE' ]);
+        Skill::create([ 'name' => 'PSpice','field'=>'EEE' ]);
+        Skill::create([ 'name' => 'Matlab','field'=>'EEE' ]);
+        Skill::create([ 'name' => 'Power World','field'=>'EEE' ]);
+        Skill::create([ 'name' => 'AutoCAD','field'=>'EEE' ]);
+        Skill::create([ 'name' => 'Quartus','field'=>'EEE' ]);
+        Skill::create([ 'name' => 'OptiSystem','field'=>'EEE' ]);
+        Skill::create([ 'name' => 'SILVACO','field'=>'EEE' ]);
     }
 }

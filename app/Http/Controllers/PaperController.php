@@ -35,7 +35,7 @@ class PaperController extends Controller
 
 
         $authUser = Auth::user();
-        return view('paper.create', [
+        return view('paper.create_card', [
             'authUser' => $authUser
         ]);
         //return view('paper.create');
@@ -77,7 +77,7 @@ class PaperController extends Controller
     public function edit($id) {
         $paper = Paper::findOrFail($id);
         $authUser = Auth::user();
-        return view('paper.edit', [
+        return view('paper.edit_card', [
             'authUser' => $authUser
         ])
             ->with('paper', $paper)

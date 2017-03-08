@@ -19,8 +19,8 @@
             </div>
         </div>
 
-        <a href="#about" class="btn-arrow-down-round btn-o onPageNav">
+        {{--<a href="#about" class="btn-arrow-down-round btn-o onPageNav">
             <i class="ion-ios-arrow-down"></i>
-        </a>
+        </a>--}}
     </header>
 @endsection

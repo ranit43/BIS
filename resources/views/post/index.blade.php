@@ -31,7 +31,7 @@
                                 <div class="button-group">
                                     <p>
                                         <a href="{!! route('post.create') !!}" class="btn btn-info btn-lg">
-                                            <span class="glyphicon glyphicon-plus"></span> CREATE A NEW POST
+                                            <span class="glyphicon glyphicon-plus"></span> {{--CREATE A NEW POST--}}
                                         </a>
                                     </p>
                                 </div>
@@ -56,22 +56,18 @@
                                         <div class="col-md-6">
                                             <div class="button-group">
                                                 @if( $authUser->id == $post->user_id )
-
                                                     {{--<a href="{{ route('post.edit', $post->id) }}" class="btn btn-info btn-lg">
                                                         <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
---}}
+                                                    </a>--}}
                                                     <a href="{{ route('post.edit', $post->id) }}">
                                                         <button class="btn btn-primary" type="button">
-                                                            <span class="glyphicon glyphicon-pencil">
-
-                                                            </span>
+                                                            <span class="glyphicon glyphicon-pencil"></span>
                                                         </button>
                                                     </a>
-
                                                     {{--<a href="{{ route('post.edit', $post->id) }}"><button class="btn btn-primary" type="button">EDit</button></a>--}}
                                                     {{--<a href="{{ route('post.delete', $post->id) }}"><button class="btn btn-danger" type="button">Delete </button></a>--}}
-                                                    <a href="{{ route('post.delete', $post->id) }}"><button class="btn btn-danger" type="button">
+                                                    <a href="{{ route('post.delete', $post->id) }}">
+                                                        <button class="btn btn-danger" type="button">
                                                             <span class="glyphicon glyphicon-remove"></span>
                                                         </button>
                                                     </a>
@@ -82,8 +78,12 @@
                                     <p>Category: {{ $post->category }}</p>
                                     {{--<p>{{ $post->details }}</p>--}}
                                     <p>{{ str_limit( $post->details, $limit = 15, $end = '...') }}</p>
-                                    <p>By {{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>
-                                    <a href="{{ route('post.show_post', $post->id) }}"><button class="btn btn-success" type="button">Details </button></a>
+                                    <p>{{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>
+                                    <a href="{{ route('post.show_post', $post->id) }}">
+                                        <button class="btn btn-success" type="button">
+                                            <span class="glyphicon glyphicon-share-alt"></span>
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

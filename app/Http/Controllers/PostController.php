@@ -31,7 +31,7 @@ class postController extends Controller
 
 
         $authUser = Auth::user();
-        return view('post.create', [
+        return view('post.create_card', [
             'authUser' => $authUser
         ]);
         //return view('post.create');
@@ -74,7 +74,7 @@ class postController extends Controller
     public function edit($id) {
         $post = Post::findOrFail($id);
         $authUser = Auth::user();
-        return view('post.edit', [
+        return view('post.edit_card', [
             'authUser' => $authUser
             ])
             ->with('post', $post)

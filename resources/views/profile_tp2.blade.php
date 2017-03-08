@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>--}}
+{{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
 @section('content')
 
     <section class="full-profile-content">
@@ -70,7 +74,15 @@
 
                         </div>
 
+                        <section class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                </div>
+                            </div>
+                        </section>
+
                         <div class="card achievements">
+
 
                             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                 <div class="panel panel-default">
@@ -85,11 +97,11 @@
                                         <div class="panel-body">
 
                                             <div class="achievement-title">
-                                                <h4>Achievements: </h4>
+                                                {{--<h4>Achievements: </h4>--}}
                                                 <div class="button-group">
                                                     <p>
                                                         <a href="{!! route('achievement.create') !!}" class="btn btn-info btn-lg">
-                                                            <span class="glyphicon glyphicon-plus"></span> Add new achievement
+                                                            <span class="glyphicon glyphicon-plus"></span> {{--Add achievement--}}
                                                         </a>
                                                     </p>
                                                 </div>
@@ -104,8 +116,16 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="button-group">
-                                                                    <a href="{{ route('achievement.edit', $achievement->id) }}"><button class="btn btn-primary" type="button">EDit</button></a>
-                                                                    <a href="{{ route('achievement.delete', $achievement->id) }}"><button class="btn btn-danger" type="button">Delete </button></a>
+                                                                    <a href="{{ route('achievement.edit', $achievement->id) }}">
+                                                                        <button class="btn btn-primary" type="button">
+                                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                                        </button>
+                                                                    </a>
+                                                                    <a href="{{ route('achievement.delete', $achievement->id) }}">
+                                                                        <button class="btn btn-danger" type="button">
+                                                                            <span class="glyphicon glyphicon-remove"></span>
+                                                                        </button>
+                                                                    </a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -134,11 +154,11 @@
                                         <div class="panel-body">
 
                                             <div class="achievement-title">
-                                                <h4>Projects: </h4>
+                                                {{--<h4>Projects: </h4>--}}
                                                 <div class="button-group">
                                                     <p>
                                                         <a href="{!! route('project.create') !!}" class="btn btn-info btn-lg">
-                                                            <span class="glyphicon glyphicon-plus"></span> Add new Project
+                                                            <span class="glyphicon glyphicon-plus"></span> {{--Add new Project--}}
                                                         </a>
                                                     </p>
                                                 </div>
@@ -153,8 +173,16 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="button-group">
-                                                                    <a href="{{ route('project.edit', $project->id) }}"><button class="btn btn-primary" type="button">EDit</button></a>
-                                                                    <a href="{{ route('project.delete', $project->id) }}"><button class="btn btn-danger" type="button">Delete </button></a>
+                                                                    <a href="{{ route('project.edit', $project->id) }}">
+                                                                        <button class="btn btn-primary" type="button">
+                                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                                        </button>
+                                                                    </a>
+                                                                    <a href="{{ route('project.delete', $project->id) }}">
+                                                                        <button class="btn btn-danger" type="button">
+                                                                            <span class="glyphicon glyphicon-remove"></span>
+                                                                        </button>
+                                                                    </a>
                                                                 </div>
                                                             </div>
 
@@ -184,11 +212,11 @@
                                         <div class="panel-body">
 
                                             <div class="achievement-title">
-                                                <h4>Publications: </h4>
+                                                {{--<h4>Publications: </h4>--}}
                                                 <div class="button-group">
                                                     <p>
                                                         <a href="{!! route('paper.create') !!}" class="btn btn-info btn-lg">
-                                                            <span class="glyphicon glyphicon-plus"></span> Add new Paper
+                                                            <span class="glyphicon glyphicon-plus"></span> {{--Add new Paper--}}
                                                         </a>
                                                     </p>
                                                 </div>
@@ -202,8 +230,16 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="button-group">
-                                                                    <a href="{{ route('paper.edit', $paper->id) }}"><button class="btn btn-primary" type="button">EDit</button></a>
-                                                                    <a href="{{ route('paper.delete', $paper->id) }}"><button class="btn btn-danger" type="button">Delete </button></a>
+                                                                    <a href="{{ route('paper.edit', $paper->id) }}">
+                                                                        <button class="btn btn-primary" type="button">
+                                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                                        </button>
+                                                                    </a>
+                                                                    <a href="{{ route('paper.delete', $paper->id) }}">
+                                                                        <button class="btn btn-danger" type="button">
+                                                                            <span class="glyphicon glyphicon-remove"></span>
+                                                                        </button>
+                                                                    </a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -221,6 +257,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
                     </div>

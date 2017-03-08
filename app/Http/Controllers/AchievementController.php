@@ -33,7 +33,7 @@ class AchievementController extends Controller
 
 
         $authUser = Auth::user();
-        return view('achievement.create', [
+        return view('achievement.create_card', [
             'authUser' => $authUser
         ]);
         //return view('achievement.create');
@@ -77,7 +77,7 @@ class AchievementController extends Controller
     public function edit($id) {
         $achievement = Achievement::findOrFail($id);
         $authUser = Auth::user();
-        return view('achievement.edit', [
+        return view('achievement.edit_card', [
             'authUser' => $authUser
         ])
             ->with('achievement', $achievement)

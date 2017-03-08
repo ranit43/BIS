@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\VolunteeringSkill;
 
@@ -11,14 +12,20 @@ class VolunteeringSkillController extends Controller
 {
     //
     public function index() {
+        $authUser = Auth::user();
         $volunteeringskills = Volunteeringskill::all();
-        return view('volunteeringskill.index')
+        return view('volunteeringskill.index_card', [
+        'authUser' => $authUser
+            ])
             ->with('volunteeringskills', $volunteeringskills);
     }
     
     //
     public function create() {
-        return view('volunteeringskill.create');
+        $authUser = Auth::user();
+        return view('volunteeringskill.create_card', [
+            'authUser' => $authUser
+        ]);
     }
 
 
@@ -52,8 +59,11 @@ class VolunteeringSkillController extends Controller
 
     public function edit($id) {
 
+        $authUser = Auth::user();
         $volunteeringskill = Volunteeringskill::findOrFail($id);
-        return view('volunteeringskill.edit')
+        return view('volunteeringskill.edit_card', [
+            'authUser' => $authUser
+        ])
             ->with('volunteeringskill', $volunteeringskill);;
     }
 

@@ -75,7 +75,7 @@ class CommentController extends Controller
     public function edit($id) {
         $comment = Comment::findOrFail($id);
         $authUser = Auth::user();
-        return view('comment.edit', [
+        return view('comment.edit_card', [
             'authUser' => $authUser
             ])
             ->with('comment', $comment)

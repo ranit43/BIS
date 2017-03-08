@@ -1,24 +1,12 @@
 @extends('layouts.master')
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 @section('content')
 
-		{{--<div class="flex-center position-ref full-height">
-		        @if (Route::has('login'))
-		                <div class="top-right links">
-		                    <a href="{{ url('/search') }}">TalentSearch</a>
-		                    <a href="{{ url('/forum') }}">Forum</a>
-		                    
-		                    @if (Auth::check())
-		                       <!-- <a href="{{ url('/edit') }}">Edit</a>  -->
-		                        <a href="{{ url('/home') }}">Profile</a>    
-		                    @else
-		                        <a href="{{ url('/login') }}">Login</a>
-		                        <a href="{{ url('/register') }}">Register</a>
-		                        
-		                    @endif
-		                </div>
-		         @endif
-		</div>--}}
 		<div class ="edit" >
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
@@ -26,7 +14,7 @@
 					{!! Form::model($authUser,['route' => ['profileUpdate', $authUser->id], 'method' => 'post', 'files' => true]) !!}
 
 					<div class="form-group">
-						{{ Form::label('name', 'Username') }}
+						{{ Form::label('name', 'Name') }}
 						{{ Form::text('name', null, ['id' => 'name', 'placeholder' => 'Update your User name', 'class' => 'form-control']) }}
 					</div>
 
@@ -35,12 +23,25 @@
 					{{ Form::text('user_name', null, ['id' => 'name', 'placeholder' => 'Update your User name', 'class' => 'form-control']) }}
 						</div> -->
 
+					{{--<div class="form-group">
+
+						<div class="col-xs-3">
+							{{ Form::label('email', 'Your Email') }}
+							{{ Form::email('email', null, ['id' => 'email', 'placeholder' => 'Update Your email', 'class' => 'form-control']) }}
+						</div>
+						<div class="col-xs-4">
+							{{ Form::label('contact', 'Contact') }}
+							{{ Form::text('contact', null, ['id' => 'contact', 'placeholder' => 'Update your Contact', 'class' => 'form-control']) }}
+						</div>
+					</div>--}}
 					<div class="form-group">
+
 						{{ Form::label('email', 'Your Email') }}
 						{{ Form::email('email', null, ['id' => 'email', 'placeholder' => 'Update Your email', 'class' => 'form-control']) }}
 					</div>
 
 					<div class="form-group">
+
 						{{ Form::label('contact', 'Contact') }}
 						{{ Form::text('contact', null, ['id' => 'contact', 'placeholder' => 'Update your Contact', 'class' => 'form-control']) }}
 					</div>

@@ -51,6 +51,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed',
+
         ]);
     }
 
@@ -69,6 +70,14 @@ class RegisterController extends Controller
             'image' => '/uploads/images/users/annonymus.jpg',
         ]);
 
+        /*$user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'image' => '/uploads/images/users/annonymus.jpg',
+        ]);
+        $user->save();
+        return $user;*/
        /* $user = new User();
         $user->user_name = $data['name'];
         $user->email = $data['email'];

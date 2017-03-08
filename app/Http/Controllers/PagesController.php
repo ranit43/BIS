@@ -31,17 +31,25 @@ class PagesController extends Controller
 
     public function search()
     {
-        $skills = Skill::all();
+        //$skills = Skill::groupBy('field')->get();
         $volunteeringSkills = VolunteeringSkill::all();
-        
+        $fields = Skill::groupBy('field')->pluck('field', 'field');
+        $fields_skills = [];
+
+        foreach ($fields as $field ) {
+            $fields_skills[$field] = Skill::where('field' , '=', $field )->get();
+        }
+        /*return $skills;*/
+
         /*$people = ['Lopa', 'Abir', 'Partho'];*/
         $authUser = Auth::user();
 
-        return view( 'search', [
+        return view( 'search_card', [
                 'authUser'          => $authUser
                 ])
-                -> with('skills', $skills)
+                -> with('fields_skills', $fields_skills)
                     ->with('volunteeringSkills', $volunteeringSkills)
+                        ->with('fields', $fields)
                         ;
 
        /* return view('search')
@@ -57,6 +65,7 @@ class PagesController extends Controller
     //public function searchResult(Request $request, array $skill)
     public function searchResult(Request $request)
     {
+        $this->validate($request, ['skill'=>'required'] );
         //return $request->all();
         //return $request->skill;
         $skills = $request->skill;
@@ -113,6 +122,18 @@ class PagesController extends Controller
         $projects = User::find($userid)->projects;
         $papers = User::find($userid)->papers;
 
+       /* $img_url = null;
+        if( $request->hasFile('image') ) {
+
+            $file = $request->file('image');
+
+            $destination = public_path().'/uploads/images/users/';
+            $filename = time().'_users.'.$file->getClientOriginalExtension();
+            $file->move($destination, $filename);
+            $img_url = '/uploads/images/users/'.$filename;
+            $user->image = $img_url;
+        }*/
+
     	return view('profile_tp2',
         [
             'authUser'          => $authUser
@@ -140,7 +161,7 @@ class PagesController extends Controller
             $myVolunteeringSkills[] = $volunteeringSkill->id;
         }
 
-        return view('edit',[
+        return view('edit_card',[
             'authUser'          => $authUser
         ])
         ->with('skills', $skills)
@@ -183,7 +204,6 @@ class PagesController extends Controller
             $file->move($destination, $filename);
             $img_url = '/uploads/images/users/'.$filename;
             $user->image = $img_url;
-
         }
         /*else {
 
@@ -209,7 +229,7 @@ class PagesController extends Controller
         $user->adress = $request->adress;
         $user->contact = $request->contact;
 
-
+        /*return $request->volunteeringSKill;*/
 
         if($user->save()) {
             //$user->skills()->attach($request->skill);

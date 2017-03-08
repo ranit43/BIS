@@ -3,18 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Skill;
 class SkillController extends Controller
 {
 	public function index() {
 		$skills = Skill::all();
-		return view('skill.index')
-				->with('skills', $skills);
+        $authUser = Auth::user();
+
+		return view('skill.index_card', [
+            'authUser' => $authUser
+            ])
+            ->with('skills', $skills);
 	}
     //
     public function create() {
-    	return view('skill.create');
+	    $authUser = Auth::user();
+    	return view('skill.create_card', [
+            'authUser' => $authUser
+        ]);
     }
 
     
@@ -26,7 +34,8 @@ class SkillController extends Controller
     	// $data = $request->all();
     	// return $data;
     	$rules = [
-            'name' => 'required'
+            'name' => 'required',
+            'field' => 'required',
             ];
 
         $data = $request->all();
@@ -38,6 +47,8 @@ class SkillController extends Controller
 
         $skill = new Skill();
         $skill->name = $data['name'];
+        $skill->field = $data['field'];
+
         if($skill->save()) {
             return redirect()->route('skill.index')->with('success','skill Successfully Added');
         } else {
@@ -48,8 +59,12 @@ class SkillController extends Controller
     public function edit($id) {
         
         $skill = Skill::findOrFail($id);
-        return view('skill.edit')
-                ->with('skill', $skill);;
+        $authUser = Auth::user();
+
+        return view('skill.edit_card', [
+            'authUser' => $authUser
+            ])
+            ->with('skill', $skill);
     }
 
     

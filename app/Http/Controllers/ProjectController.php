@@ -34,7 +34,7 @@ class ProjectController extends Controller
 
 
         $authUser = Auth::user();
-        return view('project.create', [
+        return view('project.create_card', [
             'authUser' => $authUser
         ]);
         //return view('project.create');
@@ -76,7 +76,7 @@ class ProjectController extends Controller
     public function edit($id) {
         $project = Project::findOrFail($id);
         $authUser = Auth::user();
-        return view('project.edit', [
+        return view('project.edit_card', [
             'authUser' => $authUser
         ])
             ->with('project', $project)

@@ -1,7 +1,7 @@
 <section id="topNavBar" class="nav-wrapper navbar-solid">
 	<div class="container-fluid">
 		<div id="menuzord" class="menuzord red">
-			<a href="index.html" class="menuzord-brand">
+			<a href="{{ url('/') }}" class="menuzord-brand">
 				B I S
 			</a>
 			<ul class="menuzord-menu">
@@ -20,7 +20,8 @@
                     <li><a href="{{ url('/home') }}">Profile</a></li>
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            {{ Auth::user()->name }}
+                            {{--<span class="caret"></span>--}}
                         </a>
 
                         <ul class="dropdown" role="menu">

@@ -41,7 +41,14 @@
 
 
                                     @if( $authUser->id == $comment->user_id )
-                                        <td><a href="{{ route('comment.edit', $comment->id) }}"><button class="btn btn-primary" type="button">EDit</button></a></td>
+                                        <td><a href="{{ route('comment.edit', $comment->id) }}">
+                                                <button class="btn btn-primary" type="button">
+                                                    <span class="glyphicon glyphicon-pencil">
+
+                                                    </span>
+                                                </button>
+                                            </a>
+                                        </td>
                                         <td><a href="{{ route('comment.delete', $comment->id) }}"><button class="btn btn-danger" type="button">Delete </button></a></td>
                                     @else
                                         <td>Edit</td>

@@ -8,7 +8,7 @@
         <meta name="Description" content="Responsive Multiporpuse HTML5 Website Template">
         <meta name="keywords" content="Business, Agency, Corporate, Flat, Responsive, Website Template">
 
-        <title>{{ config('app.name', 'BIS') }}</title>
+        <title>BIS</title>
 
         
         <!-- favicons
@@ -62,6 +62,37 @@
 
 
         </div><!--/#zwrapper-->
+
+        <footer id="footer" class="section footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <p class="copyright">© 2017 CSE, SUST</p>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        {{--<p class="footer-menu">
+                            <a href="">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a>
+                        </p>--}}
+                        <p class="footer-menu" >
+                            Co-ordinated By:
+                            <br>
+                            Md Masum
+                            <br>
+                            Associate Professor, CSE, SUST
+                            <br>
+                            Developed By:
+                            <br>
+                            Ranit Debnath Akash
+                            <br>
+                            Tanjila Mawla Tania
+                            <br>
+
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
 
 
 
