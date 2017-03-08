@@ -25,6 +25,7 @@ Route::get('/forum', function () {
 
 
 Auth::routes();
+
 Route::get('/', 'PagesController@welcome' );
 Route::get('search', 'PagesController@search' );
 //Route::get('searchResult/{skill}', [

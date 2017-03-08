@@ -122,17 +122,10 @@ class PagesController extends Controller
         $projects = User::find($userid)->projects;
         $papers = User::find($userid)->papers;
 
-       /* $img_url = null;
-        if( $request->hasFile('image') ) {
 
-            $file = $request->file('image');
-
-            $destination = public_path().'/uploads/images/users/';
-            $filename = time().'_users.'.$file->getClientOriginalExtension();
-            $file->move($destination, $filename);
-            $img_url = '/uploads/images/users/'.$filename;
-            $user->image = $img_url;
-        }*/
+        if( strcmp($authUser->image, '') == 0) {
+            $authUser->image = '/uploads/images/users/annonymus.jpg';
+        }
 
     	return view('profile_tp2',
         [
