@@ -10403,8 +10403,17 @@ xpush
   margin-top: 83px;
 }
 .card.edit {
+
   margin-top: 83px;
-  padding-bottom: 0px;
+  padding-left: 81px;
+  padding-right: 81px;
+  padding-bottom: 10px;
+
+}
+
+.col-md-6.contact-field {
+  margin-left: 15px;
+  padding-right: 1px;
 }
 
 
@@ -10481,4 +10490,8 @@ section.full-profile-content {
 
 .col-md-6.email-field {
   margin-left: -15px;
+}
+
+.thumbnail {
+  min-height: 490px;
 }

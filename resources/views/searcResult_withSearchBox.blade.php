@@ -1,15 +1,12 @@
 @extends('layouts.master')
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 @section('content')
 
-    <section class="container">
+
+
+    <section class="search-result">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="card edit">
                     <div class="single edit-field">
 
@@ -61,25 +58,6 @@
                         @endif
 
 
-                        {{--radio buttons--}}
-                        <div class="form-group">
-
-                            @if( count($fields) )
-
-
-                                    @foreach($fields as $field )
-
-                                        {{ Form::radio( 'field', $field ) }}
-                                        {{ Form::label('field', $field) }}
-                                        {{--{!! Form::checkbox('skill[]', $skill->id, in_array($skill->id, $mySkills) ? true : false) !!}--}}
-                                    @endforeach
-
-                            @else
-                                no field
-                            @endif
-                        </div>
-
-
 
                         <div class="form-group">
                             {{ Form::submit('Search', ['class' => 'btn btn-success']) }}
@@ -90,6 +68,42 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    @foreach($users as $user)
+                        <div class="col-md-4">
+                            <div class="thumbnail text-center">
+
+                                <img class="img-circle" src="{{ asset( $user->image ) }}" style="width: 200px" alt="{{ $user->name  }}" >
+                                <div class="caption">
+                                    <h3>{{ $user->name  }}</h3>
+                                    {{--<p>...</p>--}}
+                                    <p>Email: {!! $user->email !!}</p>
+                                    <p>Contact: {!! $user->contact !!}</p>
+                                    CV: <a href="{!! $user->CV !!}">Download CV </a>
+                                    <p>
+                                        Professional Skill:
+                                        <br>
+                                        @foreach($user->skills as $skill )
+                                            <span class="badge badge-success sr">{{$skill->name}}</span>
+                                        @endforeach
+                                    </p>
+
+                                    {{--<p>
+                                        <a href="#" class="btn btn-primary" role="button">Button</a>
+                                        <a href="#" class="btn btn-default" role="button">Button</a>
+                                    </p>--}}
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+
     </section>
 
 
@@ -107,8 +121,3 @@
     </script>
 
 @endsection
-
-
-{{--
-{{ Form::radio('sex', 'male') }}<br>
-{{ Form::radio('sex', 'female', true) }}--}}

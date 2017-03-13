@@ -13,6 +13,8 @@
                 <div class="card edit">
                     <div class="single edit-field">
 
+                                <h4> Profile Edit page</h4>
+
                                 {!! Form::model($authUser,['route' => ['profileUpdate', $authUser->id], 'method' => 'post', 'files' => true]) !!}
 
                                 <div class="form-group">
@@ -26,12 +28,10 @@
                                         {{ Form::label('email', 'Your Email') }}
                                         {{ Form::email('email', null, ['id' => 'email', 'placeholder' => 'Update Your email', 'class' => 'form-control']) }}
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 contact-field">
                                         {{ Form::label('contact', 'Contact') }}
                                         {{ Form::text('contact', null, ['id' => 'contact', 'placeholder' => 'Update your Contact', 'class' => 'form-control']) }}
                                         <br> </div>
-
-
                                 </div>
 
                               {{--  <div class="form-group">
@@ -46,12 +46,14 @@
                                     {{ Form::text('contact', null, ['id' => 'contact', 'placeholder' => 'Update your Contact', 'class' => 'form-control']) }}
                                 </div>--}}
 
-                                <div class="form-group">
+                                <div class="form-group adres-edit">
                                     {{ Form::label('adress', 'Address') }}
-                                    {{ Form::text('adress', null, ['id' => 'adress', 'placeholder' => 'Update your Adress', 'class' => 'form-control']) }}
+                                    {{--{{ Form::text('adress', null, ['id' => 'adress', 'placeholder' => 'Update your Adress', 'class' => 'form-control']) }}--}}
+                                    {!! Form::textarea( 'adress', null, ['size' => '81x3'], ['id' => 'adress', 'placeholder' => 'Update your Adress', 'class' => 'form-control'] ) !!}
+                                   {{-- {{ Form::textarea('adress', null, ['id' => 'adress', 'placeholder' => 'Update your Adress', 'class' => 'form-control']) }}--}}
                                 </div>
 
-                                <div class="form-group">
+                                {{--<div class="form-group">
 
                                     {{ Form::label('cv', "CV*", array('class' => 'control')) }}
                                     {{ Form::file('cv', array('class'=>'form-control', 'multiple'=>false )) }}
@@ -61,6 +63,18 @@
 
                                     {{ Form::label('image', "Image*", array('class' => 'control')) }}
                                     {{ Form::file('image', array('class'=>'form-control', 'multiple'=>false )) }}
+                                </div>--}}
+
+                                <div class="form-group">
+
+                                    <div class="col-md-6 email-field">
+                                        {{ Form::label('cv', "CV*", array('class' => 'control')) }}
+                                        {{ Form::file('cv', array('class'=>'form-control', 'multiple'=>false )) }}
+                                    </div>
+                                    <div class="col-md-6 contact-field">
+                                        {{ Form::label('image', "Image*", array('class' => 'control')) }}
+                                        {{ Form::file('image', array('class'=>'form-control', 'multiple'=>false )) }}
+                                        <br> </div>
                                 </div>
 
 

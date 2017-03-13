@@ -74,14 +74,27 @@ class PagesController extends Controller
          $filtered = UserSkill::whereIn('skill_id', $skills)->pluck('user_id');
          $users = User::whereIn('id',$filtered)->get();
 
+         //-----------------------
+        $volunteeringSkills = VolunteeringSkill::all();
+        $fields = Skill::groupBy('field')->pluck('field', 'field');
+        $fields_skills = [];
+
+        foreach ($fields as $field ) {
+            $fields_skills[$field] = Skill::where('field' , '=', $field )->get();
+        }
+        //---------------------------
+
         /*$filteredVolSkills = UserSkill::whereIn('skill_id', $skills)->pluck('user_id');
         $users = User::whereIn('id',$filteredVolSkills)->get();*/
 
 
-        return view('search_result', [
+        return view('searcResult_withSearchBox', [
             'authUser'          => $authUser
         ])
             ->with('users', $users)
+            -> with('fields_skills', $fields_skills)
+            ->with('volunteeringSkills', $volunteeringSkills)
+            ->with('fields', $fields)
             ;
 
        /*return view('search_result')
