@@ -79,11 +79,8 @@
                                 <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" style="width: 200px; height: 200px" alt="{{ $user->name  }}" >
                                 <div class="caption">
                                     <h3><a href="{{ route('show_user_profile', $user->id) }}">{{ $user->name  }}</a> </h3>
-                                    {{--<h3>{{ $user->name  }}</a> </h3>--}}
-                                    {{--
-                                        <li> <a href="{{ url('/edit', $authUser->id) }}">Edit</a> </li>
-
-                                    <a href="{{ route('paper.edit', $paper->id) }}">--}}
+                                    <h3>{{ $user->name  }}</a> </h3>
+                                    {{--<a href="{{ route('paper.edit', $paper->id) }}">--}}
                                         {{--<button class="btn btn-primary" type="button">--}}
                                             {{--<span class="glyphicon glyphicon-pencil"></span>--}}
                                         {{--</button>--}}

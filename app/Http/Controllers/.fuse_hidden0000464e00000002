@@ -253,19 +253,12 @@ class PagesController extends Controller
 
         $user = User::findOrFail($id);
         $authUser = Auth::user();
-        $userid = $id;
-        $achievements = User::find($userid)->achievements;
-        $projects = User::find($userid)->projects;
-        $papers = User::find($userid)->papers;
 //        $comments =Post::find($id)->comments;
 
         return view('show_user_profile', [
             'authUser' => $authUser
             ])
             ->with('user', $user)
-            ->with('achievements', $achievements)
-            ->with('projects', $projects)
-            ->with('papers', $papers)
             ;
     }
 

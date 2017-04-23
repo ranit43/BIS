@@ -28,6 +28,14 @@ Auth::routes();
 
 Route::get('/', 'PagesController@welcome' );
 Route::get('search', 'PagesController@search' );
+
+//Route::get('show_user_profile/{id}', 'PagesController@show_user_profile');
+
+Route::get('show_user_profile/{id}', [
+    'as' => 'show_user_profile',
+    'uses' => 'PagesController@show_user_profile'
+]);
+
 //Route::get('searchResult/{skill}', [
 Route::post('searchResult', [
 	'as'   =>  'searchResult',
@@ -60,6 +68,7 @@ Route::group(['middleware' => 'auth'], function() {
 		'as'	=>	'profileUpdate',
 		'uses' 	=>	'PagesController@profileUpdate'
 	]);
+
 	/* ------------  SKill Routes --------------- */
 	Route::get('skill/create', [
 		'as'    => 'skill.create',
