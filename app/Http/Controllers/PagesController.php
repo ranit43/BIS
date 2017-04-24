@@ -269,4 +269,15 @@ class PagesController extends Controller
             ;
     }
 
+    public function about_us() {
+        $destination = public_path().'/uploads/images/users/';
+        $authUser = Auth::user();
+
+        return view('about_us', [
+            'authUser' => $authUser
+        ])
+            ->with('destination', $destination)
+            ;
+    }
+
 }

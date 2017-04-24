@@ -8,6 +8,7 @@
                 <!-- Authentication Links -->
                 <li><a href="{{ url('/') }}">Home</a></li>
                 <li><a href="{{ url('/search') }}">Talent Search</a></li>
+                <li><a href="{{ url('/about_us') }}">About Us</a></li>
                 <{{--li><a href="{{ url('/post') }}">Forum</a></li>--}}
 
                 @if (Auth::guest())
@@ -26,6 +27,7 @@
 
                         <ul class="dropdown" role="menu">
                             <li> <a href="{{ url('/edit', $authUser->id) }}">Edit</a> </li>
+                            <li> <a href="{{ url('/home') }}">Profile</a></li>
                             <li>
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();

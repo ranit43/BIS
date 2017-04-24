@@ -47,6 +47,12 @@ Route::get('userslist', [
     'uses' => 'PagesController@userslist'
     ]);
 
+Route::get('about_us', [
+    'as'   =>  'about_us',
+    'uses' => 'PagesController@about_us'
+    ]);
+
+
 Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('home', [

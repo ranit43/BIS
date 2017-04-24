@@ -2,20 +2,28 @@
 
 @section('content')
 
+    <section class="aboutus">
 
-
-    <section class="search-result">
 
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <div class="row">
 
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-4 text-center">
+                        <h5> Co-ordinated By:</h5>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-offset-4 col-md-4">
+
                         <div class="thumbnail text-center">
 
-                            <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" style="width: 200px; height: 200px" alt="{{ $user->name  }}" >
+                            <img class="img-circle img-responsive" src="/uploads/images/users/MasumSir.jpg" style="width: 200px; height: 200px" alt="Md Masum" >
                             <div class="caption">
-                                <h3><a href="{{ route('show_user_profile', $user->id) }}">MD. Masum</a> </h3>
+                                <h3>Md Masum</h3>
+                                <p>Associate Professor</p>
+                                <p>Dept. of CSE, SUST</p>
                                 {{--<h3>{{ $user->name  }}</a> </h3>--}}
                                 {{--
                                     <li> <a href="{{ url('/edit', $authUser->id) }}">Edit</a> </li>
@@ -25,17 +33,11 @@
                                 {{--<span class="glyphicon glyphicon-pencil"></span>--}}
                                 {{--</button>--}}
                                 {{--</a>--}}
-                                {{--<p>...</p>--}}
-                                <p>Email: {!! $user->email !!}</p>
-                                <p>Contact: {!! $user->contact !!}</p>
-                                CV: <a href="{!! $user->CV !!}">Download CV </a>
-                                <p>
-                                    Professional Skill:
-                                    <br>
-                                    @foreach($user->skills as $skill )
-                                        <span class="badge badge-success sr">{{$skill->name}}</span>
-                                    @endforeach
-                                </p>
+
+                                <p>Email: masum-cse@sust.edu</p>
+                                <p>Contact: +88-01919736248</p>
+                                {{--<p>{{ $destination }}MasumSir.jpg</p>--}}
+                                {{--CV: <a href="{!! $user->CV !!}">Download CV </a>--}}
 
                                 {{--<p>
                                     <a href="#" class="btn btn-primary" role="button">Button</a>
@@ -46,6 +48,81 @@
                     </div>
 
                 </div>
+
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-4 text-center">
+                        <h5> Developed By:</h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="col-md-offset-2 col-md-4">
+                            <div class="thumbnail text-center">
+
+                                <img class="img-circle img-responsive" src="/uploads/images/users/ranit.jpg" style="width: 200px; height: 200px" alt="Ranit" >
+                                <div class="caption">
+                                    <h3>Ranit Debnath Akash</h3>
+                                    <p>Student</p>
+                                    <p>Dept. of CSE, SUST</p>
+                                    {{--<h3>{{ $user->name  }}</a> </h3>--}}
+                                    {{--
+                                        <li> <a href="{{ url('/edit', $authUser->id) }}">Edit</a> </li>
+
+                                    <a href="{{ route('paper.edit', $paper->id) }}">--}}
+                                    {{--<button class="btn btn-primary" type="button">--}}
+                                    {{--<span class="glyphicon glyphicon-pencil"></span>--}}
+                                    {{--</button>--}}
+                                    {{--</a>--}}
+
+                                    <p>Email: ranitid12@gmail.com</p>
+                                    <p>Contact: +88-01719424849</p>
+                                    {{--<p>{{ $destination }}MasumSir.jpg</p>--}}
+                                    {{--CV: <a href="{!! $user->CV !!}">Download CV </a>--}}
+
+                                    {{--<p>
+                                        <a href="#" class="btn btn-primary" role="button">Button</a>
+                                        <a href="#" class="btn btn-default" role="button">Button</a>
+                                    </p>--}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="thumbnail text-center">
+
+                                <img class="img-circle img-responsive" src="/uploads/images/users/tania.jpg" style="width: 200px; height: 200px" alt="tania" >
+                                <div class="caption">
+                                    <h3>Tanjila Mawla Tania</h3>
+                                    <p>Student</p>
+                                    <p>Dept. of CSE, SUST</p>
+                                    {{--<h3>{{ $user->name  }}</a> </h3>--}}
+                                    {{--
+                                        <li> <a href="{{ url('/edit', $authUser->id) }}">Edit</a> </li>
+
+                                    <a href="{{ route('paper.edit', $paper->id) }}">--}}
+                                    {{--<button class="btn btn-primary" type="button">--}}
+                                    {{--<span class="glyphicon glyphicon-pencil"></span>--}}
+                                    {{--</button>--}}
+                                    {{--</a>--}}
+
+                                    <p>Email: tani109.bd@gmail.com</p>
+                                    <p>Contact: +88-01XXXXXXXXX</p>
+                                    {{--<p>{{ $destination }}MasumSir.jpg</p>--}}
+                                    {{--CV: <a href="{!! $user->CV !!}">Download CV </a>--}}
+
+                                    {{--<p>
+                                        <a href="#" class="btn btn-primary" role="button">Button</a>
+                                        <a href="#" class="btn btn-default" role="button">Button</a>
+                                    </p>--}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
         </div>
 
