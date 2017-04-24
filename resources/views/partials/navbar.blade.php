@@ -18,7 +18,9 @@
 
                     <li><a href="{{ url('/post') }}">Forum</a></li>
 
-                    <li><a href="{{ url('/home') }}">Profile</a></li>
+                    @if(Auth::user()->role=='Admin' )
+                        <li><a href="{{ url('/notifications') }}">Notifications <span class="notify">{{$count}}</span></a></li>
+                    @endif
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }}

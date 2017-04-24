@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Notification;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -85,5 +87,15 @@ class RegisterController extends Controller
         $user->password = bcrypt($data['password']);
         $user->save();*/
         
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        //
+        Notification::create([
+            'body' => $user->name.' Registered a new account',
+            'user_id' => $user->id,
+            'is_read' => 0
+        ]);
     }
 }

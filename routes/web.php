@@ -55,6 +55,13 @@ Route::get('about_us', [
 
 Route::group(['middleware' => 'auth'], function() {
 
+
+
+	Route::get('notifications', [
+		'as'	=>	'notifications',
+		'uses' 	=>	'PagesController@notifications'
+	]);
+
 	Route::get('home', [
 		'as'	=>	'home',
 		'uses' 	=>	'PagesController@home'
@@ -74,6 +81,17 @@ Route::group(['middleware' => 'auth'], function() {
 		'as'	=>	'profileUpdate',
 		'uses' 	=>	'PagesController@profileUpdate'
 	]);
+
+	Route::get('user.user_edit/{id}', [
+		'as'	=>	'user.user_edit',
+		'uses' 	=>	'PagesController@user_edit'
+	]);
+
+	Route::post('user.user_update/{id}', [
+		'as'	=>	'user.user_update',
+		'uses' 	=>	'PagesController@user_update'
+	]);
+
 
 	/* ------------  SKill Routes --------------- */
 	Route::get('skill/create', [
@@ -125,6 +143,7 @@ Route::group(['middleware' => 'auth'], function() {
         'as'    => 'post.show_post',
         'uses'  => 'PostController@show_post'
     ]);
+
 
 	/* ----------- Comment Controller ---------------   */
 

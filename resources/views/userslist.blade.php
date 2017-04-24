@@ -6,6 +6,15 @@
 
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
+
+                @if(session('success'))
+                    {{ session('success') }}
+
+                @elseif(session('error'))
+                    {{ session('error') }}
+
+                @endif
+
                 Showing all Users:
                 <hr>
 
@@ -28,6 +37,14 @@
                                 @foreach($user->skills as $skill )
                                     {{$skill->name}}
                                 @endforeach
+                                <br>
+                                Role: {{$user->role}}
+                                <br>
+                                <a href="{{ route('user.user_edit', $user->id) }}">
+                                    <button class="btn btn-primary" type="button">
+                                        EDit
+                                    </button>
+                                </a>
 
 
                             </div>
@@ -39,7 +56,7 @@
                         <hr>
                     </div>
                 @endforeach
-
+                {{ $users->links() }}
             </div>
         </div>
     </div>
