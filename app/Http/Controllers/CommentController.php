@@ -9,6 +9,7 @@ use Auth;
 use App\User;
 use App\Post;
 use App\Comment;
+use App\Notification;
 
 class CommentController extends Controller
 {
@@ -20,11 +21,15 @@ class CommentController extends Controller
         $authUser = Auth::user();
         $users = User::all();
 
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('comment.index', [
             'authUser' => $authUser
              ])
             ->with('comments', $comments)
             ->with('users', $users)
+            ->with('notif_count', $notif_count)
             ;
     }
 
@@ -75,10 +80,15 @@ class CommentController extends Controller
     public function edit($id) {
         $comment = Comment::findOrFail($id);
         $authUser = Auth::user();
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('comment.edit_card', [
             'authUser' => $authUser
             ])
             ->with('comment', $comment)
+            ->with('notif_count', $notif_count)
             ;
     }
 

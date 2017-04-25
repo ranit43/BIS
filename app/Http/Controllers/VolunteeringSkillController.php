@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\VolunteeringSkill;
+use App\Notification;
 
 
 class VolunteeringSkillController extends Controller
@@ -14,18 +15,30 @@ class VolunteeringSkillController extends Controller
     public function index() {
         $authUser = Auth::user();
         $volunteeringskills = Volunteeringskill::all();
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('volunteeringskill.index_card', [
         'authUser' => $authUser
             ])
-            ->with('volunteeringskills', $volunteeringskills);
+            ->with('volunteeringskills', $volunteeringskills)
+            ->with('notif_count', $notif_count)
+            ;
     }
     
     //
     public function create() {
         $authUser = Auth::user();
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('volunteeringskill.create_card', [
             'authUser' => $authUser
-        ]);
+        ])
+            ->with('notif_count', $notif_count)
+            ;
     }
 
 
@@ -61,10 +74,16 @@ class VolunteeringSkillController extends Controller
 
         $authUser = Auth::user();
         $volunteeringskill = Volunteeringskill::findOrFail($id);
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('volunteeringskill.edit_card', [
             'authUser' => $authUser
         ])
-            ->with('volunteeringskill', $volunteeringskill);;
+            ->with('volunteeringskill', $volunteeringskill)
+            ->with('notif_count', $notif_count)
+            ;
     }
 
 

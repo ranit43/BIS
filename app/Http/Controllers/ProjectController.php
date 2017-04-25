@@ -10,6 +10,7 @@ use App\Post;
 use App\Comment;
 use App\Achievement;
 use App\Project;
+use App\Notification;
 
 
 class ProjectController extends Controller
@@ -22,11 +23,16 @@ class ProjectController extends Controller
         $authUser = Auth::user();
         $users = User::all();
 
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
+
         return view('project.index', [
             'authUser' => $authUser
         ])
             ->with('projects', $projects)
             ->with('users', $users)
+            ->with('notif_count', $notif_count)
             ;
     }
 
@@ -34,9 +40,14 @@ class ProjectController extends Controller
 
 
         $authUser = Auth::user();
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('project.create_card', [
             'authUser' => $authUser
-        ]);
+        ])
+            ->with('notif_count', $notif_count);
         //return view('project.create');
 
     }
@@ -51,6 +62,8 @@ class ProjectController extends Controller
 
         $data = $request->all();
         $validation = Validator::make($data, $rules);
+
+
 
         if ($validation->fails()) {
             return redirect()->back()->withInput()->withErrors($validation);
@@ -76,10 +89,15 @@ class ProjectController extends Controller
     public function edit($id) {
         $project = Project::findOrFail($id);
         $authUser = Auth::user();
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('project.edit_card', [
             'authUser' => $authUser
         ])
             ->with('project', $project)
+            ->with('notif_count', $notif_count)
             ;
     }
     public function update(Request $request, $id) {

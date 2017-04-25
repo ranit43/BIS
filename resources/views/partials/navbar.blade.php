@@ -19,7 +19,48 @@
                     <li><a href="{{ url('/post') }}">Forum</a></li>
 
                     @if(Auth::user()->role=='Admin' )
-                        <li><a href="{{ url('/notifications') }}">Notifications <span class="notify">{{$count}}</span></a></li>
+                        <li><a href="{{ url('/notifications') }}">Notifications <span class="notify">{{$notif_count}}</span></a></li>
+
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Users
+                                {{--<span class="caret"></span>--}}
+                            </a>
+
+                            <ul class="dropdown" role="menu">
+                                {{--<li> <a href="{{ url('/edit', $authUser->id) }}">Edit</a> </li>--}}
+
+                                <li> <a href="{{ url('/userslist') }}">Users List</a></li>
+                            </ul>
+                        </li>
+
+                        {{--for Testing Menu navbar--}}
+                        <li><a href="#">Skills<span class="indicator"></span></a>
+                            <ul class="dropdown" style="right: auto; display: none;">
+                                <li><a href="#">Professional Skills<span class="indicator">+</span></a>
+                                    <ul class="dropdown dropdown-left" style="display: none;">
+                                        <li><a href="{{ url('/skill') }}">View All</a></li>
+                                        <li><a href=skill/create>Create New</a></li>
+                                        {{--<li><a href="blog__classic_right_sidebar.html">Right Sidebar</a></li>--}}
+                                        {{--<li><a href="blog__classic_both_sidebar.html">Both Sidebar</a></li>--}}
+                                    </ul>
+                                </li>
+                                <li><a href="#">Volunteering Skills<span class="indicator">+</span></a>
+                                    <ul class="dropdown dropdown-left" style="display: none;">
+                                        <li><a href="{{ url('volunteeringskill') }}">View All</a></li>
+                                        <li><a href="{{ url('volunteeringskill/create')}}">Create New</a></li>
+                                        {{--<li><a href="blog__classic_right_sidebar.html">Right Sidebar</a></li>--}}
+                                        {{--<li><a href="blog__classic_both_sidebar.html">Both Sidebar</a></li>--}}
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        {{--for Testing Menu navbar--}}
+
+
+
                     @endif
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

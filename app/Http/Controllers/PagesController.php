@@ -24,10 +24,14 @@ class PagesController extends Controller
         /*return view( 'welcome_temp', [
                 'authUser'          => $authUser
             ]);*/
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
 
         return view( 'welcome', [
                 'authUser'          => $authUser
-            ]);
+            ])
+            ->with('notif_count', $notif_count)
+            ;
     }
 
     public function search()
@@ -45,12 +49,17 @@ class PagesController extends Controller
         /*$people = ['Lopa', 'Abir', 'Partho'];*/
         $authUser = Auth::user();
 
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
+
         return view( 'search_card', [
                 'authUser'          => $authUser
                 ])
                 -> with('fields_skills', $fields_skills)
                     ->with('volunteeringSkills', $volunteeringSkills)
                         ->with('fields', $fields)
+                        ->with('notif_count', $notif_count)
                         ;
 
        /* return view('search')
@@ -87,15 +96,18 @@ class PagesController extends Controller
 
         /*$filteredVolSkills = UserSkill::whereIn('skill_id', $skills)->pluck('user_id');
         $users = User::whereIn('id',$filteredVolSkills)->get();*/
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
 
 
         return view('searcResult_withSearchBox', [
             'authUser'          => $authUser
         ])
             ->with('users', $users)
-            -> with('fields_skills', $fields_skills)
+            ->with('fields_skills', $fields_skills)
             ->with('volunteeringSkills', $volunteeringSkills)
             ->with('fields', $fields)
+            ->with('notif_count', $notif_count)
             ;
 
        /*return view('search_result')
@@ -112,11 +124,16 @@ class PagesController extends Controller
         $users = USER::orderBy('created_at', 'desc')->paginate(5);
         $authUser = Auth::user();
 
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
+
         return view('userslist', [
             'authUser'          => $authUser
             ])
             ->with('users', $users)
-            ;
+                ->with('notif_count', $notif_count)
+                    ;
     }
 
     public function user_edit($id, Request $request) {
@@ -146,6 +163,10 @@ class PagesController extends Controller
         }
         $redirect_url = $request->get('redirect_url', 'userslist');
 
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
+
         return view('user.user_edit', [
             'authUser'          => $authUser
         ])
@@ -155,6 +176,7 @@ class PagesController extends Controller
             ->with('volunteeringSkills', $volunteeringSkills )
             ->with('myVolunteeringSkills', $myVolunteeringSkills )
             ->with('redirect_url', $redirect_url)
+            ->with('notif_count', $notif_count)
             ;
     }
 
@@ -237,9 +259,14 @@ class PagesController extends Controller
     {
         $authUser = Auth::user();
 
-    	return view('forum', [
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
+
+        return view('forum', [
             'authUser' => $authUser
-        ]);
+        ])
+            ->with('notif_count', $notif_count);
     }
 
     public function home()
@@ -255,14 +282,19 @@ class PagesController extends Controller
             $authUser->image = '/uploads/images/users/annonymus.jpg';
         }
 
-    	return view('profile_tp2',
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
+
+        return view('profile_tp2',
         [
             'authUser'          => $authUser
         ])
             ->with('achievements', $achievements)
                 ->with('projects', $projects)
                     ->with('papers', $papers)
-            ;
+                        ->with('notif_count', $notif_count)
+                    ;
     }
 
     public function edit(Request $request, $id )
@@ -282,6 +314,10 @@ class PagesController extends Controller
             $myVolunteeringSkills[] = $volunteeringSkill->id;
         }
 
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
+
         return view('edit_card',[
             'authUser'          => $authUser
         ])
@@ -289,6 +325,7 @@ class PagesController extends Controller
             ->with('mySkills', $mySkills )
                 ->with('volunteeringSkills', $volunteeringSkills )
                     ->with('myVolunteeringSkills', $myVolunteeringSkills )
+                        ->with('notif_count', $notif_count )
                         ;
         // return $authUser -> name;
     }
@@ -374,6 +411,9 @@ class PagesController extends Controller
         $papers = User::find($userid)->papers;
 //        $comments =Post::find($id)->comments;
 
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('show_user_profile', [
             'authUser' => $authUser
             ])
@@ -381,6 +421,7 @@ class PagesController extends Controller
             ->with('achievements', $achievements)
             ->with('projects', $projects)
             ->with('papers', $papers)
+            ->with('notif_count', $notif_count)
             ;
     }
 
@@ -388,10 +429,14 @@ class PagesController extends Controller
         $destination = public_path().'/uploads/images/users/';
         $authUser = Auth::user();
 
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('about_us', [
             'authUser' => $authUser
         ])
             ->with('destination', $destination)
+            ->with('notif_count', $notif_count)
             ;
     }
 
@@ -400,13 +445,15 @@ class PagesController extends Controller
         $authUser = Auth::user();
         $notifications =Notification::orderBy('created_at', 'desc')->paginate(10);
         $isread = Notification::where('is_read', 0)->get();
-        $count = $isread->count();
+        $notif_count = $isread->count();
+
 
         return view('notifications', [
             'authUser' => $authUser
-        ])
+            ])
+            ->with('notif_count', $notif_count)
             ->with('notifications', $notifications)
-            ->with('count', $count)
+
             ;
     }
 

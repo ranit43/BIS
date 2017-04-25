@@ -10,6 +10,7 @@ use App\User;
 use App\Post;
 use App\Comment;
 use App\Achievement;
+use App\Notification;
 
 class AchievementController extends Controller
 {
@@ -21,11 +22,15 @@ class AchievementController extends Controller
         $authUser = Auth::user();
         $users = User::all();
 
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('achievement.index', [
             'authUser' => $authUser
         ])
             ->with('achievements', $achievements)
             ->with('users', $users)
+            ->with('notif_count', $notif_count)
             ;
     }
 
@@ -33,9 +38,14 @@ class AchievementController extends Controller
 
 
         $authUser = Auth::user();
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('achievement.create_card', [
             'authUser' => $authUser
-        ]);
+        ])
+            ->with('notif_count', $notif_count);
         //return view('achievement.create');
 
     }
@@ -77,10 +87,15 @@ class AchievementController extends Controller
     public function edit($id) {
         $achievement = Achievement::findOrFail($id);
         $authUser = Auth::user();
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('achievement.edit_card', [
             'authUser' => $authUser
         ])
             ->with('achievement', $achievement)
+            ->with('notif_count', $notif_count)
             ;
     }
     public function update(Request $request, $id) {

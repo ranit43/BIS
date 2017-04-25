@@ -12,6 +12,7 @@ use App\Comment;
 use App\Achievement;
 use App\Project;
 use App\Paper;
+use App\Notification;
 
 class PaperController extends Controller
 {
@@ -23,11 +24,16 @@ class PaperController extends Controller
         $authUser = Auth::user();
         $users = User::all();
 
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
+
         return view('paper.index', [
             'authUser' => $authUser
         ])
             ->with('papers', $papers)
             ->with('users', $users)
+            ->with('notif_count', $notif_count)
             ;
     }
 
@@ -35,9 +41,15 @@ class PaperController extends Controller
 
 
         $authUser = Auth::user();
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('paper.create_card', [
             'authUser' => $authUser
-        ]);
+        ])
+            ->with('notif_count', $notif_count)
+            ;
         //return view('paper.create');
 
     }
@@ -77,10 +89,15 @@ class PaperController extends Controller
     public function edit($id) {
         $paper = Paper::findOrFail($id);
         $authUser = Auth::user();
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
         return view('paper.edit_card', [
             'authUser' => $authUser
         ])
             ->with('paper', $paper)
+            ->with('notif_count', $notif_count)
             ;
     }
     public function update(Request $request, $id) {
