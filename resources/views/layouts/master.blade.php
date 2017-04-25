@@ -73,21 +73,21 @@
                         {{--<p class="footer-menu">
                             <a href="">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a>
                         </p>--}}
-                        <p class="footer-menu" >
-                            Co-ordinated By:
-                            <br>
-                            Md Masum
-                            <br>
-                            Associate Professor, CSE, SUST
-                            <br>
-                            Developed By:
-                            <br>
-                            Ranit Debnath Akash
-                            <br>
-                            Tanjila Mawla Tania
-                            <br>
+                        {{--<p class="footer-menu" >--}}
+                            {{--Co-ordinated By:--}}
+                            {{--<br>--}}
+                            {{--Md Masum--}}
+                            {{--<br>--}}
+                            {{--Associate Professor, CSE, SUST--}}
+                            {{--<br>--}}
+                            {{--Developed By:--}}
+                            {{--<br>--}}
+                            {{--Ranit Debnath Akash--}}
+                            {{--<br>--}}
+                            {{--Tanjila Mawla Tania--}}
+                            {{--<br>--}}
 
-                        </p>
+                        {{--</p>--}}
 
                     </div>
                 </div>

@@ -89,8 +89,10 @@
                                                 @foreach($users as $user)
                                                     @if($user->id == $post->user_id )
                                                         <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" alt="{{  $user->name }}" style="width:50px;height:50px;">
-                                                        <p>{{ $user->name }}</p>
-                                                        <br>
+                                                        <div class="username">
+                                                            <p>{{ $user->name }}</p>
+                                                        </div>
+                                                        {{--<br>--}}
                                                     @endif
                                                 @endforeach
 

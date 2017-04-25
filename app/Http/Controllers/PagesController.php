@@ -122,7 +122,7 @@ class PagesController extends Controller
 
     public function userslist()
     {
-        $users = USER::orderBy('created_at', 'desc')->paginate(5);
+        $users = USER::orderBy('created_at', 'desc')->paginate(4);
         $authUser = Auth::user();
 
         $isread = Notification::where('is_read', 0)->get();
@@ -239,6 +239,13 @@ class PagesController extends Controller
         $user->adress = $request->adress;
         $user->contact = $request->contact;
         $user->role = $request->role;
+
+        $notification = Notification::where('user_id', $id)->first();
+
+        $notification->is_read = 1;
+
+        $notification->save();
+
 
         /*return $request->volunteeringSKill;*/
 

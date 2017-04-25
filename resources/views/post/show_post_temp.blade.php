@@ -45,7 +45,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                <div class="button-group">
+                                <div class="button-group username">
                                     @foreach($users as $user)
                                         @if($user->id == $post->user_id )
                                             <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" alt="{{  $user->name }}" style="width:50px;height:50px;">
@@ -108,14 +108,14 @@
                                 </div>
 
                                 <p>{{ $comment->text }}</p>
-                                <p>By {{ \App\User::where('id', $comment->user_id)->pluck('name') }}</p>
+                                {{--<p>By {{ \App\User::where('id', $comment->user_id)->pluck('name') }}</p>--}}
 
                                 <div class="row">
                                     <div class="col-md-6">
 
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="button-group">
+                                        <div class="button-group username">
                                             @foreach($users as $user)
                                                 @if($user->id == $comment->user_id )
                                                     <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" alt="{{  $user->name }}" style="width:50px;height:50px;">

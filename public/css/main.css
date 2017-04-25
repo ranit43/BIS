@@ -10488,6 +10488,10 @@ section.full-profile-content {
   font-weight: 600;
 }
 
+.username {
+  text-align: center;
+}
+
 .col-md-6.email-field {
   margin-left: -15px;
 }
