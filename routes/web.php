@@ -52,6 +52,11 @@ Route::get('about_us', [
     'uses' => 'PagesController@about_us'
     ]);
 
+Route::get('post', [
+    'as'    => 'post.index',
+    'uses'  => 'PostController@index'
+]);
+
 
 Route::group(['middleware' => 'auth'], function() {
 
@@ -136,10 +141,12 @@ Route::group(['middleware' => 'auth'], function() {
 		'as'    => 'post.store',
 		'uses'  => 'PostController@store'
 	]);
-	Route::get('post', [
-		'as'    => 'post.index',
-		'uses'  => 'PostController@index'
-	]);
+
+//	Route::get('post', [
+//		'as'    => 'post.index',
+//		'uses'  => 'PostController@index'
+//	]);
+
 	Route::get('post/{id}/edit', [
 		'as'    => 'post.edit',
 		'uses'  => 'PostController@edit'

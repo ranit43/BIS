@@ -12,11 +12,26 @@
                 <{{--li><a href="{{ url('/post') }}">Forum</a></li>--}}
 
                 @if (Auth::guest())
+                    {{--<li><a href="{{ url('/post') }}">Posts</a></li>--}}
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
 
-                    <li><a href="{{ url('/post') }}">Forum</a></li>
+                    {{--<li><a href="{{ url('/post') }}">Forum</a></li>--}}
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            Posts
+                            {{--<span class="caret"></span>--}}
+                        </a>
+
+                        <ul class="dropdown" role="menu">
+                            {{--<li> <a href="{{ url('/edit', $authUser->id) }}">Edit</a> </li>--}}
+
+                            <li> <a href="{{ url('/post') }}">View All</a></li>
+                            <li> <a href="{{ url('/post/create') }}">Create New</a></li>
+                            {{--<li> <a href="{{ url('/View All') }}">Users List</a></li>--}}
+                        </ul>
+                    </li>
 
                     @if(Auth::user()->role=='Admin' )
                         <li><a href="{{ url('/notifications') }}">Notifications <span class="notify">{{$notif_count}}</span></a></li>
@@ -30,7 +45,8 @@
                             <ul class="dropdown" role="menu">
                                 {{--<li> <a href="{{ url('/edit', $authUser->id) }}">Edit</a> </li>--}}
 
-                                <li> <a href="{{ url('/userslist') }}">Users List</a></li>
+                                <li> <a href="{{ url('/user') }}">All users</a></li>
+                                {{--<li> <a href="{{ url('/View All') }}">Users List</a></li>--}}
                             </ul>
                         </li>
 
