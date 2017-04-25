@@ -82,16 +82,27 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses' 	=>	'PagesController@profileUpdate'
 	]);
 
+//	---------- User admin controls
+
+    Route::get('user', [
+        'as'   =>  'user.index',
+        'uses' => 'UserController@index'
+    ]);
+
 	Route::get('user.user_edit/{id}', [
 		'as'	=>	'user.user_edit',
-		'uses' 	=>	'PagesController@user_edit'
+		'uses' 	=>	'UserController@user_edit'
 	]);
 
 	Route::post('user.user_update/{id}', [
 		'as'	=>	'user.user_update',
-		'uses' 	=>	'PagesController@user_update'
+		'uses' 	=>	'UserController@user_update'
 	]);
 
+    Route::get('user/{id}', [
+        'as' => 'user.delete',
+        'uses' => 'UserController@destroy'
+    ]);
 
 	/* ------------  SKill Routes --------------- */
 	Route::get('skill/create', [

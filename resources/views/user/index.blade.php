@@ -3,24 +3,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>s
 
 @section('content')
 
     <section class="aboutus">
 
+        @if(session('success'))
+            {{ session('success') }}
+
+        @elseif(session('error'))
+            {{ session('error') }}
+
+        @endif
+
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="row">
-
-                    @if(session('success'))
-                        {{ session('success') }}
-
-                    @elseif(session('error'))
-                        {{ session('error') }}
-
-                    @endif
-
                     @foreach($users as $user)
                         <div class="col-md-3">
                             <div class="thumbnail text-center">
@@ -42,11 +41,11 @@
                                     <p>Contact: {!! $user->contact !!}</p>
                                     CV: <a href="{!! $user->CV !!}">Download CV </a>
                                     {{--<p>--}}
-                                        {{--Professional Skill:--}}
-                                        {{--<br>--}}
-                                        {{--@foreach($user->skills as $skill )--}}
-                                            {{--<span class="badge badge-success sr">{{$skill->name}}</span>--}}
-                                        {{--@endforeach--}}
+                                    {{--Professional Skill:--}}
+                                    {{--<br>--}}
+                                    {{--@foreach($user->skills as $skill )--}}
+                                    {{--<span class="badge badge-success sr">{{$skill->name}}</span>--}}
+                                    {{--@endforeach--}}
                                     {{--</p>--}}
 
 
@@ -62,6 +61,19 @@
                                             <span class="glyphicon glyphicon-remove"></span>
                                         </button>
                                     </a>
+
+                                    {{--<a href="{{ route('skill.edit', $skill->id) }}">--}}
+                                        {{--<button class="btn btn-primary" type="button">--}}
+                                            {{--<span class="glyphicon glyphicon-pencil"></span>--}}
+                                        {{--</button>--}}
+                                    {{--</a>--}}
+                                    {{--</td>--}}
+                                    {{--<td>--}}
+                                    {{--<a href="{{ route('skill.delete', $skill->id) }}">--}}
+                                        {{--<button class="btn btn-danger" type="button">--}}
+                                            {{--<span class="glyphicon glyphicon-remove"></span>--}}
+                                        {{--</button>--}}
+                                    {{--</a>--}}
 
                                     {{--<p>
                                         <a href="#" class="btn btn-primary" role="button">Button</a>
