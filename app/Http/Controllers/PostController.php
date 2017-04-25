@@ -148,6 +148,7 @@ class postController extends Controller
         $post = Post::findOrFail($id);
         $authUser = Auth::user();
         $comments =Post::find($id)->comments;
+        $users = User::all();
 
         $isread = Notification::where('is_read', 0)->get();
         $notif_count = $isread->count();
@@ -158,6 +159,7 @@ class postController extends Controller
             ->with('post', $post)
             ->with('comments', $comments)
             ->with('notif_count', $notif_count)
+            ->with('users', $users)
             ;
     }
 }

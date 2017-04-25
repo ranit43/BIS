@@ -78,12 +78,34 @@
                                     <p>Category: {{ $post->category }}</p>
                                     {{--<p>{{ $post->details }}</p>--}}
                                     <p>{{ str_limit( $post->details, $limit = 15, $end = '...') }}</p>
-                                    <p>{{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>
-                                    <a href="{{ route('post.show_post', $post->id) }}">
-                                        <button class="btn btn-success" type="button">
-                                            <span class="glyphicon glyphicon-share-alt"></span>
-                                        </button>
-                                    </a>
+                                    {{--<p>{{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>--}}
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="button-group">
+                                                @foreach($users as $user)
+                                                    @if($user->id == $post->user_id )
+                                                        <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" alt="{{  $user->name }}" style="width:50px;height:50px;">
+                                                        <p>{{ $user->name }}</p>
+                                                        <br>
+                                                    @endif
+                                                @endforeach
+
+                                                <a href="{{ route('post.show_post', $post->id) }}">
+                                                    <button class="btn btn-success" type="button">
+                                                        <span class="glyphicon glyphicon-share-alt"></span>
+                                                    </button>
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>

@@ -38,7 +38,25 @@
                         </div>
                         <p>Category: {{ $post->category }}</p>
                         <p>{{ $post->details }}</p>
-                        <p>By {{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>
+                        {{--<p>By {{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>--}}
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="button-group">
+                                    @foreach($users as $user)
+                                        @if($user->id == $post->user_id )
+                                            <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" alt="{{  $user->name }}" style="width:50px;height:50px;">
+                                            <p>{{ $user->name }}</p>
+                                            {{--<br>--}}
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
                         {{--<a href="{{ route('post.show_post', $post->id) }}"><button class="btn btn-success" type="button">Details </button></a>--}}
                     </div>
                 </div>
@@ -91,6 +109,23 @@
 
                                 <p>{{ $comment->text }}</p>
                                 <p>By {{ \App\User::where('id', $comment->user_id)->pluck('name') }}</p>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="button-group">
+                                            @foreach($users as $user)
+                                                @if($user->id == $comment->user_id )
+                                                    <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" alt="{{  $user->name }}" style="width:50px;height:50px;">
+                                                    <p>{{ $user->name }}</p>
+                                                    {{--<br>--}}
+                                                @endif
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
                         @endforeach

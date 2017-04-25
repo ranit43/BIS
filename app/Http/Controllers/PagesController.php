@@ -24,6 +24,7 @@ class PagesController extends Controller
         /*return view( 'welcome_temp', [
                 'authUser'          => $authUser
             ]);*/
+
         $isread = Notification::where('is_read', 0)->get();
         $notif_count = $isread->count();
 
@@ -280,6 +281,8 @@ class PagesController extends Controller
 
         if( strcmp($authUser->image, '') == 0) {
             $authUser->image = '/uploads/images/users/annonymus.jpg';
+
+            $authUser->save();
         }
 
         $isread = Notification::where('is_read', 0)->get();
