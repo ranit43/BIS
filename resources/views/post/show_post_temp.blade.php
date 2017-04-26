@@ -38,6 +38,9 @@
                         </div>
                         <p>Category: {{ $post->category }}</p>
                         <p>{{ $post->details }}</p>
+
+                        <p>Created:  {{ $post->created_at->diffForHumans() }}</p>
+                        <p>Edited:  {{ $post->updated_at->diffForHumans() }}</p>
                         {{--<p>By {{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>--}}
 
                         <div class="row">
@@ -108,6 +111,9 @@
                                 </div>
 
                                 <p>{{ $comment->text }}</p>
+
+                                <p>Created:  {{ $comment->created_at->diffForHumans() }}</p>
+                                <p>Edited:  {{ $comment->updated_at->diffForHumans() }}</p>
                                 {{--<p>By {{ \App\User::where('id', $comment->user_id)->pluck('name') }}</p>--}}
 
                                 <div class="row">

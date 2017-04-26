@@ -17,7 +17,7 @@ class AchievementTableSeeder extends Seeder
             'title' => 'Runners up',
             'issuer' => 'Competetion',
             'year' => '2016',
-            'details' => 'asdfkljalksfjlkasjdfljla',
+            'details' => 'Won it by working very hard',
             'user_id' => '1'
         ]);
 
@@ -25,7 +25,7 @@ class AchievementTableSeeder extends Seeder
             'title' => 'Champion',
             'issuer' => 'Competetion',
             'year' => '2017',
-            'details' => 'DDPDPPDPDPDP',
+            'details' => 'Won it by working very hard',
             'user_id' => '2'
         ]);
 
@@ -37,6 +37,13 @@ class AchievementTableSeeder extends Seeder
             'user_id' => '3'
         ]);
 
+        Achievement::create([
+            'title' => 'Champion',
+            'issuer' => 'Developer Contest',
+            'year' => '2017',
+            'details' => 'Won it by working very hard',
+            'user_id' => '4'
+        ]);
 
         /*VolunteeringSkill::create([ 'name' => 'Winter Cloth distribution' ]);
         VolunteeringSkill::create([ 'name' => 'Disaster Help' ]);*/

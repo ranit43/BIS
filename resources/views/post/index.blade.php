@@ -78,6 +78,9 @@
                                     <p>Category: {{ $post->category }}</p>
                                     {{--<p>{{ $post->details }}</p>--}}
                                     <p>{{ str_limit( $post->details, $limit = 15, $end = '...') }}</p>
+                                    <p>Created:  {{ $post->created_at->diffForHumans() }}</p>
+                                    <p>Edited:  {{ $post->updated_at->diffForHumans() }}</p>
+                                    {{--{{ $notification->created_at->diffForHumans() }}--}}
                                     {{--<p>{{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>--}}
 
                                     <div class="row">

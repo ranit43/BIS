@@ -51,16 +51,19 @@
 
                                     <p>Role: {{$user->role}}</p>
                                     <br>
-                                    <a href="{{ route('user.user_edit', $user->id) }}">
-                                        <button class="btn btn-primary" type="button">
-                                            <span class="glyphicon glyphicon-pencil"></span>
-                                        </button>
-                                    </a>
-                                    <a href="{{ route('user.delete', $user->id) }}">
-                                        <button class="btn btn-danger" type="button">
-                                            <span class="glyphicon glyphicon-remove"></span>
-                                        </button>
-                                    </a>
+                                    @if($authUser->role == "Admin")
+                                        <a href="{{ route('user.user_edit', $user->id) }}">
+                                            <button class="btn btn-primary" type="button">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </button>
+                                        </a>
+                                        <a href="{{ route('user.delete', $user->id) }}">
+                                            <button class="btn btn-danger" type="button">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </button>
+                                        </a>
+                                    @endif
+
 
                                     {{--<a href="{{ route('skill.edit', $skill->id) }}">--}}
                                         {{--<button class="btn btn-primary" type="button">--}}
