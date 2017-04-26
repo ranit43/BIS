@@ -53,13 +53,13 @@ class UserController extends Controller
         $skills = Skill::all();
 
         $mySkills = [];
-        foreach ($authUser->skills as $skill) {
+        foreach ($user->skills as $skill) {
             $mySkills[] = $skill->id;
         }
 
         $volunteeringSkills = VolunteeringSkill::all();
         $myVolunteeringSkills = [];
-        foreach ($authUser->volunteeringskill as $volunteeringSkill) {
+        foreach ($user->volunteeringskill as $volunteeringSkill) {
             $myVolunteeringSkills[] = $volunteeringSkill->id;
         }
         $redirect_url = $request->get('redirect_url', 'userslist');
@@ -152,8 +152,8 @@ class UserController extends Controller
 
         if($user->save()) {
             //$user->skills()->attach($request->skill);
-            $user->skills()->sync($request->skill);
-            $user->volunteeringskill()->sync($request->volunteeringSkill);
+            if($request->skill != null) $user->skills()->sync($request->skill);
+            if($request->volunteeringSkill != null ) $user->volunteeringskill()->sync($request->volunteeringSkill);
 
             return redirect()->to($request->get('redirect_url'))->with('success','Role successfully updated');
         }

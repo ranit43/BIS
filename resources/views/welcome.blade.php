@@ -13,7 +13,9 @@
                 <div  class="intro text-center intro-particle">
                     <h4>BATCH INFORMATION SYSTEM</h4>
                         <p>
-                            Our website gives full infromation of a batch or department of a particular university.
+                            Our website gives full infromation of students of a batch or department of a particular university.
+                            Besides anybody want to contact a person with some specific set of skills then he can search in our webseite
+                            and see his full information and also can contact him.
                         </p>
                 </div>
             </div>

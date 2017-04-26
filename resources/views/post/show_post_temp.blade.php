@@ -5,6 +5,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
 @section('content');
 
 
@@ -36,18 +37,29 @@
                                 </div>
                             </div>
                         </div>
-                        <p>Category: {{ $post->category }}</p>
-                        <p>{{ $post->details }}</p>
+                        <p> Category:  <strong>{{ $post->category }}</strong> </p>
+                        {{--<p>{{ $post->details }}</p>--}}
 
-                        <p>Created:  {{ $post->created_at->diffForHumans() }}</p>
-                        <p>Edited:  {{ $post->updated_at->diffForHumans() }}</p>
+
                         {{--<p>By {{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>--}}
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-10">
+                                <h5>{{ $post->details }}</h5>
+                                {{--<p>{{ $post->details }}</p>--}}
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        {{--<p>Created:  {{ $post->created_at->diffForHumans() }}</p>--}}
+                                        <p>Edited:  {{ $post->updated_at->diffForHumans() }}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        {{--<p>Edited:  {{ $post->updated_at->diffForHumans() }}</p>--}}
+                                    </div>
+                                </div>
 
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 <div class="button-group username">
                                     @foreach($users as $user)
                                         @if($user->id == $post->user_id )
@@ -105,33 +117,58 @@
                                                         <span class="glyphicon glyphicon-remove"></span>
                                                     </button>
                                                 </a>
+                                                <a class="btn btn-large btn-primary" data-toggle="confirmation" data-title="Open Google?"
+                                                   href="https://google.com" target="_blank">Confirmation</a>
                                             @endif
                                         </div>
                                     </div>
                                 </div>
 
-                                <p>{{ $comment->text }}</p>
+                                {{--<p>{{ $comment->text }}</p>--}}
 
-                                <p>Created:  {{ $comment->created_at->diffForHumans() }}</p>
-                                <p>Edited:  {{ $comment->updated_at->diffForHumans() }}</p>
+                                {{--<p>Created:  {{ $comment->created_at->diffForHumans() }}</p>--}}
+                                {{--<p>Edited:  {{ $comment->updated_at->diffForHumans() }}</p>--}}
+
+
                                 {{--<p>By {{ \App\User::where('id', $comment->user_id)->pluck('name') }}</p>--}}
 
                                 <div class="row">
-                                    <div class="col-md-6">
+
+                                    <div class="commenterimage">
+
+                                        <div class="col-md-10">
+                                            {{--<p>Created:  {{ $comment->created_at->diffForHumans() }}</p>--}}
+                                            {{--<p>Edited:  {{ $comment->updated_at->diffForHumans() }}</p>--}}
+                                            <p>{{ $comment->text }}</p>
+                                            <p>Edited:  {{ $comment->updated_at->diffForHumans() }}</p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="button-group username">
+                                                @foreach($users as $user)
+                                                    @if($user->id == $comment->user_id )
+                                                        <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" alt="{{  $user->name }}" style="width:50px;height:50px;">
+                                                        <p>{{ $user->name }}</p>
+                                                        {{--<br>--}}
+                                                    @endif
+                                                @endforeach
+                                            </div>
+                                        </div>
 
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="button-group username">
-                                            @foreach($users as $user)
-                                                @if($user->id == $comment->user_id )
-                                                    <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" alt="{{  $user->name }}" style="width:50px;height:50px;">
-                                                    <p>{{ $user->name }}</p>
-                                                    {{--<br>--}}
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    </div>
                                 </div>
+
+                                {{--<div class="row commentdate">--}}
+                                    {{--<div class="col-md-6">--}}
+                                        {{--<div class="cdate">--}}
+                                            {{--<p>Created:  {{ $comment->created_at->diffForHumans() }}</p>--}}
+                                            {{--<p>Edited:  {{ $comment->updated_at->diffForHumans() }}</p>--}}
+
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="col-md-6">--}}
+                                        {{--<p>Edited:  {{ $comment->updated_at->diffForHumans() }}</p>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
 
                             </div>
                         @endforeach
@@ -147,7 +184,7 @@
                     <div class="form-group">
                         {!! Form::label('text', 'Comment') !!}
                         <br>
-                        {!! Form::textarea( 'text', null, ['size' => '85x4'], [ 'id' => 'body', 'class' => 'form-control', 'placeholder' => 'Comment on this post', 'required' ]) !!}
+                        {!! Form::textarea( 'text', null, ['size' => '97x4'], [ 'id' => 'body', 'class' => 'form-control', 'placeholder' => 'Comment on this post', 'required' ]) !!}
                     </div>
 
                     <br/>
@@ -164,3 +201,18 @@
 
 
 @endsection
+
+{{--<script src="/js/bootstrap-confirmation.js"></script>--}}
+
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+<script src="{{ asset('js/bootstrap-confirmation.min.js') }}"></script>
+<script>
+
+    $( document ).ready( function() {
+        $('[data-toggle=confirmation]').confirmation({
+            rootSelector: '[data-toggle=confirmation]',
+// other options
+        });
+    });
+</script>

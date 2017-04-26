@@ -15,7 +15,8 @@ class postController extends Controller
     //
     public function index() {
 
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->paginate(2);
+//        $users = USER::orderBy('created_at', 'desc')->paginate(4);
         /*$people = ['Lopa', 'Abir', 'Partho'];*/
         $authUser = Auth::user();
         $users = User::all();

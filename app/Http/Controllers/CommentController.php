@@ -126,10 +126,10 @@ class CommentController extends Controller
         try{
             Comment::destroy($id);
 
-            return redirect()->route('comment.index')->with('success','Skill Deleted Successfully.');
+            return redirect()->back()->with('success','Skill Deleted Successfully.');
 
         }catch(Exception $ex){
-            return redirect()->route('comment.index')->with('error','Something went wrong.Try Again.');
+            return redirect()->back()->with('error','Something went wrong.Try Again.');
         }
     }
 

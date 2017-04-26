@@ -77,14 +77,18 @@
                                     </div>
                                     <p>Category: {{ $post->category }}</p>
                                     {{--<p>{{ $post->details }}</p>--}}
-                                    <p>{{ str_limit( $post->details, $limit = 15, $end = '...') }}</p>
-                                    <p>Created:  {{ $post->created_at->diffForHumans() }}</p>
-                                    <p>Edited:  {{ $post->updated_at->diffForHumans() }}</p>
+                                    {{--<p>{{ str_limit( $post->details, $limit = 15, $end = '...') }}</p>--}}
+
                                     {{--{{ $notification->created_at->diffForHumans() }}--}}
                                     {{--<p>{{ \App\User::where('id', $post->user_id)->pluck('name') }}</p>--}}
 
                                     <div class="row">
                                         <div class="col-md-6">
+                                            <div class="dateshow">
+                                                <h5>{{ str_limit( $post->details, $limit = 15, $end = '...') }}</h5>
+                                                {{--<p>Created:  {{ $post->created_at->diffForHumans() }}</p>--}}
+                                                <p>Edited:  {{ $post->updated_at->diffForHumans() }}</p>
+                                            </div>
 
                                         </div>
                                         <div class="col-md-6">
@@ -118,6 +122,11 @@
                 </section>
 
                 @endforeach
+
+                <div class="postpage">
+                    {{ $posts->links() }}
+                </div>
+
             @else
                 No data found
             @endif

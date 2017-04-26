@@ -15,6 +15,14 @@
 
                                 <h4> Profile Edit page</h4>
 
+                        @if(session('success'))
+                            {{ session('success') }}
+
+                        @elseif(session('error'))
+                            {{ session('error') }}
+
+                        @endif
+
                                 {!! Form::model($authUser,['route' => ['profileUpdate', $authUser->id], 'method' => 'post', 'files' => true]) !!}
 
                                 <div class="form-group">
@@ -29,7 +37,7 @@
                                         {{ Form::email('email', null, ['id' => 'email', 'placeholder' => 'Update Your email', 'class' => 'form-control']) }}
                                     </div>
                                     <div class="col-md-6 contact-field">
-                                        {{ Form::label('contact', 'Contact') }}
+                                        {{ Form::label('contact', 'Contact*') }}
                                         {{ Form::text('contact', null, ['id' => 'contact', 'placeholder' => 'Update your Contact', 'class' => 'form-control']) }}
                                         <br> </div>
                                 </div>

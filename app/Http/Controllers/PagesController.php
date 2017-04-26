@@ -119,149 +119,7 @@ class PagesController extends Controller
         return view('searchResult');
        */
     }
-
-    public function userslist()
-    {
-        $users = USER::orderBy('created_at', 'desc')->paginate(4);
-        $authUser = Auth::user();
-
-        $isread = Notification::where('is_read', 0)->get();
-        $notif_count = $isread->count();
-
-
-        return view('userslist', [
-            'authUser'          => $authUser
-            ])
-            ->with('users', $users)
-                ->with('notif_count', $notif_count)
-                    ;
-    }
-
-    public function user_edit($id, Request $request) {
-
-        $user = User::findOrFail($id);
-        $authUser = Auth::user();
-
-//        return view('user.user_edit', [
-//            'authUser'          => $authUser
-//        ])
-//            ->with('user', $user)
-//            ;
-
-//        $authUser = Auth::user();
-
-        $skills = Skill::all();
-
-        $mySkills = [];
-        foreach ($authUser->skills as $skill) {
-            $mySkills[] = $skill->id;
-        }
-
-        $volunteeringSkills = VolunteeringSkill::all();
-        $myVolunteeringSkills = [];
-        foreach ($authUser->volunteeringskill as $volunteeringSkill) {
-            $myVolunteeringSkills[] = $volunteeringSkill->id;
-        }
-        $redirect_url = $request->get('redirect_url', 'userslist');
-
-        $isread = Notification::where('is_read', 0)->get();
-        $notif_count = $isread->count();
-
-
-        return view('user.user_edit', [
-            'authUser'          => $authUser
-        ])
-            ->with('user', $user)
-            ->with('skills', $skills)
-            ->with('mySkills', $mySkills )
-            ->with('volunteeringSkills', $volunteeringSkills )
-            ->with('myVolunteeringSkills', $myVolunteeringSkills )
-            ->with('redirect_url', $redirect_url)
-            ->with('notif_count', $notif_count)
-            ;
-    }
-
-    public function user_update(Request $request, $id)
-    {
-
-//        $request->all();
-        $rules = [
-            'name' => 'required',
-            'email' => 'required|email',
-//            'contact' => 'required',
-            'role' => 'required'
-            /*'address' => '',
-            'cv' => '',
-            'image' => '',*/
-        ];
-
-        $data = $request->all();
-        $validation = Validator::make($data, $rules);
-
-        if ($validation->fails()) {
-            return redirect()->back()->withInput()->withErrors($validation);
-        }
-
-        $user = User::findOrFail($id);
-
-        $img_url = null;
-        if( $request->hasFile('image') ) {
-
-            $file = $request->file('image');
-
-            $destination = public_path().'/uploads/images/users/';
-            $filename = time().'_users.'.$file->getClientOriginalExtension();
-            $file->move($destination, $filename);
-            $img_url = '/uploads/images/users/'.$filename;
-            $user->image = $img_url;
-        }
-        /*else {
-
-            return redirect()->back()->withInput()->withErrors('Image Required');
-        }*/
-
-        $cv_url = null;
-        if( $request->hasFile('cv') ) {
-
-            $file = $request->file('cv');
-
-            $destination = public_path().'/uploads/cv/users/';
-            $filename = time().'_users.'.$file->getClientOriginalExtension();
-            $file->move($destination, $filename);
-            $cv_url = '/uploads/cv/users/'.$filename;
-            $user->CV = $cv_url;
-
-        }
-
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->adress = $request->adress;
-        $user->contact = $request->contact;
-        $user->role = $request->role;
-
-        $notification = Notification::where('user_id', $id)->first();
-
-        $notification->is_read = 1;
-
-        $notification->save();
-
-
-        /*return $request->volunteeringSKill;*/
-
-        if($user->save()) {
-            //$user->skills()->attach($request->skill);
-            $user->skills()->sync($request->skill);
-            $user->volunteeringskill()->sync($request->volunteeringSkill);
-
-            return redirect()->to($request->get('redirect_url'))->with('success','Role successfully updated');
-        }
-        else return redirect()->to($request->get('redirect_url'))->with('error','ERROR!!!');
-
-
-    }
-
-
+    //--------------------
 
     public function forum()
     {
@@ -398,11 +256,12 @@ class PagesController extends Controller
         $user->contact = $request->contact;
 
         /*return $request->volunteeringSKill;*/
+        //dd($request->volunteeringSkill);
 
         if($user->save()) {
             //$user->skills()->attach($request->skill);
-            $user->skills()->sync($request->skill);
-            $user->volunteeringskill()->sync($request->volunteeringSkill);
+            if($request->skill != null) $user->skills()->sync($request->skill);
+            if($request->volunteeringSkill != null ) $user->volunteeringskill()->sync($request->volunteeringSkill);
 
             return redirect()->route('home')->with('success','Profile successfully updated');
         }
@@ -423,6 +282,8 @@ class PagesController extends Controller
 
         $isread = Notification::where('is_read', 0)->get();
         $notif_count = $isread->count();
+
+//        dd($user);
 
         return view('show_user_profile', [
             'authUser' => $authUser
@@ -468,3 +329,148 @@ class PagesController extends Controller
     }
 
 }
+
+
+
+//dd
+//public function userslist()
+//{
+//    $users = USER::orderBy('created_at', 'desc')->paginate(4);
+//    $authUser = Auth::user();
+//
+//    $isread = Notification::where('is_read', 0)->get();
+//    $notif_count = $isread->count();
+//
+//
+//    return view('userslist', [
+//        'authUser'          => $authUser
+//    ])
+//        ->with('users', $users)
+//        ->with('notif_count', $notif_count)
+//        ;
+//}
+//
+//public function user_edit($id, Request $request) {
+//
+//    $user = User::findOrFail($id);
+//    $authUser = Auth::user();
+//
+////        return view('user.user_edit', [
+////            'authUser'          => $authUser
+////        ])
+////            ->with('user', $user)
+////            ;
+//
+////        $authUser = Auth::user();
+//
+//    $skills = Skill::all();
+//
+//    $mySkills = [];
+//    foreach ($authUser->skills as $skill) {
+//        $mySkills[] = $skill->id;
+//    }
+//
+//    $volunteeringSkills = VolunteeringSkill::all();
+//    $myVolunteeringSkills = [];
+//    foreach ($authUser->volunteeringskill as $volunteeringSkill) {
+//        $myVolunteeringSkills[] = $volunteeringSkill->id;
+//    }
+//    $redirect_url = $request->get('redirect_url', 'userslist');
+//
+//    $isread = Notification::where('is_read', 0)->get();
+//    $notif_count = $isread->count();
+//
+//
+//    return view('user.user_edit', [
+//        'authUser'          => $authUser
+//    ])
+//        ->with('user', $user)
+//        ->with('skills', $skills)
+//        ->with('mySkills', $mySkills )
+//        ->with('volunteeringSkills', $volunteeringSkills )
+//        ->with('myVolunteeringSkills', $myVolunteeringSkills )
+//        ->with('redirect_url', $redirect_url)
+//        ->with('notif_count', $notif_count)
+//        ;
+//}
+//
+//public function user_update(Request $request, $id)
+//{
+//
+////        $request->all();
+//    $rules = [
+//        'name' => 'required',
+//        'email' => 'required|email',
+////            'contact' => 'required',
+//        'role' => 'required'
+//        /*'address' => '',
+//        'cv' => '',
+//        'image' => '',*/
+//    ];
+//
+//    $data = $request->all();
+//    $validation = Validator::make($data, $rules);
+//
+//    if ($validation->fails()) {
+//        return redirect()->back()->withInput()->withErrors($validation);
+//    }
+//
+//    $user = User::findOrFail($id);
+//
+//    $img_url = null;
+//    if( $request->hasFile('image') ) {
+//
+//        $file = $request->file('image');
+//
+//        $destination = public_path().'/uploads/images/users/';
+//        $filename = time().'_users.'.$file->getClientOriginalExtension();
+//        $file->move($destination, $filename);
+//        $img_url = '/uploads/images/users/'.$filename;
+//        $user->image = $img_url;
+//    }
+//    /*else {
+//
+//        return redirect()->back()->withInput()->withErrors('Image Required');
+//    }*/
+//
+//    $cv_url = null;
+//    if( $request->hasFile('cv') ) {
+//
+//        $file = $request->file('cv');
+//
+//        $destination = public_path().'/uploads/cv/users/';
+//        $filename = time().'_users.'.$file->getClientOriginalExtension();
+//        $file->move($destination, $filename);
+//        $cv_url = '/uploads/cv/users/'.$filename;
+//        $user->CV = $cv_url;
+//
+//    }
+//
+//
+//    $user->name = $request->name;
+//    $user->email = $request->email;
+//    $user->adress = $request->adress;
+//    $user->contact = $request->contact;
+//    $user->role = $request->role;
+//
+//    $notification = Notification::where('user_id', $id)->first();
+//
+//    $notification->is_read = 1;
+//
+//    $notification->save();
+//
+//
+//    /*return $request->volunteeringSKill;*/
+//
+//    if($user->save()) {
+//        //$user->skills()->attach($request->skill);
+//        $user->skills()->sync($request->skill);
+//        $user->volunteeringskill()->sync($request->volunteeringSkill);
+//
+//        return redirect()->to($request->get('redirect_url'))->with('success','Role successfully updated');
+//    }
+//    else return redirect()->to($request->get('redirect_url'))->with('error','ERROR!!!');
+//
+//
+//}
+//

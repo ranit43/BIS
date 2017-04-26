@@ -15,6 +15,14 @@
 
                         <h4>Skill View Page.</h4>
 
+                        @if(session('success'))
+                            {{ session('success') }}
+
+                        @elseif(session('error'))
+                            {{ session('error') }}
+
+                        @endif
+
                         <table class="table table-bordered">
                             <thead>
                             <tr>

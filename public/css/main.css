@@ -10485,7 +10485,7 @@ section.full-profile-content {
 
 .single-post p {
   font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .username {
@@ -10497,7 +10497,8 @@ section.full-profile-content {
 }
 
 .thumbnail {
-  min-height: 490px;
+  min-height: 410px;
+  padding-top: 19px;
 }
 
 section.aboutus {
@@ -10517,4 +10518,17 @@ span.notify {
   vertical-align: middle;
   background-color: #777;
   border-radius: 10px;
+}
+
+.single-comment {
+  padding: 15px 0px;
+  border-bottom: 1px solid #ccc;
+}
+
+.commenterimage {
+  padding-top: 10;
+}
+
+.postpage {
+  text-align: center;
 }

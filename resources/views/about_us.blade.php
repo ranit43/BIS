@@ -21,7 +21,7 @@
 
                             <img class="img-circle img-responsive" src="/uploads/images/users/MasumSir.jpg" style="width: 200px; height: 200px" alt="Md Masum" >
                             <div class="caption">
-                                <h3>Md Masum</h3>
+                                <h5>Md Masum</h5>
                                 <p>Associate Professor</p>
                                 <p>Dept. of CSE, SUST</p>
                                 {{--<h3>{{ $user->name  }}</a> </h3>--}}
@@ -62,7 +62,7 @@
 
                                 <img class="img-circle img-responsive" src="/uploads/images/users/ranit.jpg" style="width: 200px; height: 200px" alt="Ranit" >
                                 <div class="caption">
-                                    <h3>Ranit Debnath Akash</h3>
+                                    <h5>Ranit Debnath Akash</h5>
                                     <p>Student</p>
                                     <p>Dept. of CSE, SUST</p>
                                     {{--<h3>{{ $user->name  }}</a> </h3>--}}
@@ -93,7 +93,7 @@
 
                                 <img class="img-circle img-responsive" src="/uploads/images/users/tania.jpg" style="width: 200px; height: 200px" alt="tania" >
                                 <div class="caption">
-                                    <h3>Tanjila Mawla Tania</h3>
+                                    <h5>Tanjila Mawla Tania</h5>
                                     <p>Student</p>
                                     <p>Dept. of CSE, SUST</p>
                                     {{--<h3>{{ $user->name  }}</a> </h3>--}}

@@ -99,7 +99,7 @@
                                             <div class="achievement-title">
                                                 {{--<h4>Achievements: </h4>--}}
                                                 <div class="button-group">
-                                                    @if( $authUser->id == $user->id )
+                                                    @if( $authUser!=null && $authUser->id == $user->id )
                                                         <p>
                                                             <a href="{!! route('achievement.create') !!}" class="btn btn-info btn-lg">
                                                                 <span class="glyphicon glyphicon-plus"></span> {{--Add achievement--}}
@@ -118,7 +118,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="button-group">
-                                                                    @if( $authUser->id == $user->id )
+                                                                    @if($authUser!=null && $authUser->id == $user->id )
                                                                         <a href="{{ route('achievement.edit', $achievement->id) }}">
                                                                             <button class="btn btn-primary" type="button">
                                                                                 <span class="glyphicon glyphicon-pencil"></span>
@@ -161,7 +161,7 @@
                                                 {{--<h4>Projects: </h4>--}}
 
                                                 <div class="button-group">
-                                                    @if( $authUser->id == $user->id )
+                                                    @if($authUser!=null &&  $authUser->id == $user->id )
                                                         <p>
                                                             <a href="{!! route('project.create') !!}" class="btn btn-info btn-lg">
                                                                 <span class="glyphicon glyphicon-plus"></span> {{--Add new Project--}}
@@ -180,7 +180,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="button-group">
-                                                                    @if( $authUser->id == $user->id )
+                                                                    @if( $authUser!=null && $authUser->id == $user->id )
                                                                         <a href="{{ route('project.edit', $project->id) }}">
                                                                             <button class="btn btn-primary" type="button">
                                                                                 <span class="glyphicon glyphicon-pencil"></span>
@@ -223,7 +223,7 @@
                                             <div class="achievement-title">
                                                 {{--<h4>Publications: </h4>--}}
                                                 <div class="button-group">
-                                                    @if( $authUser->id == $user->id )
+                                                    @if( $authUser!=null && $authUser->id == $user->id )
                                                         <p>
                                                             <a href="{!! route('paper.create') !!}" class="btn btn-info btn-lg">
                                                                 <span class="glyphicon glyphicon-plus"></span> {{--Add new Paper--}}
@@ -241,7 +241,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="button-group">
-                                                                    @if( $authUser->id == $user->id )
+                                                                    @if( $authUser!=null && $authUser->id == $user->id )
                                                                         <a href="{{ route('paper.edit', $paper->id) }}">
                                                                             <button class="btn btn-primary" type="button">
                                                                                 <span class="glyphicon glyphicon-pencil"></span>

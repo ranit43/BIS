@@ -7,9 +7,9 @@
 
 @section('content')
 
-    <section class="container">
+    <section class="search-result">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="card edit">
                     <div class="single edit-field">
 
@@ -59,25 +59,6 @@
                         @else
                             No data found
                         @endif
-
-
-                        {{--radio buttons--}}
-                        <div class="form-group">
-
-                            @if( count($fields) )
-
-
-                                    @foreach($fields as $field )
-
-                                        {{ Form::radio( 'field', $field ) }}
-                                        {{ Form::label('field', $field) }}
-                                        {{--{!! Form::checkbox('skill[]', $skill->id, in_array($skill->id, $mySkills) ? true : false) !!}--}}
-                                    @endforeach
-
-                            @else
-                                no field
-                            @endif
-                        </div>
 
 
 
