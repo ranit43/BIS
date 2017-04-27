@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 @section('content')
 
 
@@ -78,7 +80,7 @@
 
                                 <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" style="width: 200px; height: 200px" alt="{{ $user->name  }}" >
                                 <div class="caption">
-                                    <h3><a href="{{ route('show_user_profile', $user->id) }}">{{ $user->name  }}</a> </h3>
+                                    <h4><a href="{{ route('show_user_profile', $user->id) }}">{{ $user->name  }}</a> </h4>
                                     {{--<h3>{{ $user->name  }}</a> </h3>--}}
                                     {{--
                                         <li> <a href="{{ url('/edit', $authUser->id) }}">Edit</a> </li>

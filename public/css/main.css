@@ -563,7 +563,8 @@ h5 {
 .card {
   position: relative;
   margin-bottom: 12px;
-  background-color: #fff;
+  background-color: #fafafa;;
+  /*background-color: #fff;*/
   border: 1px solid #e5e5e5;
   border-radius: 0;
 }
@@ -10498,8 +10499,14 @@ section.full-profile-content {
 }
 
 .thumbnail {
-  min-height: 410px;
+  min-height: 550px;
   padding-top: 19px;
+
+  display: flex;
+  transition: border .2s ease-in-out;
+  flex-direction: column;
+  justify-content: center
+
 }
 
 section.aboutus {

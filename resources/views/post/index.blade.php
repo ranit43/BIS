@@ -50,10 +50,10 @@
                             <div class="card post">
                                 <div class="single-post">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-10">
                                             <h4>{{ $post->title }}</h4>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-2">
                                             <div class="button-group">
                                                 @if( $authUser->role=="Admin" || $authUser->id == $post->user_id )
                                                     {{--<a href="{{ route('post.edit', $post->id) }}" class="btn btn-info btn-lg">
@@ -73,7 +73,8 @@
                                                     {{--</a>--}}
 
                                                     {{--data-placement="bottom"--}}
-                                                    <a class="btn btn-danger" data-toggle="confirmation" data-title="Delete comment?" data-placement="bottom"
+                                                    <a class="btn btn-danger" data-toggle="confirmation"
+                                                       data-title="Delete Post?" data-placement="right"
                                                        href="{{ route('post.delete', $post->id) }}" >
                                                         <span class="glyphicon glyphicon-remove"></span>
                                                     </a>

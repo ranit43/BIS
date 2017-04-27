@@ -7,7 +7,12 @@
 			<ul class="menuzord-menu">
                 <!-- Authentication Links -->
                 <li><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="{{ url('/search') }}">Talent Search</a></li>
+                <li>
+                    <a href="{{ url('/search') }}">
+                        Talent Search
+                        <span class="glyphicon glyphicon-search"></span>
+                    </a>
+                </li>
                 <li><a href="{{ url('/about_us') }}">About Us</a></li>
                 <{{--li><a href="{{ url('/post') }}">Forum</a></li>--}}
 

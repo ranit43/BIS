@@ -37,6 +37,23 @@ class UserController extends Controller
             ;
     }
 
+    public function usertable()
+    {
+        $users = USER::orderBy('created_at', 'desc')->paginate(10);
+        $authUser = Auth::user();
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
+
+        return view('user.index', [
+            'authUser'          => $authUser
+        ])
+            ->with('users', $users)
+            ->with('notif_count', $notif_count)
+            ;
+    }
+
     public function user_edit($id, Request $request) {
 
         $user = User::findOrFail($id);
@@ -155,7 +172,7 @@ class UserController extends Controller
             if($request->skill != null) $user->skills()->sync($request->skill);
             if($request->volunteeringSkill != null ) $user->volunteeringskill()->sync($request->volunteeringSkill);
 
-            return redirect()->to($request->get('redirect_url'))->with('success','Role successfully updated');
+            return redirect()->to($request->get('redirect_url'))->with('success','User Profile successfully updated');
         }
         else return redirect()->to($request->get('redirect_url'))->with('error','ERROR!!!');
 

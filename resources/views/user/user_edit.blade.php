@@ -13,7 +13,7 @@
                 <div class="card edit">
                     <div class="single edit-field">
 
-                        <h4> user Edit page</h4>
+                        <h4> User profile Edit page</h4>
 
                         @if(session('success'))
                             {{ session('success') }}

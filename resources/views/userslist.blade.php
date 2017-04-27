@@ -9,17 +9,26 @@
 
     <section class="aboutus">
 
+
+        <div class="row">
+            <div class="col">
+                <div class="username">
+
+                    <h5>
+                        @if(session('success'))
+                            {{ session('success') }}
+                        @elseif(session('error'))
+                            {{ session('error') }}
+                        @endif
+                    </h5>
+
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="row">
-
-                    @if(session('success'))
-                        {{ session('success') }}
-
-                    @elseif(session('error'))
-                        {{ session('error') }}
-
-                    @endif
 
                     @foreach($users as $user)
                         <div class="col-md-3">
@@ -72,22 +81,25 @@
                                         </a>
                                     @endif
 
+
                                     {{--<p>
                                         <a href="#" class="btn btn-primary" role="button">Button</a>
                                         <a href="#" class="btn btn-default" role="button">Button</a>
                                     </p>--}}
+                                    {{--<br>--}}
                                 </div>
                             </div>
                         </div>
                     @endforeach
 
+                </div>
+            </div>
+        </div>
 
-                    <div class="username">
-
-                        {{ $users->links() }}
-                    </div>
-
-
+        <div class="row">
+            <div class="col">
+                <div class="username">
+                    {{ $users->links() }}
                 </div>
             </div>
         </div>

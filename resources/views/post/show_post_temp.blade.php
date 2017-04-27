@@ -15,10 +15,10 @@
                 <div class="card posts-comment">
                     <div class="single posts-comment">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-10">
                                 <h4>{{ $post->title }}</h4>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 <div class="button-group">
                                     @if( $authUser->role=="Admin" || $authUser->id == $post->user_id )
                                         <a href="{{ route('post.edit', $post->id) }}">
@@ -33,7 +33,8 @@
                                                 {{--<span class="glyphicon glyphicon-remove"></span>--}}
                                             {{--</button>--}}
                                         {{--</a>--}}
-                                        <a class="btn btn-danger" data-toggle="confirmation" data-title="Delete comment?" data-placement="bottom"
+                                        <a class="btn btn-danger" data-toggle="confirmation"
+                                           data-title="Delete Post?" data-placement="right"
                                            href="{{ route('post.delete', $post->id) }}" >
 
                                             <span class="glyphicon glyphicon-remove"></span>
@@ -130,7 +131,8 @@
                                                    {{--deleteId="{!! $comment->id !!}">Delete</a>--}}
 
 
-                                                <a class="btn btn-danger" data-toggle="confirmation" data-title="Delete comment?"
+                                                <a class="btn btn-danger" data-toggle="confirmation"
+                                                   data-title="Delete comment?" data-placement="right"
                                                    href="{{ route('comment.delete', $comment->id) }}" >
 
                                                     <span class="glyphicon glyphicon-remove"></span>
@@ -195,7 +197,7 @@
                             </div>
                         @endforeach
                     @else
-                        No data found
+                        No Comments Yet! Be First to comment!
                     @endif
 
                     {!!  Form::open( [ 'route' => 'comment.store', 'method' => 'post' ]) !!}

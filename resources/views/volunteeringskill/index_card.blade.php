@@ -13,7 +13,7 @@
                 <div class="card edit">
                     <div class="single edit-field">
 
-                        <h4>Volunteering Skill View Page.</h4>
+                        <h4>All Volunteering Skill.</h4>
 
                         <table class="table table-bordered">
                             <thead>
@@ -37,11 +37,21 @@
                                             </a>
                                         {{--</td>
                                         <td>--}}
-                                            <a href="{{ route('volunteeringskill.delete', $volunteeringskill->id) }}">
-                                                <button class="btn btn-danger" type="button">
-                                                    <span class="glyphicon glyphicon-remove"></span>
-                                                </button>
+                                            {{--<a href="{{ route('volunteeringskill.delete', $volunteeringskill->id) }}">--}}
+                                                {{--<button class="btn btn-danger" type="button">--}}
+                                                    {{--<span class="glyphicon glyphicon-remove"></span>--}}
+                                                {{--</button>--}}
+                                            {{--</a>--}}
+
+                                            <a class="btn btn-danger" data-toggle="confirmation"
+                                               data-title="Delete Volunteering Skill?" data-placement="right"
+                                               href="{{ route('volunteeringskill.delete', $volunteeringskill->id) }}" >
+
+                                                <span class="glyphicon glyphicon-remove"></span>
+
                                             </a>
+
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -67,3 +77,22 @@
 
 @endsection
 
+@section('scripts')
+
+    <!-- for Datatable -->
+
+    {{--<script src="{{ asset('js/jquery.js') }}"></script>--}}
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-confirmation.min.js') }}"></script>
+    <script>
+
+        $( document ).ready( function() {
+            $('[data-toggle=confirmation]').confirmation({
+                rootSelector: '[data-toggle=confirmation]',
+// other options
+            });
+        });
+    </script>
+
+
+@stop

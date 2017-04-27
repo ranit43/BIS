@@ -94,6 +94,11 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'UserController@index'
     ]);
 
+    Route::get('user/usertable', [
+        'as' => 'user.usertable',
+        'uses' => 'UserController@usertable'
+    ]);
+
 	Route::get('user.user_edit/{id}', [
 		'as'	=>	'user.user_edit',
 		'uses' 	=>	'UserController@user_edit'
@@ -108,6 +113,9 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'user.delete',
         'uses' => 'UserController@destroy'
     ]);
+
+
+
 
 	/* ------------  SKill Routes --------------- */
 	Route::get('skill/create', [
