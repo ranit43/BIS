@@ -52,16 +52,25 @@
 
                                     <p>Role: {{$user->role}}</p>
                                     <br>
-                                    <a href="{{ route('user.user_edit', $user->id) }}">
-                                        <button class="btn btn-primary" type="button">
-                                            <span class="glyphicon glyphicon-pencil"></span>
-                                        </button>
-                                    </a>
-                                    <a href="{{ route('user.delete', $user->id) }}">
-                                        <button class="btn btn-danger" type="button">
+                                    @if($authUser->role == "Admin")
+                                        <a href="{{ route('user.user_edit', $user->id) }}">
+                                            <button class="btn btn-primary" type="button">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </button>
+                                        </a>
+                                        {{--<a href="{{ route('user.delete', $user->id) }}">--}}
+                                        {{--<button class="btn btn-danger" type="button">--}}
+                                        {{--<span class="glyphicon glyphicon-remove"></span>--}}
+                                        {{--</button>--}}
+                                        {{--</a>--}}
+
+                                        <a class="btn btn-danger" data-toggle="confirmation" data-title="Delete User?" data-placement="bottom"
+                                           href="{{ route('user.delete', $user->id) }}" >
+
                                             <span class="glyphicon glyphicon-remove"></span>
-                                        </button>
-                                    </a>
+
+                                        </a>
+                                    @endif
 
                                     {{--<p>
                                         <a href="#" class="btn btn-primary" role="button">Button</a>
@@ -87,6 +96,26 @@
 
 @endsection
 
+
+@section('scripts')
+
+    <!-- for Datatable -->
+
+    {{--<script src="{{ asset('js/jquery.js') }}"></script>--}}
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-confirmation.min.js') }}"></script>
+    <script>
+
+        $( document ).ready( function() {
+            $('[data-toggle=confirmation]').confirmation({
+                rootSelector: '[data-toggle=confirmation]',
+// other options
+            });
+        });
+    </script>
+
+
+@stop
 
 {{--
 

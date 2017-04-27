@@ -328,6 +328,23 @@ class PagesController extends Controller
             ;
     }
 
+    public function userslist()
+    {
+        $users = USER::orderBy('created_at', 'desc')->paginate(4);
+        $authUser = Auth::user();
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
+
+        return view('userslist', [
+            'authUser'          => $authUser
+        ])
+            ->with('users', $users)
+            ->with('notif_count', $notif_count)
+            ;
+    }
+
 }
 
 

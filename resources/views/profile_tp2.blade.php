@@ -121,11 +121,18 @@
                                                                             <span class="glyphicon glyphicon-pencil"></span>
                                                                         </button>
                                                                     </a>
-                                                                    <a href="{{ route('achievement.delete', $achievement->id) }}">
-                                                                        <button class="btn btn-danger" type="button">
-                                                                            <span class="glyphicon glyphicon-remove"></span>
-                                                                        </button>
+                                                                    {{--<a href="{{ route('achievement.delete', $achievement->id) }}">--}}
+                                                                        {{--<button class="btn btn-danger" type="button">--}}
+                                                                            {{--<span class="glyphicon glyphicon-remove"></span>--}}
+                                                                        {{--</button>--}}
+                                                                    {{--</a>--}}
+                                                                    <a class="btn btn-danger" data-toggle="confirmation" data-title="Delete Achievement?"
+                                                                       data-placement="bottom" href="{{ route('achievement.delete', $achievement->id) }}" >
+
+                                                                        <span class="glyphicon glyphicon-remove"></span>
+
                                                                     </a>
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -178,11 +185,19 @@
                                                                             <span class="glyphicon glyphicon-pencil"></span>
                                                                         </button>
                                                                     </a>
-                                                                    <a href="{{ route('project.delete', $project->id) }}">
-                                                                        <button class="btn btn-danger" type="button">
-                                                                            <span class="glyphicon glyphicon-remove"></span>
-                                                                        </button>
+                                                                    {{--<a href="{{ route('project.delete', $project->id) }}">--}}
+                                                                        {{--<button class="btn btn-danger" type="button">--}}
+                                                                            {{--<span class="glyphicon glyphicon-remove"></span>--}}
+                                                                        {{--</button>--}}
+                                                                    {{--</a>--}}
+
+                                                                    <a class="btn btn-danger" data-toggle="confirmation" data-title="Delete Project?"
+                                                                       data-placement="bottom" href="{{ route('project.delete', $project->id) }}" >
+
+                                                                        <span class="glyphicon glyphicon-remove"></span>
+
                                                                     </a>
+
                                                                 </div>
                                                             </div>
 
@@ -235,11 +250,19 @@
                                                                             <span class="glyphicon glyphicon-pencil"></span>
                                                                         </button>
                                                                     </a>
-                                                                    <a href="{{ route('paper.delete', $paper->id) }}">
-                                                                        <button class="btn btn-danger" type="button">
-                                                                            <span class="glyphicon glyphicon-remove"></span>
-                                                                        </button>
+                                                                    {{--<a href="{{ route('paper.delete', $paper->id) }}">--}}
+                                                                        {{--<button class="btn btn-danger" type="button">--}}
+                                                                            {{--<span class="glyphicon glyphicon-remove"></span>--}}
+                                                                        {{--</button>--}}
+                                                                    {{--</a>--}}
+
+                                                                    <a class="btn btn-danger" data-toggle="confirmation" data-title="Delete Paper?"
+                                                                       data-placement="bottom" href="{{ route('paper.delete', $paper->id) }}" >
+
+                                                                        <span class="glyphicon glyphicon-remove"></span>
+
                                                                     </a>
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -269,3 +292,24 @@
 
 
 @endsection
+
+
+@section('scripts')
+
+    <!-- for Datatable -->
+
+    {{--<script src="{{ asset('js/jquery.js') }}"></script>--}}
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-confirmation.min.js') }}"></script>
+    <script>
+
+        $( document ).ready( function() {
+            $('[data-toggle=confirmation]').confirmation({
+                rootSelector: '[data-toggle=confirmation]',
+// other options
+            });
+        });
+    </script>
+
+
+@stop

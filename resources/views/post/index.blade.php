@@ -27,7 +27,7 @@
                             </div>--}}
 
                             <div class="thread-title">
-                                <h4>All Threads: </h4>
+                                <h4>All Posts: </h4>
                                 <div class="button-group">
                                     <p>
                                         <a href="{!! route('post.create') !!}" class="btn btn-info btn-lg">
@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="button-group">
-                                                @if( $authUser->id == $post->user_id )
+                                                @if( $authUser->role=="Admin" || $authUser->id == $post->user_id )
                                                     {{--<a href="{{ route('post.edit', $post->id) }}" class="btn btn-info btn-lg">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </a>--}}
@@ -66,11 +66,18 @@
                                                     </a>
                                                     {{--<a href="{{ route('post.edit', $post->id) }}"><button class="btn btn-primary" type="button">EDit</button></a>--}}
                                                     {{--<a href="{{ route('post.delete', $post->id) }}"><button class="btn btn-danger" type="button">Delete </button></a>--}}
-                                                    <a href="{{ route('post.delete', $post->id) }}">
-                                                        <button class="btn btn-danger" type="button">
-                                                            <span class="glyphicon glyphicon-remove"></span>
-                                                        </button>
+                                                    {{--<a href="{{ route('post.delete', $post->id) }}">--}}
+                                                        {{--<button class="btn btn-danger" type="button">--}}
+                                                            {{--<span class="glyphicon glyphicon-remove"></span>--}}
+                                                        {{--</button>--}}
+                                                    {{--</a>--}}
+
+                                                    {{--data-placement="bottom"--}}
+                                                    <a class="btn btn-danger" data-toggle="confirmation" data-title="Delete comment?" data-placement="bottom"
+                                                       href="{{ route('post.delete', $post->id) }}" >
+                                                        <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
+
                                                 @endif
                                             </div>
                                         </div>
@@ -133,6 +140,26 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')
+
+    <!-- for Datatable -->
+
+    {{--<script src="{{ asset('js/jquery.js') }}"></script>--}}
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-confirmation.min.js') }}"></script>
+    <script>
+
+        $( document ).ready( function() {
+            $('[data-toggle=confirmation]').confirmation({
+                rootSelector: '[data-toggle=confirmation]',
+// other options
+            });
+        });
+    </script>
+
+
+@stop
 
     {{--<section class="container">
         <div class="row">

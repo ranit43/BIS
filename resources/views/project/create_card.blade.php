@@ -19,17 +19,21 @@
                         {!!  Form::open([ 'route' => 'project.store', 'method' => 'post']) !!}
 
                         <div class="form-group">
-                            {!! Form::label('name', 'Title (Position in the Competition)' ) !!}
-                            {!! Form::text('name', null, ['id' => 'name', 'class' =>'form-control', 'placeholder' => 'Title']) !!}
+                            {!! Form::label('name', 'Project Title( Name of the Project)' ) !!}
+                            {!! Form::text('name', null, ['id' => 'name', 'class' =>'form-control',
+                            'placeholder' => 'Write the name of your project']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('link', 'Link:') !!}
-                            {!! Form::text('link', null, ['id' => 'link', 'class' =>'form-control', 'placeholder' => 'Link' ]) !!}
+                            {!! Form::label('link', 'Project Link: (e.g. https://z.com/x/y)') !!}
+                            {!! Form::text('link', null, ['id' => 'link', 'class' =>'form-control',
+                                'placeholder' => 'e.g. https://z.com/x/y' ]) !!}
                         </div>
+
                         <div class="form-group">
-                            {!! Form::label('details', 'Details') !!}
-                            {!! Form::textarea( 'details', null, [ 'id' => 'details', 'class' => 'form-control', 'placeholder' => 'Details' ]) !!}
+                            {!! Form::label('details', 'Project Details( Platform and others )') !!}
+                            {!! Form::textarea( 'details', null, [ 'id' => 'details', 'class' => 'form-control',
+                             'placeholder' => 'Write Details abour your project' ]) !!}
                         </div>
 
 

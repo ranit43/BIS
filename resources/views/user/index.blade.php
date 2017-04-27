@@ -57,10 +57,17 @@
                                                 <span class="glyphicon glyphicon-pencil"></span>
                                             </button>
                                         </a>
-                                        <a href="{{ route('user.delete', $user->id) }}">
-                                            <button class="btn btn-danger" type="button">
-                                                <span class="glyphicon glyphicon-remove"></span>
-                                            </button>
+                                        {{--<a href="{{ route('user.delete', $user->id) }}">--}}
+                                            {{--<button class="btn btn-danger" type="button">--}}
+                                                {{--<span class="glyphicon glyphicon-remove"></span>--}}
+                                            {{--</button>--}}
+                                        {{--</a>--}}
+
+                                        <a class="btn btn-danger" data-toggle="confirmation" data-title="Delete User?" data-placement="bottom"
+                                           href="{{ route('user.delete', $user->id) }}" >
+
+                                            <span class="glyphicon glyphicon-remove"></span>
+
                                         </a>
                                     @endif
 
@@ -102,7 +109,25 @@
 
 @endsection
 
+@section('scripts')
 
+    <!-- for Datatable -->
+
+    {{--<script src="{{ asset('js/jquery.js') }}"></script>--}}
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-confirmation.min.js') }}"></script>
+    <script>
+
+        $( document ).ready( function() {
+            $('[data-toggle=confirmation]').confirmation({
+                rootSelector: '[data-toggle=confirmation]',
+// other options
+            });
+        });
+    </script>
+
+
+@stop
 {{--
 
 <div class="well">

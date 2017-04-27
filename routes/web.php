@@ -155,7 +155,7 @@ Route::group(['middleware' => 'auth'], function() {
 		'as'    => 'post.update',
 		'uses'  => 'PostController@update'
 	]);
-	Route::get('post/{id}',['as' => 'post.delete', 'uses' => 'postController@destroy']);
+	Route::get('post/{id}',['as' => 'post.delete', 'uses' => 'PostController@destroy']);
 
 	Route::get('post/{id}/show_post', [
         'as'    => 'post.show_post',

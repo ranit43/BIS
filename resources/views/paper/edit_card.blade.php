@@ -21,17 +21,20 @@
 
 
                         <div class="form-group">
-                            {!! Form::label('name', 'Title (Position in the Competition)' ) !!}
-                            {!! Form::text('name', null, ['id' => 'name', 'class' =>'form-control', 'placeholder' => 'Title']) !!}
+                            {!! Form::label('name', 'Paper Title:' ) !!}
+                            {!! Form::text('name', null, ['id' => 'name', 'class' =>'form-control',
+                             'placeholder' => 'Write title of your Paper']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('link', 'Link:') !!}
-                            {!! Form::text('link', null, ['id' => 'link', 'class' =>'form-control', 'placeholder' => 'Link' ]) !!}
+                            {!! Form::label('link', 'Paper Link: (e.g. https://z.com/x/y):') !!}
+                            {!! Form::text('link', null, ['id' => 'link', 'class' =>'form-control', 
+                            'placeholder' => 'e.g. https://z.com/x/y' ]) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('details', 'Details') !!}
-                            {!! Form::textarea( 'details', null, [ 'id' => 'details', 'class' => 'form-control', 'placeholder' => 'Details' ]) !!}
+                            {!! Form::label('details', 'Paper details') !!}
+                            {!! Form::textarea( 'details', null, [ 'id' => 'details', 'class' => 'form-control', 
+                            'placeholder' => 'Write Details abour your Paper' ]) !!}
                         </div>
 
 

@@ -10458,6 +10458,7 @@ span.badge.badge-success.sr {
     vertical-align: middle;
     background-color: #0a4550;
     border-radius: 24px;
+    margin-bottom: 5px;
 }
 section.login.page {
     margin-top: 90px;

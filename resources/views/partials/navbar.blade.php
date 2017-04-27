@@ -34,7 +34,13 @@
                     </li>
 
                     @if(Auth::user()->role=='Admin' )
-                        <li><a href="{{ url('/notifications') }}">Notifications <span class="notify">{{$notif_count}}</span></a></li>
+                        <li><a href="{{ url('/notifications') }}">
+                                Notifications
+                                @if( $notif_count > 0 )
+                                    <span class="notify">{{$notif_count}}</span>
+                                @endif
+                            </a>
+                        </li>
 
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
