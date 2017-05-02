@@ -10,21 +10,24 @@
     <section class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="card edit">
+                <div class="cardtop card edit">
                     <div class="single edit-field">
 
-                        <h4>Volunteering Skill Edit Page.</h4>
-                        <br/>
+                        <div class="postpage">
+                            <h5>Edit Volunteering Skill.</h5>
+                            {{--<br/>    --}}
+                        </div>
+
 
                         {!! Form::model($volunteeringskill, ['route' => ['volunteeringskill.update', $volunteeringskill->id], 'method' => 'PUT', 'files' => true]  ) !!}
 
                         <div class="form-group">
-                            {{ Form::label('name', 'volunteeringskill Name') }}
+                            {{ Form::label('name', 'Volunteering Skill Name') }}
                             {{ Form::text('name', null, ['id' => 'name', 'placeholder' => 'Enter your volunteeringskill', 'class' => 'form-control']) }}
                         </div>
 
                         <div class="form-group">
-                            {{ Form::submit('Add', ['class' => 'btn btn-success']) }}
+                            {{ Form::submit('Update', ['class' => 'btn btn-success']) }}
                         </div>
 
                         {!! Form::close() !!}

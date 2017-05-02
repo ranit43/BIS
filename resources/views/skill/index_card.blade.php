@@ -10,18 +10,23 @@
     <section class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="card edit">
+                <div class="cardtop card edit">
                     <div class="single edit-field">
 
-                        <h4>Skill View Page.</h4>
+                        <div class="postpage">
+                            {{--<h5><strong>Skill List</strong></h5>--}}
+                            <h5>List of Professional Skills</h5>
 
-                        @if(session('success'))
-                            {{ session('success') }}
+                            @if(session('success'))
+                                {{ session('success') }}
 
-                        @elseif(session('error'))
-                            {{ session('error') }}
+                            @elseif(session('error'))
+                                {{ session('error') }}
 
-                        @endif
+                            @endif
+                        </div>
+
+
 
                         <table class="table table-bordered">
                             <thead>

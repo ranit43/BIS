@@ -10,18 +10,24 @@
     <section class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="card edit">
+                <div class="cardtop card edit">
                     <div class="single edit-field">
 
-                        <h4> User profile Edit page</h4>
+                        <div class="postpage">
 
-                        @if(session('success'))
-                            {{ session('success') }}
+                            <h5> Edit User Information</h5>
 
-                        @elseif(session('error'))
-                            {{ session('error') }}
+                            @if(session('success'))
+                                {{ session('success') }}
 
-                        @endif
+                            @elseif(session('error'))
+                                {{ session('error') }}
+
+                            @endif
+
+                        </div>
+
+
 
                         {!! Form::model($user,['route' => ['user.user_update', $user->id], 'method' => 'post', 'files' => true]) !!}
 

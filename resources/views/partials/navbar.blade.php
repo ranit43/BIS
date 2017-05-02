@@ -6,15 +6,17 @@
 			</a>
 			<ul class="menuzord-menu">
                 <!-- Authentication Links -->
-                <li><a href="{{ url('/') }}">Home</a></li>
-                <li>
-                    <a href="{{ url('/search') }}">
-                        Talent Search
-                        <span class="glyphicon glyphicon-search"></span>
-                    </a>
-                </li>
+                <li><a href="{{ url('/welcome_search') }}">Home</a></li>
+
+                {{--<li>--}}
+                    {{--<a href="{{ url('/search') }}">--}}
+                        {{--Talent Search--}}
+                        {{--<span class="glyphicon glyphicon-search"></span>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+
                 <li><a href="{{ url('/about_us') }}">About Us</a></li>
-                <{{--li><a href="{{ url('/post') }}">Forum</a></li>--}}
+                {{--<li><a href="{{ url('/post') }}">Forum</a></li>--}}
 
                 @if (Auth::guest())
                     {{--<li><a href="{{ url('/post') }}">Posts</a></li>--}}
@@ -67,7 +69,7 @@
                                 <li><a href="#">Professional Skills<span class="indicator">+</span></a>
                                     <ul class="dropdown dropdown-left" style="display: none;">
                                         <li><a href="{{ url('/skill') }}">View All</a></li>
-                                        <li><a href=skill/create>Create New</a></li>
+                                        <li><a href="{{ url('skill/create') }}">Create New</a></li>
                                         {{--<li><a href="blog__classic_right_sidebar.html">Right Sidebar</a></li>--}}
                                         {{--<li><a href="blog__classic_both_sidebar.html">Both Sidebar</a></li>--}}
                                     </ul>

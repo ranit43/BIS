@@ -77,7 +77,9 @@
 }
 
 body {
-  background: url("../uploads/images/b6.png");
+  /*background: url("../uploads/images/b6.png");*/
+  /*background-size: cover;*/
+  /*background-position: center center;*/
   font-family: "Source Sans Pro", sans-serif;
   font-size: 15px;
   font-weight: 400;
@@ -89,6 +91,7 @@ body {
   text-rendering: optimizeLegibility;
   overflow-scrolling: touch;
   overflow-x: hidden;
+
   /*padding-top: 100px;*/
 }
 
@@ -563,7 +566,8 @@ h5 {
 .card {
   position: relative;
   margin-bottom: 12px;
-  background-color: #fafafa;;
+  background-color: #fff;
+  /*background-color: #fafafa;;*/
   /*background-color: #fff;*/
   border: 1px solid #e5e5e5;
   border-radius: 0;
@@ -4538,7 +4542,7 @@ h5 {
   display: inline-block;
   text-decoration: none;
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.5);
+  color: #fff;
   outline: 0;
   line-height: 1.42857143;
   -webkit-tap-highlight-color: transparent;
@@ -4583,7 +4587,7 @@ h5 {
   width: 100%;
   background: none;
   padding: 10px 25px 10px 22px;
-  color: #888;
+  color: #fff;
   text-decoration: none;
   display: inline-block;
   float: left;
@@ -5961,7 +5965,8 @@ FULL SCREEN NAVIGATION
 .site-header {
   position: relative;
   overflow: hidden;
-  background: url(../uploads/images/hunter-001.jpg);
+  /*background: url(../uploads/images/hunter-001.jpg);*/
+  background-color: #f6f6f6;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -5972,7 +5977,7 @@ FULL SCREEN NAVIGATION
     height: 100%;
   top:0;
   left: 0;
-  background-color: rgba(0,0,0,0.45);
+  /*background-color: rgba(0,0,0,0.45);*/
 }
 
 .site-header .intro {
@@ -8361,7 +8366,8 @@ xpush
 }
 
 .footer {
-  background-color: #0a4550;
+  background-color: #132e40;
+  /*background-color: #0a4550;*/
   padding: 20px 0 10px;
   color: #eeeeee;
 }
@@ -10298,7 +10304,8 @@ xpush
 
 
 #topNavBar {
-  background-color: #0a4550;
+  /*background-color: #0a4550;*/
+  background-color: #132e40;
 }
 
 
@@ -10401,7 +10408,7 @@ xpush
 }
 
 .card.posts-all-threads {
-  margin-top: 83px;
+  margin-top: 100px;
 }
 .card.edit {
 
@@ -10409,7 +10416,12 @@ xpush
   padding-left: 81px;
   padding-right: 81px;
   padding-bottom: 10px;
+  margin-bottom: 45px;
 
+}
+
+.cardtop.card.edit {
+  margin-top: 100px;
 }
 
 .col-md-6.contact-field {
@@ -10474,7 +10486,7 @@ section.register.page {
 }
 
 .menuzord-menu ul.dropdown, .menuzord-menu ul.dropdown li ul.dropdown, .menuzord-menu > li > .megamenu {
-    background-color: #0a4550;
+    background-color: #132e40;
 }
 
 .edit {
@@ -10499,16 +10511,19 @@ section.full-profile-content {
 }
 
 .thumbnail {
-  min-height: 550px;
+  min-height: 430px;
   padding-top: 19px;
 
   display: flex;
   transition: border .2s ease-in-out;
   flex-direction: column;
-  justify-content: center
+  justify-content: center;
+  box-shadow: 1px 0px 2px 2px rgba(221, 221, 221, 0.4);
 
 }
-
+.thumbnail h4 {
+  font-size: 20px;
+}
 section.aboutus {
   margin-top: 87px;
 }
@@ -10539,4 +10554,19 @@ span.notify {
 
 .postpage {
   text-align: center;
+}
+
+.select2-container {
+  width: 100% !important;
+}
+
+section.search-result .form-group {
+  color: #3c3c3c;
+  margin-bottom: 25px;
+}
+.site-header .valign-center .intro {color: #3c3c3c;}
+
+section.search-result {
+  background-color: #f6f6f6;
+  padding: 40px 0px;
 }

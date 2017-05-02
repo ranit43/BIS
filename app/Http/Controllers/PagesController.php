@@ -35,6 +35,34 @@ class PagesController extends Controller
             ;
     }
 
+    public function welcome_search() {
+        $volunteeringSkills = VolunteeringSkill::all();
+        $fields = Skill::groupBy('field')->pluck('field', 'field');
+        $fields_skills = [];
+
+        foreach ($fields as $field ) {
+            $fields_skills[$field] = Skill::where('field' , '=', $field )->get();
+        }
+        /*return $skills;*/
+
+        /*$people = ['Lopa', 'Abir', 'Partho'];*/
+        $authUser = Auth::user();
+
+        $isread = Notification::where('is_read', 0)->get();
+        $notif_count = $isread->count();
+
+
+        return view( 'welcome_search', [
+            'authUser'          => $authUser
+        ])
+            -> with('fields_skills', $fields_skills)
+            ->with('volunteeringSkills', $volunteeringSkills)
+            ->with('fields', $fields)
+            ->with('notif_count', $notif_count)
+            ;
+    }
+
+
     public function search()
     {
         //$skills = Skill::groupBy('field')->get();
@@ -54,7 +82,7 @@ class PagesController extends Controller
         $notif_count = $isread->count();
 
 
-        return view( 'search_card', [
+        return view( 'searchres2', [
                 'authUser'          => $authUser
                 ])
                 -> with('fields_skills', $fields_skills)

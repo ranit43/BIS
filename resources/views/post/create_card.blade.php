@@ -10,18 +10,18 @@
     <section class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="card edit">
+                <div class="cardtop card edit">
                     <div class="single edit-field">
 
 
-                        <h4>Add New Post.</h4>
+                        <h5>Write your Post!</h5>
                         <br/>
 
                         {!!  Form::open([ 'route' => 'post.store', 'method' => 'post']) !!}
 
                         <div class="form-group">
                             {!! Form::label('ttile', 'Title') !!}
-                            {!! Form::text('title', null, ['id' => 'title', 'class' =>'form-control', 'placeholder' => 'Title', 'required' ]) !!}
+                            {!! Form::text('title', null, ['id' => 'title', 'class' =>'form-control', 'placeholder' => 'Title of your post!', 'required' ]) !!}
                         </div>
 
                         <div class="form-group">

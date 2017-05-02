@@ -18,7 +18,8 @@
                     <p>
                         Our website gives full infromation of students of a batch or department of a particular university.
                         Besides anybody want to contact a person with some specific set of skills then he can search in our webseite
-                        and see his full information and also can contact him.
+                        and see his full information and also can contact him. Select the Dept. and then select the specific set of skills
+                        then search below for the talents.
                     </p>
                 </div>
                 <section class="search-result">
@@ -40,7 +41,8 @@
 
                                     <div class="form-group">
 
-                                        <h5><strong>Field:</strong></h5>
+                                        {{--<h5><strong>Select Dept:</strong></h5>--}}
+                                        <h5>Select Dept:</h5>
                                         @if( count($fields) )
 
                                             <select class="form-control" name="field" id="field">
@@ -60,9 +62,9 @@
 
                                         @foreach($fields_skills as $key => $fields_skill)
                                             <div class="form-group field-set" id="{{$key}}">
-                                                Skill:
-                                                <h5><strong>Skill:</strong></h5>
-                                                <br>
+                                                <h5>Select Skills</h5>
+                                                {{--<h5><strong>Select Skills:</strong></h5>--}}
+                                                {{--<br>--}}
                                                 <select class="skill-multiple form-control" multiple="multiple" name="skill[]">
                                                     @foreach($fields_skill as $skill)
 
@@ -88,7 +90,7 @@
 
 
 
-                                {{--{Form::button('<i class="glyphicon glyphicon-delete"></i>', array('type' => 'submit', 'class' => ''))}}--}}
+                            {{--{Form::button('<i class="glyphicon glyphicon-delete"></i>', array('type' => 'submit', 'class' => ''))}}--}}
 
 
                             {!! Form::close() !!}

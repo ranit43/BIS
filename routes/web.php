@@ -36,6 +36,11 @@ Route::get('show_user_profile/{id}', [
     'uses' => 'PagesController@show_user_profile'
 ]);
 
+Route::get('welcome_search', [
+    'as' => 'welcome_search',
+    'uses' => 'PagesController@welcome_search'
+]);
+
 //Route::get('searchResult/{skill}', [
 Route::post('searchResult', [
 	'as'   =>  'searchResult',

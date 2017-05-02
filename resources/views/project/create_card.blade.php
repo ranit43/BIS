@@ -7,10 +7,12 @@
 
 @section('content')
 
+
+
     <section class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="card edit">
+                <div class="cardtop card edit">
                     <div class="single edit-field">
 
                         Project add page.

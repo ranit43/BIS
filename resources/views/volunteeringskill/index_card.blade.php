@@ -10,10 +10,21 @@
     <section class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="card edit">
+                <div class="cardtop card edit">
                     <div class="single edit-field">
 
-                        <h4>All Volunteering Skill.</h4>
+                        <div class="postpage">
+                            <h5>All Volunteering Skill.</h5>
+
+                            @if(session('success'))
+                                {{ session('success') }}
+
+                            @elseif(session('error'))
+                                {{ session('error') }}
+
+                            @endif
+
+                        </div>
 
                         <table class="table table-bordered">
                             <thead>

@@ -24,7 +24,7 @@
                         <div class="col-md-3">
                             <div class="thumbnail text-center">
 
-                                <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" style="width: 200px; height: 200px" alt="{{ $user->name  }}" >
+                                <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" style="width: 150px; height: 150px" alt="{{ $user->name  }}" >
                                 <div class="caption">
                                     <h4><a href="{{ route('show_user_profile', $user->id) }}">{{ $user->name  }}</a> </h4>
                                     {{--<h3>{{ $user->name  }}</a> </h3>--}}

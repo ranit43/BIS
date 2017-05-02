@@ -7,51 +7,52 @@
 
 @section('content')
 
+    {{--<div class="overlay"></div>--}}
     <div class="valign-center">
         <div class="container">
 
-            <section class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="card posts-all-threads">
+            {{--<section class="container">--}}
+            {{--</section>--}}
 
-                            {{--<div class="posts-title">
-                                <h4>All Threads: </h4>
-                                <div class="button-group">
-                                    <p>
-                                        <a href="{!! route('post.create') !!}" class="btn btn-info btn-lg">
-                                            <span class="glyphicon glyphicon-plus"></span> CREATE A NEW POST
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>--}}
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="card posts-all-threads">
 
-                            <div class="thread-title">
-                                <h4>All Posts: </h4>
-                                <div class="button-group">
-                                    <p>
-                                        <a href="{!! route('post.create') !!}" class="btn btn-info btn-lg">
-                                            <span class="glyphicon glyphicon-plus"></span> {{--CREATE A NEW POST--}}
-                                        </a>
-                                    </p>
-                                </div>
+                        {{--<div class="posts-title">
+                            <h4>All Threads: </h4>
+                            <div class="button-group">
+                                <p>
+                                    <a href="{!! route('post.create') !!}" class="btn btn-info btn-lg">
+                                        <span class="glyphicon glyphicon-plus"></span> CREATE A NEW POST
+                                    </a>
+                                </p>
                             </div>
+                        </div>--}}
 
+                        <div class="thread-title">
+                            <h4>All Posts: </h4>
+                            <div class="button-group">
+                                <p>
+                                    <a href="{!! route('post.create') !!}" class="btn btn-info btn-lg">
+                                        <span class="glyphicon glyphicon-plus"></span> {{--CREATE A NEW POST--}}
+                                    </a>
+                                </p>
+                            </div>
                         </div>
+
                     </div>
                 </div>
-            </section>
+            </div>
 
             @if(count($posts))
                 @foreach($posts as $post)
-                <section class="container">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <div class="card post">
                                 <div class="single-post">
                                     <div class="row">
                                         <div class="col-md-10">
-                                            <h4>{{ $post->title }}</h4>
+                                            <h5><strong>{{ $post->title }}</strong></h5>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="button-group">
@@ -67,9 +68,9 @@
                                                     {{--<a href="{{ route('post.edit', $post->id) }}"><button class="btn btn-primary" type="button">EDit</button></a>--}}
                                                     {{--<a href="{{ route('post.delete', $post->id) }}"><button class="btn btn-danger" type="button">Delete </button></a>--}}
                                                     {{--<a href="{{ route('post.delete', $post->id) }}">--}}
-                                                        {{--<button class="btn btn-danger" type="button">--}}
-                                                            {{--<span class="glyphicon glyphicon-remove"></span>--}}
-                                                        {{--</button>--}}
+                                                    {{--<button class="btn btn-danger" type="button">--}}
+                                                    {{--<span class="glyphicon glyphicon-remove"></span>--}}
+                                                    {{--</button>--}}
                                                     {{--</a>--}}
 
                                                     {{--data-placement="bottom"--}}
@@ -83,7 +84,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <p>Category: {{ $post->category }}</p>
+                                    <p>Category:<strong> {{ $post->category }}</strong></p>
                                     {{--<p>{{ $post->details }}</p>--}}
                                     {{--<p>{{ str_limit( $post->details, $limit = 15, $end = '...') }}</p>--}}
 
@@ -93,7 +94,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="dateshow">
-                                                <h5>{{ str_limit( $post->details, $limit = 15, $end = '...') }}</h5>
+                                                <p>{{ str_limit( $post->details, $limit = 30, $end = '...') }}</p>
                                                 {{--<p>Created:  {{ $post->created_at->diffForHumans() }}</p>--}}
                                                 <p>Edited:  {{ $post->updated_at->diffForHumans() }}</p>
                                             </div>
@@ -127,7 +128,6 @@
                             </div>
                         </div>
                     </div>
-                </section>
 
                 @endforeach
 

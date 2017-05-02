@@ -10,11 +10,13 @@
     <section class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="card edit">
+                <div class="cardtop card edit">
                     <div class="single edit-field">
 
-                        <h4>Volunteering Skill Create Page.</h4>
-                        <br/>
+                        <div class="postpage">
+                            <h5>Add A New Volunteering Skill.</h5>
+                        </div>
+                        {{--<br/>--}}
 
                         {!! Form::open(['route' => 'volunteeringskill.store', 'method' => 'post', 'files' => true]) !!}
 
