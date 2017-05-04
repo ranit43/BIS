@@ -26,7 +26,7 @@ Route::get('/forum', function () {
 
 Auth::routes();
 
-Route::get('/', 'PagesController@welcome' );
+Route::get('/', 'PagesController@welcome_search' );
 Route::get('search', 'PagesController@search' );
 
 //Route::get('show_user_profile/{id}', 'PagesController@show_user_profile');

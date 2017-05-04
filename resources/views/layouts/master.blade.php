@@ -67,7 +67,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
-                        <p class="copyright">© 2017 CSE, SUST</p>
+                        <p class="copyright">© 2012 CSE, SUST</p>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         {{--<p class="footer-menu">

@@ -12,11 +12,9 @@
 
          </div>--}}
 
-        <div class="basic-profile two-column">
-
-            <div class="col-md-8 col-md-offset-2">
-
-                <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-11 col-md-offset-1">
 
                     <div class="col-md-4 text-center">
                         <div class="card basic-info-profile">
@@ -74,12 +72,7 @@
 
                         </div>
 
-                        <section class="container">
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                </div>
-                            </div>
-                        </section>
+
 
                         <div class="card achievements">
 

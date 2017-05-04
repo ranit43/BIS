@@ -10494,7 +10494,7 @@ section.register.page {
 }
 
 section.full-profile-content {
-  margin-top: 185px;
+  margin-top: 110px;
 }
 
 .single-post p {
@@ -10569,4 +10569,10 @@ section.search-result .form-group {
 section.search-result {
   background-color: #f6f6f6;
   padding: 40px 0px;
+}
+
+.basic-info-profile h2 {
+  font-size: 38px;
+  font-weight: 200;
+  margin-bottom: 20px;
 }
