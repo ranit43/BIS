@@ -13,90 +13,97 @@
         <div class="overlay"></div>
         <div class="valign-center">
             <div class="container">
-                <div  class="intro text-center intro-particle">
-                    <h4>BATCH INFORMATION SYSTEM</h4>
-                    <p>
-                        Our website gives full infromation of students of a batch or department of a particular university.
-                        Besides anybody want to contact a person with some specific set of skills then he can search in our webseite
-                        and see his full information and also can contact him. Select the Dept. and then select the specific set of skills
-                        then search below for the talents.
-                    </p>
-                </div>
-                <section class="search-result">
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            @if($errors->has('skill') )
-                                <div class="alert alert-danger">
-                                    {{ $errors->first('skill') }}
-                                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div  class="intro text-center intro-particle">
+                            <h4>BATCH INFORMATION SYSTEM</h4>
+                            <p>
+                                Our website gives full infromation of students of a batch or department of a particular university.
+                                Besides anybody want to contact a person with some specific set of skills then he can search in our webseite
+                                and see his full information and also can contact him. Select the Dept. and then select the specific set of skills
+                                then search below for the talents.
+                            </p>
+                        </div>
 
-                            @endif
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="search-result">
+                                    @if($errors->has('skill') )
+                                        <div class="alert alert-danger">
+                                            {{ $errors->first('skill') }}
+                                        </div>
 
-
-
-                            {!! Form::open(array('route' => 'searchResult') ) !!}
-
-                            <div class="row">
-                                <div class="col-md-12">
-
-                                    <div class="form-group">
-
-                                        {{--<h5><strong>Select Dept:</strong></h5>--}}
-                                        <h5>Select Dept:</h5>
-                                        @if( count($fields) )
-
-                                            <select class="form-control" name="field" id="field">
-                                                <option value=""  > -- </option>
-                                                @foreach($fields as $field )
-
-                                                    {{--{!! Form::checkbox('skill[]', $skill->id, in_array($skill->id, $mySkills) ? true : false) !!}--}}
-                                                    <option value="{{ $field }}"  > {{ $field  }}  </option>
-
-                                                @endforeach
-                                            </select>
-                                        @else
-                                            no field
-                                        @endif
-                                    </div>
-                                    @if( count($fields_skills) )
-
-                                        @foreach($fields_skills as $key => $fields_skill)
-                                            <div class="form-group field-set" id="{{$key}}">
-                                                <h5>Select Skills</h5>
-                                                {{--<h5><strong>Select Skills:</strong></h5>--}}
-                                                {{--<br>--}}
-                                                <select class="skill-multiple form-control" multiple="multiple" name="skill[]">
-                                                    @foreach($fields_skill as $skill)
-
-                                                        <option value="{{ $skill->id }}"  > {{ $skill->name  }}  </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        @endforeach
-
-                                    @else
-                                        No data found
                                     @endif
 
+
+
+                                    {!! Form::open(array('route' => 'searchResult') ) !!}
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h4 class="text-center"> Search For Talent</h4>
+
+                                            <div class="form-group">
+
+                                                {{--<h5><strong>Select Dept:</strong></h5>--}}
+                                                <h5>Select Dept:</h5>
+                                                @if( count($fields) )
+
+                                                    <select class="form-control" name="field" id="field">
+                                                        <option value=""  > -- </option>
+                                                        @foreach($fields as $field )
+
+                                                            {{--{!! Form::checkbox('skill[]', $skill->id, in_array($skill->id, $mySkills) ? true : false) !!}--}}
+                                                            <option value="{{ $field }}"  > {{ $field  }}  </option>
+
+                                                        @endforeach
+                                                    </select>
+                                                @else
+                                                    no field
+                                                @endif
+                                            </div>
+                                            @if( count($fields_skills) )
+
+                                                @foreach($fields_skills as $key => $fields_skill)
+                                                    <div class="form-group field-set" id="{{$key}}">
+                                                        <h5>Select Skills</h5>
+                                                        {{--<h5><strong>Select Skills:</strong></h5>--}}
+                                                        {{--<br>--}}
+                                                        <select class="skill-multiple form-control" multiple="multiple" name="skill[]">
+                                                            @foreach($fields_skill as $skill)
+
+                                                                <option value="{{ $skill->id }}"  > {{ $skill->name  }}  </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                @endforeach
+
+                                            @else
+                                                No data found
+                                            @endif
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group text-center">
+                                        {{--{{ Form::submit('Search', ['class' => 'btn btn-success']) }}--}}
+                                        {{--{{ Form::button('<span class="glyphicon glyphicon-remove"></span>', array('class'=>'btn btn-default', 'type'=>'submit')) }}--}}
+                                        {{ Form::button('<span class="glyphicon glyphicon-search"> Search</span>', array('class'=>'btn btn-success btn-search', 'type'=>'submit')) }}
+                                    </div>
+
+
+
+                                    {{--{Form::button('<i class="glyphicon glyphicon-delete"></i>', array('type' => 'submit', 'class' => ''))}}--}}
+
+
+                                    {!! Form::close() !!}
                                 </div>
-
                             </div>
-
-                            <div class="form-group">
-                                {{--{{ Form::submit('Search', ['class' => 'btn btn-success']) }}--}}
-                                {{--{{ Form::button('<span class="glyphicon glyphicon-remove"></span>', array('class'=>'btn btn-default', 'type'=>'submit')) }}--}}
-                                {{ Form::button('<span class="glyphicon glyphicon-search"></span>', array('class'=>'btn btn-success', 'type'=>'submit')) }}
-                            </div>
-
-
-
-                            {{--{Form::button('<i class="glyphicon glyphicon-delete"></i>', array('type' => 'submit', 'class' => ''))}}--}}
-
-
-                            {!! Form::close() !!}
                         </div>
                     </div>
-                </section>
+                </div>
+
             </div>
         </div>
 

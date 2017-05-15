@@ -19,18 +19,28 @@ class PagesController extends Controller
 {
     //
     public function welcome() {
+        $volunteeringSkills = VolunteeringSkill::all();
+        $fields = Skill::groupBy('field')->pluck('field', 'field');
+        $fields_skills = [];
 
+        foreach ($fields as $field ) {
+            $fields_skills[$field] = Skill::where('field' , '=', $field )->get();
+        }
+        /*return $skills;*/
+
+        /*$people = ['Lopa', 'Abir', 'Partho'];*/
         $authUser = Auth::user();
-        /*return view( 'welcome_temp', [
-                'authUser'          => $authUser
-            ]);*/
 
         $isread = Notification::where('is_read', 0)->get();
         $notif_count = $isread->count();
 
+
         return view( 'welcome', [
-                'authUser'          => $authUser
-            ])
+            'authUser'          => $authUser
+        ])
+            -> with('fields_skills', $fields_skills)
+            ->with('volunteeringSkills', $volunteeringSkills)
+            ->with('fields', $fields)
             ->with('notif_count', $notif_count)
             ;
     }
