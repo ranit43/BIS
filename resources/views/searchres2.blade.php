@@ -82,49 +82,49 @@
             </section>
 
 
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="row">
-                        @foreach($users as $user)
-                            <div class="col-md-4">
-                                <div class="thumbnail text-center">
+            {{--<div class="row">--}}
+                {{--<div class="col-md-10 col-md-offset-1">--}}
+                    {{--<div class="row">--}}
+                        {{--@foreach($users as $user)--}}
+                            {{--<div class="col-md-4">--}}
+                                {{--<div class="thumbnail text-center">--}}
 
-                                    <img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" style="width: 150px; height: 150px" alt="{{ $user->name  }}" >
-                                    <div class="caption">
-                                        <h4><a href="{{ route('show_user_profile', $user->id) }}">{{ $user->name  }}</a> </h4>
+                                    {{--<img class="img-circle img-responsive" src="{{ asset( $user->image ) }}" style="width: 150px; height: 150px" alt="{{ $user->name  }}" >--}}
+                                    {{--<div class="caption">--}}
+                                        {{--<h4><a href="{{ route('show_user_profile', $user->id) }}">{{ $user->name  }}</a> </h4>--}}
                                         {{--<h3>{{ $user->name  }}</a> </h3>--}}
-                                        {{--
-                                            <li> <a href="{{ url('/edit', $authUser->id) }}">Edit</a> </li>
+                                        {{----}}
+                                            {{--<li> <a href="{{ url('/edit', $authUser->id) }}">Edit</a> </li>--}}
 
-                                        <a href="{{ route('paper.edit', $paper->id) }}">--}}
+                                        {{--<a href="{{ route('paper.edit', $paper->id) }}">--}}
                                         {{--<button class="btn btn-primary" type="button">--}}
                                         {{--<span class="glyphicon glyphicon-pencil"></span>--}}
                                         {{--</button>--}}
                                         {{--</a>--}}
                                         {{--<p>...</p>--}}
-                                        <p>Email: {!! $user->email !!}</p>
-                                        <p>Contact: {!! $user->contact !!}</p>
-                                        CV: <a href="{!! $user->CV !!}">Download CV </a>
-                                        <p>
-                                            Professional Skill:
-                                            <br>
-                                            @foreach($user->skills as $skill )
-                                                <span class="badge badge-success sr">{{$skill->name}}</span>
-                                            @endforeach
-                                        </p>
+                                        {{--<p>Email: {!! $user->email !!}</p>--}}
+                                        {{--<p>Contact: {!! $user->contact !!}</p>--}}
+                                        {{--CV: <a href="{!! $user->CV !!}">Download CV </a>--}}
+                                        {{--<p>--}}
+                                            {{--Professional Skill:--}}
+                                            {{--<br>--}}
+                                            {{--@foreach($user->skills as $skill )--}}
+                                                {{--<span class="badge badge-success sr">{{$skill->name}}</span>--}}
+                                            {{--@endforeach--}}
+                                        {{--</p>--}}
 
-                                        {{--<p>
-                                            <a href="#" class="btn btn-primary" role="button">Button</a>
-                                            <a href="#" class="btn btn-default" role="button">Button</a>
-                                        </p>--}}
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
+                                        {{--<p>--}}
+                                            {{--<a href="#" class="btn btn-primary" role="button">Button</a>--}}
+                                            {{--<a href="#" class="btn btn-default" role="button">Button</a>--}}
+                                        {{--</p>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--@endforeach--}}
+                    {{--</div>--}}
 
-                </div>
-            </div>
+                {{--</div>--}}
+            {{--</div>--}}
         </div>
 
 
